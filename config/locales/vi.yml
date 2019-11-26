@@ -1,7 +1,43 @@
 vi:
+  base_title: "Sun* Tour Booking App"
   eng: "Tiếng Anh"
   vie: "Tiếng Việt"
-  views:
-    layouts:
-      title: "Ứng dụng đặt tour"
-      hello: "Chào thế giới, tôi là ứng dụng đặt tour của Sun*"
+  layouts:
+    title: "Ứng dụng đặt tour của Sun*"
+    name: "Phan Hoàng Trung"
+    header:
+      title: "Tour booking app"
+      home: "Trang chủ"
+      help: "Trợ giúp"
+      login: "Đăng nhập"
+    footer:
+      eng: "Tiếng Anh"
+      vie: "Tiếng Việt"
+      about: "Giới thiệu"
+      contact: "Liên hệ"
+  static_pages:
+    home:
+      title: "Trang chủ"
+      h1: "Chào mừng đến với ứng dụng đặt tour của Sun*"
+      h2: "Ứng dụng đặt tour của Sun*"
+      signupnow: "Đăng ký ngay"
+    help:
+      title: "Trợ giúp"
+      h1: "Trợ giúp"
+      p: "Tôi không chắc là có thể giúp được bạn lúc này!"
+    contact:
+      title: "Liên hệ"
+      h1: "Liên hệ"
+      p: "Yêu cầu trợ giúp về ứng dụng đặt tour này tại"
+      sun_contact: "Trang giúp đỡ của Sun* nè"
+    about:
+      title: "Giới thiệu"
+      h1: "Giới thiệu"
+      p: "Ứng dụng này được phát triển bởi Hoàng Trung, "
+      p1: "thực tập sinh tại Sun Asterisk "
+      p2: "Gửi email cho mình: phan.hoang.trung@sun-asterisk.com"
+  users:
+    new:
+      title: "Đăng ký"
+      h1: "Đăng ký"
+      p: "Đây sẽ là trang đăng ký"
