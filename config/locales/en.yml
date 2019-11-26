@@ -1,0 +1,7 @@
+en:
+  eng: "English"
+  vie: "Vietnamese"
+  views:
+    layouts:
+      title: "Tour booking"
+      hello: "Hello, world! I am tour booking application of Sun*"

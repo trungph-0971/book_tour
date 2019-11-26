@@ -1,0 +1,7 @@
+vi:
+  eng: "Tiếng Anh"
+  vie: "Tiếng Việt"
+  views:
+    layouts:
+      title: "Ứng dụng đặt tour"
+      hello: "Chào thế giới, tôi là ứng dụng đặt tour của Sun*"
