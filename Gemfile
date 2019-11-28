@@ -8,6 +8,7 @@ end
 gem "bcrypt"
 gem "bootstrap-sass", "3.3.7"
 gem "coffee-rails", "~> 4.2"
+gem "config"
 gem "figaro"
 gem "jbuilder", "~> 2.5"
 gem "mysql2", "~> 0.5.2"
