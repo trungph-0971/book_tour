@@ -1,7 +1,43 @@
 en:
+  base_title: "Sun* Tour Booking App"
   eng: "English"
   vie: "Vietnamese"
-  views:
-    layouts:
-      title: "Tour booking"
-      hello: "Hello, world! I am tour booking application of Sun*"
+  layouts:
+    title: "Tour Booking App"
+    name: "Trung Phan"
+    header:
+      title: "Tour Booking App"
+      home: "Home"
+      help: "Help"
+      login: "Login"
+    footer:
+      eng: "English"
+      vie: "Vietnamese"
+      about: "About"
+      contact: "Contact"
+  static_pages:
+    home:
+      title: "Home"
+      h1: "Welcome to Sun* Tour Booking"
+      h2: "Sun* Tour Booking Application" 
+      signupnow: "Sign up now!"
+    help:
+      title: "Help"
+      h1: "Help"
+      p: "Not sure I can help you right now!"
+    contact:
+      title: "Contact"
+      h1: "Contact"
+      p: "Contact Sun* about this tour booking app at"
+      sun_contact: "Sun* contact page"
+    about:
+      title: "About"
+      h1: "About"
+      p: "This application ís developed by Hoang Trung, "
+      p1: "who is a Ruby intern of Sun Asterisk"
+      p2: "Email me: phan.hoang.trung@sun-asterisk.com"
+  users:
+    new:
+      title: "Sign Up"
+      h1: "Sign Up"
+      p: "This will be sign up page"
