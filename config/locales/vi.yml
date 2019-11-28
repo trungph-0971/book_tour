@@ -41,3 +41,17 @@ vi:
       title: "Đăng ký"
       h1: "Đăng ký"
       p: "Đây sẽ là trang đăng ký"
+      name: "Tên"
+      email: "Email"
+      phone_number: "Số điện thoại"
+      password: "Mật khẩu"
+      confirmation: "Xác nhận mật khẩu"
+      create: "Tạo tài khoản"
+    show:
+      nonexist: "Người dùng không tồn tại"
+  shared:
+    error_messages:
+      message: "Form có chứa"
+      errors:
+        one: "1 lỗi"
+        other: "%{count} lỗi"
