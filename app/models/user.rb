@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
+  devise :omniauthable,
+         omniauth_providers: [:facebook, :twitter, :google_oauth2]
   has_many :bookings, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :reviews, dependent: :destroy
