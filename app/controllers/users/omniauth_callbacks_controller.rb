@@ -3,7 +3,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     user = User.from_omniauth(request.env["omniauth.auth"], current_user)
     if user.persisted?
       flash[:success] = t ".success"
-      sign_in_and_redirect user
+      log_in user
+      redirect_to user
     else
       session["devise.user_attributes"] = user.attributes
       redirect_to login_path

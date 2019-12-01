@@ -20,4 +20,14 @@ class User < ApplicationRecord
   validates :password, presence: true, length: {minimum: Settings.min_password}
   before_save{email.downcase!}
   enum role: {user: 1, admin: 2}
+
+  # Returns the hash digest of the given string.
+  def self.digest string
+    cost = if ActiveModel::SecurePassword.min_cost
+             BCrypt::Engine::MIN_COST
+           else
+             BCrypt::Engine.cost
+           end
+    BCrypt::Password.create(string, cost: cost)
+  end
 end
