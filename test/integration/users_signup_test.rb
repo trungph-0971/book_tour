@@ -6,10 +6,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_no_difference "User.count" do
       post users_path, params: { user: { name: "",
                                          email: "user@invalid",
-                                         phone_number: "0903113115123",
+                                         phone_number: "09031131151231",
                                          password: "foo",
                                          password_confirmation: "bar" } }
     end
+    assert_template "users/new"
   end
 
   test "valid signup information" do
@@ -22,7 +23,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password_confirmation: "password" } }
     end
     follow_redirect!
-    assert_template 'users/show'
+    assert_template "users/show"
     assert is_logged_in?
   end
 end
