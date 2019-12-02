@@ -55,3 +55,14 @@ en:
       errors:
         one: "1 error"
         other: "%{count} errors"
+  sessions:
+    new:
+      title: "Log in"
+      h1: "Log in"
+      email: "Email"
+      password: "Password"
+      login: "Login"
+      signupnow: "Sign up now!"
+      new?: "New user?"
+    create:
+      login_failed: "Invalid email or password"

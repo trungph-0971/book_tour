@@ -55,3 +55,14 @@ vi:
       errors:
         one: "1 lỗi"
         other: "%{count} lỗi"
+  sessions:
+    new:
+      title: "Đăng nhập"
+      h1: "Đăng nhập"
+      email: "Email"
+      password: "Mật khẩu"
+      login: "Đăng nhập"
+      signupnow: "Đăng ký ngay"
+      new?: "Bạn là người dùng mới?"
+    create:
+      login_failed: "Email hoặc mật khẩu không đúng"
