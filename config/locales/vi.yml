@@ -84,6 +84,7 @@ vi:
     user:
       confirm: "Bạn chắc chứ?"
       delete: "Xóa"
+      update: "Cập nhật"
   shared:
     error_messages:
       message: "Form có chứa"

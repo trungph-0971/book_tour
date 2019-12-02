@@ -10,6 +10,10 @@
   <%= f.label t(".phone_number") %>
   <%= f.text_field :phone_number, class: 'form-control' %>
 
+  <% if current_user&.role == "admin"%>
+    <%= f.select :role, [["Admin","admin"],["User","user"]]%>
+  <% end %>
+
   <%= f.label t(".password") %>
   <%= f.password_field :password, class: 'form-control' %>
 

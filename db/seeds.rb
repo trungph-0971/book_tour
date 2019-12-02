@@ -5,6 +5,13 @@ User.create!(name: "admin",
     password_confirmation: "admin1234",
     role: 2)
 
+User.create!(name: "test",
+    email: "test@suntour.org",
+    phone_number: "0987654321",
+    password: "test1234",
+    password_confirmation: "test1234",
+    role: 1)
+
 30.times do |n|
 name  = Faker::Name.name
 email = "example-#{n+1}@railstutorial.org"
