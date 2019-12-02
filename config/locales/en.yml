@@ -44,18 +44,31 @@ en:
         success: "You are in..!"
       google_oauth2:
         success: "You are in..!"
-    new:
-      title: "Sign Up"
-      h1: "Sign Up"
-      p: "This will be sign up page"
+    form:
       name: "Name"
       email: "Email"
       phone_number: "Phone number"
       password: "Password"
       confirmation: "Password confirmation"
+    index:
+      title: "All users"
+      h1: "All users"
+    new:
+      title: "Sign Up"
+      h1: "Sign Up"
+      p: "This will be sign up page"
       create: "Create my account"
     show:
       nonexist: "User is not exist"
+    edit:
+      title: "Edit user"
+      h1: "Update profile"
+      save: "Save changes"
+      please_login: "Please log in"
+    update:
+      update_success: "Profile updated"
+    create:
+      create_success: "User created"
   shared:
     error_messages:
       message: "Form contains"

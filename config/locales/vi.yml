@@ -44,18 +44,24 @@ vi:
         success: "Đăng nhập thành công..!"
       google_oauth2:
         success: "Đăng nhập thành công..!"
-    new:
-      title: "Đăng ký"
-      h1: "Đăng ký"
-      p: "Đây sẽ là trang đăng ký"
+    form:
       name: "Tên"
       email: "Email"
       phone_number: "Số điện thoại"
       password: "Mật khẩu"
       confirmation: "Xác nhận mật khẩu"
+    new:
+      title: "Đăng ký"
+      h1: "Đăng ký"
+      p: "Đây sẽ là trang đăng ký"
       create: "Tạo tài khoản"
     show:
       nonexist: "Người dùng không tồn tại"
+    edit:
+      title: "Chỉnh sửa người dùng"
+      h1: "Cập nhật hồ sơ"
+      save: "Lưu thay đổi"
+      please_login: "Vui lòng đăng nhập."
   shared:
     error_messages:
       message: "Form có chứa"

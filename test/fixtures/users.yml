@@ -3,3 +3,8 @@ john:
   email: johndoe@gg.com
   phone_number: 0783994503
   password_digest: <%= User.digest("password") %>
+  
+michael:
+  name: Michael Example
+  email: michael@example.com
+  password_digest: <%= User.digest('password') %>
