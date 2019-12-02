@@ -53,6 +53,14 @@ en:
     index:
       title: "All users"
       h1: "All users"
+      confirm: "Are you sure?"
+      delete: "Delete"
+      cus_name: "User name"
+      email: "Email"
+      phone_number: "Phone number"
+      create_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
     new:
       title: "Sign Up"
       h1: "Sign Up"
@@ -67,8 +75,12 @@ en:
       please_login: "Please log in"
     update:
       update_success: "Profile updated"
+      update_failed: "Profile is not updated"
     create:
-      create_success: "User created"
+      create_success: "Welcome to Sun* Tour Booking App!"
+    destroy:
+      delete_success: "User deleted"
+      delete_failed: "User is not deleted"
   shared:
     error_messages:
       message: "Form contains"

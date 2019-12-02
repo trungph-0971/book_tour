@@ -120,6 +120,9 @@ ActiveRecord::Schema.define(version: 20191201155950) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "bank_accounts", "users"
+  add_foreign_key "bookings", "tour_details"
+  add_foreign_key "bookings", "users"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "reviews"
   add_foreign_key "likes", "users"

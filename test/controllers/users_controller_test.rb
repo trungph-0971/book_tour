@@ -33,7 +33,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     log_in_as @other_user
     get edit_user_path "vi", @user
     assert flash.empty?
-    assert_redirected_to root_url
+    assert_redirected_to root_path
   end
 
   test "should redirect update when logged in as wrong user" do
@@ -41,6 +41,21 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     patch user_path(@user), params: { user: { name: @user.name,
                                               email: @user.email } }
     assert flash.empty?
-    assert_redirected_to root_url
+    assert_redirected_to root_path
+  end
+
+  test "should redirect destroy when not logged in" do
+    assert_no_difference 'User.count' do
+      delete user_path "vi", @user
+    end
+    assert_redirected_to login_path
+  end
+
+  test "should redirect destroy when logged in as a non-admin" do
+    log_in_as(@other_user)
+    assert_no_difference 'User.count' do
+      delete user_path "vi", @user
+    end
+    assert_redirected_to root_path
   end
 end

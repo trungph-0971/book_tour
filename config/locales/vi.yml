@@ -50,6 +50,17 @@ vi:
       phone_number: "Số điện thoại"
       password: "Mật khẩu"
       confirmation: "Xác nhận mật khẩu"
+    index:
+      title: "Tất cả người dùng"
+      h1: "Danh sách người dùng"
+      confirm: "Bạn chắc chứ?"
+      delete: "Xóa"
+      cus_name: "Tên người dùng"
+      email: "Email"
+      phone_number: "Số điện thoại"
+      create_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Các thao tác"
     new:
       title: "Đăng ký"
       h1: "Đăng ký"
@@ -62,6 +73,17 @@ vi:
       h1: "Cập nhật hồ sơ"
       save: "Lưu thay đổi"
       please_login: "Vui lòng đăng nhập."
+    update:
+      update_success: "Hồ sơ đã được cập nhật"
+      update_failed: "Hồ sơ chưa được cập nhật"
+    create:
+      create_success: "Chào mừng đến với ứng dụng đặt tour của Sun*"
+    destroy:
+      delete_success: "Người dùng đã được xóa"
+      delete_failed: "Xóa người dùng không thành công"
+    user:
+      confirm: "Bạn chắc chứ?"
+      delete: "Xóa"
   shared:
     error_messages:
       message: "Form có chứa"
