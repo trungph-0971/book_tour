@@ -161,3 +161,15 @@ en:
     update:
       update_success: "Category has been updated"
       update_failed: "Category has not been updated yet"
+  tours:
+    form:
+      name: "Name"
+      description: "Description"
+      category: "Category"
+    new:
+      title: "Create new tour"
+      h1: "Create new tour"
+      create: "Create"
+    create:
+      add_success: "Tours has been created"
+      add_failed: "Tour has not beed created yet"

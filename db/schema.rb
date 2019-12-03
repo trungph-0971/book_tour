@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191203035529) do
+ActiveRecord::Schema.define(version: 20191204070426) do
 
   create_table "bank_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "bank_name"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 20191203035529) do
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "content"
+    t.text "content"
     t.string "commentable_type"
     t.integer "commentable_id"
     t.bigint "user_id"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20191203035529) do
   end
 
   create_table "reviews", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "content"
+    t.text "content"
     t.integer "rating"
     t.bigint "tour_detail_id"
     t.bigint "user_id"
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20191203035529) do
 
   create_table "tours", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

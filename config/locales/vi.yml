@@ -166,3 +166,15 @@ vi:
     update:
       update_success: "Thể loại bạn chọn đã được cập nhật"
       update_failed: "Thể loại bạn chọn vẫn chưa được cập nhật"
+  tours:
+    form:
+      name: "Tên"
+      description: "Mô tả"
+      category: "Thể loại"
+    new:
+      title: "Tạo tour mới"
+      h1: "Tạo tour"
+      create: "Tạo"
+    create:
+      add_success: "Tour đã được tạo"
+      add_failed: "Tour vẫn chưa được tạo"
