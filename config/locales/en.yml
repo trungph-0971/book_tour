@@ -121,3 +121,13 @@ en:
     create:
       sent: "Email sent with password reset instructions"
       notfound: "Email address not found"
+    edit:
+      title: "Reset password"
+      h1: "Reset password"
+      password: "Password"
+      confirmation: "Password confirmation"
+      update: "Update password"
+    update:
+      empty: "cannot be empty"
+      reset_success: "Password has been reset."
+      expired: "Password reset has expired"

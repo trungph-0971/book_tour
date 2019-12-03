@@ -126,3 +126,13 @@ vi:
     create:
       sent: "Email đã được gửi kèm với hướng dẫn đặt lại mật khẩu"
       notfound: "Không tìm thấy email"
+    edit:
+      title: "Đặt lại mật khẩu"
+      h1: "Đặt lại mật khẩu"
+      password: "Mật khẩu"
+      confirmation: "Xác nhận mật khẩu"
+      update: "Cập nhật mật khẩu"
+    update:
+      empty: "không được trống"
+      reset_success: "Mật khẩu đã được đặt lại"
+      expired: "Phiên đặt lại mật khẩu đã hết hạn"
