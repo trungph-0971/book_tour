@@ -78,6 +78,7 @@ vi:
       update_failed: "Hồ sơ chưa được cập nhật"
     create:
       create_success: "Chào mừng đến với ứng dụng đặt tour của Sun*"
+      activation_notice: "Vui lòng kiểm tra hộp thư của bạn để kích hoạt tài khoản"
     destroy:
       delete_success: "Người dùng đã được xóa"
       delete_failed: "Xóa người dùng không thành công"
@@ -100,5 +101,18 @@ vi:
       login: "Đăng nhập"
       signupnow: "Đăng ký ngay"
       new?: "Bạn là người dùng mới?"
+      signupnow: "Đăng ký ngay!"
     create:
-      login_failed: "Email hoặc mật khẩu không đúng"
+      activate_message1: "Tài khoản chưa được kích hoạt. "
+      activate_message2: "Kiểm tra lại đường dẫn kích hoạt trong hộp thư."
+      invalid: "Email hoặc mật khẩu không đúng."
+  user_mailer:
+    account_activation:
+      h1: "Ứng dụng đặt tour của Sun*"
+      p1: "Xin chào "
+      p2: "Chào mừng bạn đã đến với ứng dụng đặt Tour của Sun*, nhấn vào đường dẫn bên dưới để kích hoạt tài khoản nhé:"
+      activate: "Kích hoạt"
+  account_activations:
+    edit:
+      invalid_link: "Đường dẫn kích hoạt không hợp lệ"
+      activated: "Tài khoản đã được kích hoạt"

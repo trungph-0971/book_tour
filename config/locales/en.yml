@@ -78,6 +78,7 @@ en:
       update_failed: "Profile is not updated"
     create:
       create_success: "Welcome to Sun* Tour Booking App!"
+      activation_notice: "Please checkout your mail to activate your account."
     destroy:
       delete_success: "User deleted"
       delete_failed: "User is not deleted"
@@ -97,4 +98,16 @@ en:
       signupnow: "Sign up now!"
       new?: "New user?"
     create:
-      login_failed: "Invalid email or password"
+      activate_message1: "Account not activated. "
+      activate_message2: "Check your email for the activation link."
+      invalid: "Invalid email/password combination"
+  user_mailer:
+    account_activation:
+      h1: "Sun* Tour Booking App"
+      p1: "Hello "
+      p2: "Welcome to the Sun* Tour Booking App! Click on the link below to activate your account:"
+      activate: "Activate"
+  account_activations:
+    edit:
+      invalid_link: "Invalid activation link"
+      activated: "Account has been activated"

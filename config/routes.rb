@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     resources :users
   end
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  resources :account_activations, only: [:edit]
 end

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :admin_user, only: %i(destroy index)
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.where(activated: true).paginate(page: params[:page])
   end
 
   def new
@@ -16,15 +16,15 @@ class UsersController < ApplicationController
     return if @user
 
     flash[:danger] = t ".nonexist"
-    redirect_to root_path
+    redirect_to root_path && return unless @user.activated == true
   end
 
   def create
     @user = User.new user_params
     if @user.save
-      flash[:success] = t ".create_success"
-      log_in @user
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = t ".activation_notice"
+      redirect_to root_path
     else
       render :new
     end
@@ -34,19 +34,19 @@ class UsersController < ApplicationController
 
   def update
     if @user.update user_params
-      flash[:success] = t(".update_success")
+      flash[:success] = t ".update_success"
       redirect_to @user
     else
-      flash[:danger] = t(".update_failed")
+      flash[:danger] = t ".update_failed"
       render :edit
     end
   end
 
   def destroy
     if @user.destroy
-      flash[:success] = t(".delete_success")
+      flash[:success] = t ".delete_success"
     else
-      flash[:danger] = t(".delete_failed")
+      flash[:danger] = t ".delete_failed"
     end
     redirect_to users_path
   end
@@ -63,26 +63,26 @@ class UsersController < ApplicationController
     return if logged_in?
 
     store_location
-    flash[:danger] = t(".please_login")
+    flash[:danger] = t ".please_login"
     redirect_to login_url
   end
 
   def correct_user
     @user = User.find(params[:id])
     redirect_to root_path unless (current_user? @user) ||
-                                 current_user.role == "admin"
+                                 current_user.admin?
   end
 
   # Confirms an admin user.
   def admin_user
-    redirect_to root_path unless current_user.role == "admin"
+    redirect_to root_path unless current_user.admin?
   end
 
   def load_user
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:danger] = t(".nonexist")
+    flash[:danger] = t ".nonexist"
     redirect_to root_path
   end
 end
