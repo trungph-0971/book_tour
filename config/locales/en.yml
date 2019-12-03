@@ -97,6 +97,7 @@ en:
       login: "Login"
       signupnow: "Sign up now!"
       new?: "New user?"
+      reset: "Forgot password"
     create:
       activate_message1: "Account not activated. "
       activate_message2: "Check your email for the activation link."
@@ -111,3 +112,12 @@ en:
     edit:
       invalid_link: "Invalid activation link"
       activated: "Account has been activated"
+  password_resets:
+    new:
+      title: "Forgot password"
+      h1: "Forgot password"
+      email: "Email"
+      submit: "Submit"
+    create:
+      sent: "Email sent with password reset instructions"
+      notfound: "Email address not found"

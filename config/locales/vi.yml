@@ -102,6 +102,7 @@ vi:
       signupnow: "Đăng ký ngay"
       new?: "Bạn là người dùng mới?"
       signupnow: "Đăng ký ngay!"
+      reset: "Quên mật khẩu"
     create:
       activate_message1: "Tài khoản chưa được kích hoạt. "
       activate_message2: "Kiểm tra lại đường dẫn kích hoạt trong hộp thư."
@@ -116,3 +117,12 @@ vi:
     edit:
       invalid_link: "Đường dẫn kích hoạt không hợp lệ"
       activated: "Tài khoản đã được kích hoạt"
+  password_resets:
+    new:
+      title: "Quên mật khẩu"
+      h1: "Quên mật khẩu"
+      email: "Email"
+      submit: "Gửi yêu cầu"
+    create:
+      sent: "Email đã được gửi kèm với hướng dẫn đặt lại mật khẩu"
+      notfound: "Không tìm thấy email"

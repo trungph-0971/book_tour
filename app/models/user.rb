@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_one :picture, as: :pictureable, dependent: :destroy,
             inverse_of: :pictureable
   has_secure_password
-  attr_accessor :remember_token, :activation_token
+  attr_accessor :remember_token, :activation_token, :reset_token
   validates :name, presence: true, length: {maximum: Settings.max_name}
   validates :email, presence: true, length: {maximum: Settings.max_email},
                     format: {with: VALID_EMAIL_REGEX},
@@ -68,6 +68,18 @@ class User < ApplicationRecord
   # Sends activation email.
   def send_activation_email
     UserMailer.account_activation(self).deliver_now
+  end
+
+  # Sets the password reset attributes.
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update reset_digest: User.digest(reset_token)
+    update reset_sent_at: Time.zone.now
+  end
+
+  # Sends password reset email.
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
   end
 
   private
