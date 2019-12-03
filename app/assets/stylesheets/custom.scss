@@ -179,7 +179,7 @@ input {
   li {
     overflow: auto;
     padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
+    border-bottom: 10px solid $gray-lighter;
   }
 }
 
@@ -205,4 +205,12 @@ table {
   border-bottom: 1px solid $gray-lighter;
   border-top: 1px solid $gray-lighter;
   margin-top: 15px;
+}
+.categories {
+  margin-top: 20px;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 2px solid $gray-lighter;
+  }
 }

@@ -131,3 +131,33 @@ en:
       empty: "cannot be empty"
       reset_success: "Password has been reset."
       expired: "Password reset has expired"
+  categories:
+    index:
+      title: "Categories"
+      h1: "Categories"
+      delete: "Delete"
+      confirm: "Are you sure?"
+      update: "Update"
+      cat_name: "Category"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
+      add: "Add"
+    new:
+      title: "Create new category"
+      h1: "New category"
+      name: "Name"
+      add: "Add"
+    create:
+      add_success: "Your category has been added, now you can use it to create tour."
+    destroy:
+      delete_success: "Category has been deleted"
+      delete_failed: "Category has not been deleted yet"
+    edit:
+      title: "Edit category"
+      h1: "Edit category"
+      name: "Thể loại"
+      update: "Update"
+    update:
+      update_success: "Category has been updated"
+      update_failed: "Category has not been updated yet"

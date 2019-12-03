@@ -136,3 +136,33 @@ vi:
       empty: "không được trống"
       reset_success: "Mật khẩu đã được đặt lại"
       expired: "Phiên đặt lại mật khẩu đã hết hạn"
+  categories:
+    index:
+      title: "Thể loại"
+      h1: "Danh mục các thể loại tour"
+      delete: "Xóa"
+      confirm: "Bạn có chắc muốn xóa thể loại này không?"
+      update: "Cập nhật"
+      cat_name: "Thể loại"
+      created_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Các thao tác"
+      add: "Thêm"
+    new:
+      title: "Tạo mới thể loại tour"
+      h1: "Thêm thể loại tour"
+      name: "Thể loại"
+      add: "Thêm"
+    create:
+      add_success: "Thể lọai của bạn đã được thêm, bạn có thể nó dùng để tạo tour rồi đấy"
+    destroy:
+      delete_success: "Thể loại bạn vừa chọn đã được xóa thành công"
+      delete_failed: "Thể loại bạn vừa chọn chưa được xóa"
+    edit:
+      title: "Chỉnh sửa thể loại tour"
+      h1: "Chỉnh sửa thể loại"
+      name: "Thể loại"
+      update: "Cập nhật"
+    update:
+      update_success: "Thể loại bạn chọn đã được cập nhật"
+      update_failed: "Thể loại bạn chọn vẫn chưa được cập nhật"
