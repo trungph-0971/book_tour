@@ -56,7 +56,7 @@ class CategoriesController < ApplicationController
     @category = Category.find_by id: params[:id]
     return if @category
 
-    flash[:danger] = t(".nonexist")
+    flash[:danger] = t("categories.nonexist")
     redirect_to root_path
   end
 end

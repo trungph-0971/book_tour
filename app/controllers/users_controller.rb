@@ -82,7 +82,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:danger] = t ".nonexist"
+    flash[:danger] = t "users.nonexist"
     redirect_to root_path
   end
 end

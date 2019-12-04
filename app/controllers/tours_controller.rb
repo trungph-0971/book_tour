@@ -1,11 +1,14 @@
 class ToursController < ApplicationController
+  before_action :admin_user
   before_action :load_tour, except: %i(index new create)
 
   def index
-    @tour = Tour.includes(:category).all.paginate(page: params[:page])
+    @tours = Tour.includes(:category).all.paginate(page: params[:page])
   end
 
-  def show; end
+  def show
+    @category = Category.find_by id: @tour.category_id
+  end
 
   def new
     @tour = Tour.new
@@ -24,7 +27,7 @@ class ToursController < ApplicationController
 
   def destroy
     if @tour.destroy
-      flash[:success] = t(".delete.success")
+      flash[:success] = t(".delete_success")
     else
       flash[:danger] = t(".delete_failed")
     end
@@ -49,11 +52,16 @@ class ToursController < ApplicationController
     params.require(:tour).permit(:name, :description, :category_id)
   end
 
+  # Confirms an admin user.
+  def admin_user
+    redirect_to root_path unless current_user.role == "admin"
+  end
+
   def load_tour
     @tour = Tour.find_by id: params[:id]
     return if @tour
 
-    flash[:danger] = t(".nonexist")
+    flash[:danger] = t("tours.nonexist")
     redirect_to root_path
   end
 end

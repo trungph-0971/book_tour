@@ -10,6 +10,13 @@ en:
       home: "Home"
       help: "Help"
       login: "Login"
+      users: "Users"
+      categories: "Categories"
+      tours: "Tours"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Log out"
     footer:
       eng: "English"
       vie: "Vietnamese"
@@ -37,6 +44,7 @@ en:
       p1: "who is a Ruby intern of Sun Asterisk"
       p2: "Email me: phan.hoang.trung@sun-asterisk.com"
   users:
+    nonexist: "This user is not exist"
     omniauth_callbacks:
       twitter:
         success: "You are in..!"
@@ -132,6 +140,7 @@ en:
       reset_success: "Password has been reset."
       expired: "Password reset has expired"
   categories:
+    nonexist: "This category is not exist"
     index:
       title: "Categories"
       h1: "Categories"
@@ -162,6 +171,7 @@ en:
       update_success: "Category has been updated"
       update_failed: "Category has not been updated yet"
   tours:
+    nonexist: "This tour is not exist"
     form:
       name: "Name"
       description: "Description"
@@ -173,3 +183,28 @@ en:
     create:
       add_success: "Tours has been created"
       add_failed: "Tour has not beed created yet"
+    index:
+      title: "Tours"
+      h1: "Tours"
+      add: "Add"
+      delete: "Delete"
+      confirm: "Are your sure?"
+      update: "Update"
+      name: "Tour name"
+      cat_name: "Category"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
+    edit:
+      title: "Edit tour"
+      h1: "Edit"
+      name: "Name"
+      description: "Description"
+      category: "Category"
+      update: "Update"
+    update:
+      update_success: "Tour has been updated successfully"
+      update_failed: "Tour update has been failed"
+    destroy:
+      delete_success: "Tour has been deleted"
+      delete_failed: "Tour has not been deleted yet"

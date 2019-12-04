@@ -1,0 +1,20 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".h1" %> <%= @tour.name %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @tour do |f| %>
+
+      <%= f.label t(".name") %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label t(".description") %>
+      <%= f.text_area :description, class: "form-control" %>
+
+      <%= f.label t(".category") %>
+      <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, "name") %>
+
+      <%= f.submit t(".update"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -10,6 +10,13 @@ vi:
       home: "Trang chủ"
       help: "Trợ giúp"
       login: "Đăng nhập"
+      users: "Người dùng"
+      categories: "Thể loại tour"
+      tours: "Tours"
+      account: "Tài khoản"
+      profile: "Hồ sơ"
+      settings: "Cài đặt"
+      logout: "Đăng xuất"
     footer:
       eng: "Tiếng Anh"
       vie: "Tiếng Việt"
@@ -37,6 +44,7 @@ vi:
       p1: "thực tập sinh tại Sun Asterisk "
       p2: "Gửi email cho mình: phan.hoang.trung@sun-asterisk.com"
   users:
+    nonexist: "Người dùng này không tồn tại"
     omniauth_callbacks:
       twitter:
         success: "Đăng nhập thành công..!"
@@ -137,6 +145,7 @@ vi:
       reset_success: "Mật khẩu đã được đặt lại"
       expired: "Phiên đặt lại mật khẩu đã hết hạn"
   categories:
+    nonexist: "Mục thể loại này không tồn tại"
     index:
       title: "Thể loại"
       h1: "Danh mục các thể loại tour"
@@ -167,6 +176,7 @@ vi:
       update_success: "Thể loại bạn chọn đã được cập nhật"
       update_failed: "Thể loại bạn chọn vẫn chưa được cập nhật"
   tours:
+    nonexist: "Tour này không tồn tại"
     form:
       name: "Tên"
       description: "Mô tả"
@@ -178,3 +188,26 @@ vi:
     create:
       add_success: "Tour đã được tạo"
       add_failed: "Tour vẫn chưa được tạo"
+    index:
+      title: "Tours"
+      h1: "Tours"
+      add: "Thêm"
+      delete: "Xóa"
+      confirm: "Bạn có chắc muốn xóa tour này không?"
+      update: "Cập nhật"
+      created_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Các thao tác"
+    edit:
+      title: "Chỉnh sửa tour"
+      h1: "Chỉnh sửa"
+      name: "Tên"
+      description: "Mô tả"
+      category: "Thể loại"
+      update: "Cập nhật"
+    update:
+      update_success: "Tour đã được cập nhật thành công"
+      update_failed: "Tour chưa được cập nhật"
+    destroy:
+      delete_success: "Tour đã được xóa thành công"
+      delete_failed: "Tour vẫn chưa được xóa"
