@@ -214,7 +214,9 @@ table {
     border-bottom: 2px solid $gray-lighter;
   }
 }
-
+.add_btn {
+  margin-bottom: 10px;
+}
 /* Tours */
 
 .tour-name {
@@ -222,4 +224,31 @@ table {
 }
 .tour-description {
   float: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 30px;
+  border-bottom: 4px solid $gray-lighter;
+  border-top: 4px solid $gray-lighter;
+}
+
+.tourdetail_label {
+  float: left;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.tourdetail_label_1 {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+table, th, td{
+  border: 1px solid $gray;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+table{
+  width: 100%;
 }

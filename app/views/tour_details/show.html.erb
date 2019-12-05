@@ -1,0 +1,34 @@
+<% provide :title, @tour.name %>
+<div class="row">
+  <aside class="col-md">
+    <section class="user_info">
+      <h1 class = "tour-name">
+        <%= @tour.name %> | <%= @category.name %>
+      </h1>
+      <p class = "tourdetail_label_1" ><%= t ".description" %></p>
+      <p class = "tour-description">
+        <%= @tour.description %>
+      </p>
+      <div class = "col-md-6">
+        <p class = "tourdetail_label" ><%= t ".start_time" %></p>
+        <p>
+          <%= @tour_detail.start_time %>
+        </p>
+        <p class = "tourdetail_label" ><%= t ".end_time" %></p>
+        <p>
+          <%= @tour_detail.end_time %>
+        </p>
+      </div>
+      <div class = "col-md-6">
+        <p class = "tourdetail_label" ><%= t ".price" %></p>
+        <p>
+          <%= @tour_detail.price %>
+        </p>
+        <p class = "tourdetail_label" ><%= t ".people_number" %></p>
+        <p>
+          <%= @tour_detail.people_number %>
+        </p>
+      </div>
+    </section>
+  </aside>
+</div>

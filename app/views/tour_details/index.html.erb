@@ -1,0 +1,48 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".h1" %></h1>
+
+<div class="add_btn">
+<%= link_to new_tour_detail_path, class: "btn btn-sm btn-primary" do %>
+  <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
+<% end %>
+</div>
+
+<table>
+  <thead>
+    <th><%= t ".name" %></th>
+    <th><%= t ".start_time" %></th>
+    <th><%= t ".end_time" %></th>
+    <th><%= t ".price" %></th>
+    <th><%= t ".people_number" %></th>
+    <th><%= t ".operations" %></th>
+  </thead>
+    <tbody>
+      <% @tour_details.each do |tour_detail| %>
+        <tr>
+          <td> <%= tour_detail.tour.name%> </td>
+          <td> <%= tour_detail.start_time%> </td>
+          <td> <%= tour_detail.end_time%> </td>
+          <td> <%= tour_detail.price%> </td>
+          <td> <%= tour_detail.people_number%> </td>
+          <td>
+            <%= link_to tour_detail, class: "btn btn-sm btn-info" do %>
+              <span class="glyphicon glyphicon-eye-open"></span>
+            <% end %>
+
+            <% if current_user.role == "admin"%>
+            <%= link_to edit_tour_detail_path(tour_detail), class: "btn btn-sm btn-warning" do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+            <% end %>
+            <%= link_to tour_detail, method: :delete,
+                                     data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
+
+<%= will_paginate @tour_details%>

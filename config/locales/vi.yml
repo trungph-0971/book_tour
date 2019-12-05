@@ -17,6 +17,7 @@ vi:
       profile: "Hồ sơ"
       settings: "Cài đặt"
       logout: "Đăng xuất"
+      tour_details: "Tour chi tiết"
     footer:
       eng: "Tiếng Anh"
       vie: "Tiếng Việt"
@@ -195,6 +196,8 @@ vi:
       delete: "Xóa"
       confirm: "Bạn có chắc muốn xóa tour này không?"
       update: "Cập nhật"
+      name: "Tên tour"
+      cat_name: "Thể loại"
       created_at: "Tạo lúc"
       updated_at: "Cập nhật lúc"
       operations: "Các thao tác"
@@ -211,3 +214,45 @@ vi:
     destroy:
       delete_success: "Tour đã được xóa thành công"
       delete_failed: "Tour vẫn chưa được xóa"
+  tour_details:
+    nonexist: "Thông tin của tour này không tồn tại"
+    form:
+      tour: "Tour"
+      start_time: "Thời gian bắt đầu"
+      end_time: "Thời gian kết thúc"
+      price: "Gía tiền "
+      people_number: "Số lượng người"
+    new:
+      title: "Tạo tour với thông tin"
+      h1: "Thông tin tour"
+      create: "Tạo"
+    create:
+      create_success: "Thông tin của tour này đã được tạo"
+      create_failed: "Tạo thông tin cho tour thất bại"
+    destroy:
+      delete_success: "Thông tin của tour này đã được xóa"
+      delete_failed: "Xóa thông tin cho tour thất bại"
+    update:
+      update_success: "Thông tin của tour này đã được cập nhật"
+      update_failed: "Cập nhật thông tin cho tour thất bại"
+    show:
+      description: "Mô tả:"
+      start_time: "Thời gian bắt đầu:"
+      end_time: "Thời gian kết thúc:"
+      price: "Gía tiền:"
+      people_number: "Số lượng người:"
+    index:
+      title: "Danh sách tour"
+      h1: "Danh sách tour"
+      add: "Thêm"
+      confirm: "Bạn có chắc muốn xóa tour này không?"
+      name: "Tên tour"
+      start_time: "Thời gian bắt đầu"
+      end_time: "Thời gian kết thúc"
+      price: "Giá tiền"
+      people_number: "Số lượng người"
+      operations: "Các thao tác"
+    edit:
+      title: "Chỉnh sửa thông tin tour"
+      update: "Cập nhật"
+      h1: "Cập nhập thông tin cho"

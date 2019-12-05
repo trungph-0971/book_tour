@@ -17,6 +17,7 @@ en:
       profile: "Profile"
       settings: "Settings"
       logout: "Log out"
+      tour_details: "Tour Details"
     footer:
       eng: "English"
       vie: "Vietnamese"
@@ -208,3 +209,45 @@ en:
     destroy:
       delete_success: "Tour has been deleted"
       delete_failed: "Tour has not been deleted yet"
+  tour_details:
+    nonexist: "The details for this tour is not exist"
+    form:
+      tour: "Tour"
+      start_time: "Start time"
+      end_time: "End time"
+      price: "Price"
+      people_number: "Number of people"
+    new:
+      title: "Create new tour with details"
+      h1: "New tour with details"
+      create: "Create"
+    create:
+      create_success: "Details of the tour has been created"
+      create_failed: "Fail to add details to the tour"
+    destroy:
+      delete_success: "Details of the tour has been deleted"
+      delete_failed: "Fail to delete details of the tour"
+    update:
+      update_success: "Details of the tour has been updated"
+      update_failed: "Fail to update details of the tour"
+    show:
+      description: "Description:"
+      start_time: "Start time:"
+      end_time: "End time:"
+      price: "Price:"
+      people_number: "Number of people:"
+    index:
+      title: "All tours"
+      h1: "Tours with details"
+      add: "Add"
+      confirm: "Are you sure?"
+      name: "Tour name"
+      start_time: "Start time"
+      end_time: "End time"
+      price: "Price"
+      people_number: "Number of people"
+      operations: "Operations"
+    edit:
+      title: "Edit detail of the tour"
+      update: "Update"
+      h1: "Update the tour"
