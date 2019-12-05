@@ -29,6 +29,7 @@
           <%= @tour_detail.people_number %>
         </p>
       </div>
+      <%= link_to 'Create booking', new_booking_path(:tour_detail => @tour_detail.id), data: { modal: true } %>
     </section>
   </aside>
 </div>

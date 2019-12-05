@@ -1,0 +1,13 @@
+<%= form_for @booking, remote: request.xhr?, html: { data: { modal: true } } do |f| %>
+  <div class="modal-body">
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.hidden_field :tour_detail_id, value: @tour_detail %>
+
+  <%= f.label t(".people_number") %>
+  <%= f.number_field :people_number, class: "form-control" %>
+  </div>
+
+  <div class="modal-footer">
+    <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  </div>
+<% end %>
