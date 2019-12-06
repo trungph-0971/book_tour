@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191204070426) do
+ActiveRecord::Schema.define(version: 20191206031622) do
 
   create_table "bank_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "bank_name"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20191204070426) do
 
   create_table "bookings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "status", default: 1
-    t.float "price", limit: 24
+    t.float "price", limit: 24, default: 0.0
     t.integer "people_number"
     t.bigint "tour_detail_id"
     t.bigint "user_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20191204070426) do
   end
 
   create_table "revenues", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.float "revenue", limit: 24
+    t.float "revenue", limit: 24, default: 0.0
     t.bigint "tour_detail_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20191204070426) do
   create_table "tour_details", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date "start_time"
     t.date "end_time"
-    t.float "price", limit: 24
+    t.float "price", limit: 24, default: 0.0
     t.integer "people_number"
     t.bigint "tour_id"
     t.datetime "created_at", null: false

@@ -19,6 +19,7 @@ vi:
       logout: "Đăng xuất"
       tour_details: "Tour chi tiết"
       bookings: "Bookings"
+      revenues: "Lợi nhuận"
     footer:
       eng: "Tiếng Anh"
       vie: "Tiếng Việt"
@@ -295,3 +296,27 @@ vi:
     destroy:
       delete_success: "Booking này đã được xóa"
       delete_failed: "Xóa booking thất bại"
+  revenues:
+    index:
+      title: "Lợi nhuận"
+      h1: "Thống kê lợi nhuận theo tour"
+      add: "Thêm"
+      tour_name: "Tên tour"
+      revenue: "Lợi nhuận"
+      created_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Thao tác"
+      confirm: "Bạn chắc chứ?"
+    show:
+      title: "Lợi nhuận chi tiết"
+      h1: "Lợi nhuận của "
+      revenue: "Tổng lợi nhuận: "
+      created_at: "Tạo lúc: "
+      updated_at: "Cập nhật lúc: "
+      tour_name: "Tên tour"
+      cus_name: "Tên khách đặt"
+      price: "Tổng tiền"
+      bookings: "Các booking"
+    destroy:
+      delete_success: "Bản ghi lợi nhuận này đã được xóa"
+      delete_failed: "Xóa bản ghi lợi nhuận thất bại"

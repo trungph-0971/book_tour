@@ -23,7 +23,7 @@
       <% @bookings.each do |booking| %>
         <tr>
           <td> <%= booking.tour_detail.tour.name %> </td>
-          <td> <%= booking.user.name %> </td>
+          <td> <%= link_to booking.user.name, booking.user %> </td>
           <td> <%= booking.price %> </td>
           <td> <%= booking.people_number %> </td>
           <td> <%= booking.created_at %> </td>

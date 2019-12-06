@@ -249,6 +249,15 @@ table, th, td{
   padding-bottom: 5px;
 }
 
-table{
+table {
   width: 100%;
+}
+
+.table_title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid $gray-lighter;
+  border-top: 1px solid $gray-lighter;
+  margin-top: 15px;
 }
