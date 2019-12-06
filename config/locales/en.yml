@@ -18,6 +18,7 @@ en:
       settings: "Settings"
       logout: "Log out"
       tour_details: "Tour Details"
+      bookings: "Bookings"
     footer:
       eng: "English"
       vie: "Vietnamese"
@@ -251,3 +252,41 @@ en:
       title: "Edit detail of the tour"
       update: "Update"
       h1: "Update the tour"
+  bookings:
+    nonexist: "This booking is not exist"
+    show:
+      start_time: "Start time: "
+      end_time: "End time: "
+      price: "Price: "
+      people_number: "Number of people: "
+      status: "Status: "
+      user_name: "Customer name: "
+    create:
+      add_success: "Your booking has been created successfully"
+      add_failed: "Fail to create your booking"
+    edit:
+      title: "Edit bookings"
+      h1: "Edit booking no."
+      tour: "Tour name"
+      price: "Total price"
+      people_number: "Number of people"
+      status: "Status"
+      update: "Update"
+    index:
+      title: "Bookings"
+      h1: "List of bookings"
+      add: "Add"
+      tour_name: "Tour name"
+      cus_name: "Customer name"
+      price: "Total price"
+      people_number: "Number of people"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
+      confirm: "Are you sure?"
+    update:
+      update_success: "This booking has been updated successfully"
+      update_failed: "Fail to update this booking"
+    destroy:
+      delete_success: "This booking has been deleted"
+      delete_failed: "Fail to delete this booking"

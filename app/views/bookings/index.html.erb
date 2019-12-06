@@ -1,0 +1,49 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".h1" %></h1>
+
+<div class="add_btn">
+<%= link_to new_booking_path, class: "btn btn-sm btn-primary" do %>
+  <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
+<% end %>
+</div>
+
+<%= will_paginate %>
+
+<table>
+  <thead>
+    <th> <%= t ".tour_name" %> </th>
+    <th> <%= t ".cus_name" %> </th>
+    <th> <%= t ".price" %> </th>
+    <th> <%= t ".people_number" %> </th>
+    <th> <%= t ".created_at" %> </th>
+    <th> <%= t ".updated_at" %> </th>
+    <th> <%= t ".operations" %> </th>
+  </thead>
+    <tbody>
+      <% @bookings.each do |booking| %>
+        <tr>
+          <td> <%= booking.tour_detail.tour.name %> </td>
+          <td> <%= booking.user.name %> </td>
+          <td> <%= booking.price %> </td>
+          <td> <%= booking.people_number %> </td>
+          <td> <%= booking.created_at %> </td>
+          <td> <%= booking.updated_at %> </td>
+          <td>
+            <%= link_to edit_booking_path(booking), class: "btn btn-sm btn-warning" do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+            <% end %>
+            <%= link_to booking, class: "btn btn-sm btn-info" do %>
+              <span class="glyphicon glyphicon-eye-open"></span>
+            <% end %>
+            <%= link_to booking, method: :delete,
+                                     data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
+
+<%= will_paginate %>

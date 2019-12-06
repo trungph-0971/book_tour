@@ -4,7 +4,7 @@ class Booking < ApplicationRecord
   validates :people_number, presence: true
   before_save :cal_price
   after_save :reduce_quantity
-  enum status: {pending: 1, confirmed: 2}
+  enum status: {pending: 1, confirmed: 2, cancelled: 3}
 
   private
   def cal_price

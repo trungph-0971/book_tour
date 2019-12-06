@@ -18,6 +18,7 @@ vi:
       settings: "Cài đặt"
       logout: "Đăng xuất"
       tour_details: "Tour chi tiết"
+      bookings: "Bookings"
     footer:
       eng: "Tiếng Anh"
       vie: "Tiếng Việt"
@@ -256,3 +257,41 @@ vi:
       title: "Chỉnh sửa thông tin tour"
       update: "Cập nhật"
       h1: "Cập nhập thông tin cho"
+  bookings:
+    nonexist: "Booking này không tồn tại"
+    show:
+      start_time: "Thời gian bắt đầu: "
+      end_time: "Thời gian kết thúc: "
+      price: "Giá tiền: "
+      people_number: "Số người tham gia: "
+      status: "Trạng thái: "
+      user_name: "Tên khách hàng: "
+    create:
+      add_success: "Đơn đặt chỗ của bạn đã được tạo thành công"
+      add_failed: "Đơn đặt chỗ của bạn chưa được tạo"
+    edit:
+      title: "Cập nhật booking"
+      h1: "Cập nhật booking số "
+      tour: "Tên tour"
+      price: "Tổng tiền"
+      people_number: "Số lượng người tham gia"
+      status: "Trạng thái"
+      update: "Cập nhật"
+    index:
+      title: "Bookings"
+      h1: "Danh sách bookings"
+      add: "Thêm"
+      tour_name: "Tên tour"
+      cus_name: "Tên khách hàng"
+      price: "Tổng tiền"
+      people_number: "Số lượng người tham gia"
+      created_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Thao tác"
+      confirm: "Bạn chắc chứ?"
+    update:
+      update_success: "Booking này đã được cập nhật thành công"
+      update_failed: "Cập nhật booking thất bại"
+    destroy:
+      delete_success: "Booking này đã được xóa"
+      delete_failed: "Xóa booking thất bại"
