@@ -242,7 +242,7 @@ vi:
       start_time: "Thời gian bắt đầu:"
       end_time: "Thời gian kết thúc:"
       price: "Gía tiền:"
-      people_number: "Số lượng người:"
+      people_number: "Số chỗ còn lại:"
     index:
       title: "Danh sách tour"
       h1: "Danh sách tour"

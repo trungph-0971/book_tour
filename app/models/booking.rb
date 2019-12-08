@@ -21,7 +21,6 @@ class Booking < ApplicationRecord
 
   def cal_revenue
     @tour_detail = TourDetail.find_by id: tour_detail_id
-    byebug
     if Revenue.exists?(tour_detail_id: @tour_detail.id)
       @revenue = Revenue.find_by tour_detail_id: @tour_detail.id
       @revenue.revenue = @revenue.revenue + price

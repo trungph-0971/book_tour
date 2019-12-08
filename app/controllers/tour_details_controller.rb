@@ -3,7 +3,8 @@ class TourDetailsController < ApplicationController
   before_action :load_tour_detail, except: %i(index new create)
 
   def index
-    @tour_details = TourDetail.includes(:tour).all.paginate(page: params[:page])
+    @tour_details = TourDetail.search(params[:term])
+                              .paginate(page: params[:page])
   end
 
   def new
@@ -51,7 +52,7 @@ class TourDetailsController < ApplicationController
 
   def tour_detail_params
     params.require(:tour_detail).permit(:start_time, :end_time, :tour_id,
-                                        :price, :people_number)
+                                        :price, :people_number, :term)
   end
 
   # Confirms an admin user.

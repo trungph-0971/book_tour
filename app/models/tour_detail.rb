@@ -11,6 +11,14 @@ class TourDetail < ApplicationRecord
   validates :people_number, presence: true
   validate :end_time_after_start_time?
 
+  def self.search term
+    if term
+      joins(:tour).where("tours.name LIKE ?", "%#{term}%")
+    else
+      includes(:tour).all
+    end
+  end
+
   private
 
   def end_time_after_start_time?

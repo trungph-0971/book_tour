@@ -1,6 +1,11 @@
 <% provide :title, t(".title") %>
 <h1><%= t ".h1" %></h1>
 
+<%= form_tag(tour_details_path, method: :get) do %>
+  <%= text_field_tag :term %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
 <div class="add_btn">
 <%= link_to new_tour_detail_path, class: "btn btn-sm btn-primary" do %>
   <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
