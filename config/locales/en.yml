@@ -20,6 +20,7 @@ en:
       tour_details: "Tour Details"
       bookings: "Bookings"
       revenues: "Revenues"
+      categories: "Categories"
     footer:
       eng: "English"
       vie: "Vietnamese"
@@ -79,6 +80,9 @@ en:
       create: "Create my account"
     show:
       nonexist: "User is not exist"
+      name: "Name"
+      email: "Email"
+      phone_number: "Phone number"
     edit:
       title: "Edit user"
       h1: "Update profile"
@@ -255,6 +259,9 @@ en:
       h1: "Update the tour"
   bookings:
     nonexist: "This booking is not exist"
+    form:
+      people_number: "How many people you want to book?"
+      submit: "Submit"
     show:
       start_time: "Start time: "
       end_time: "End time: "
@@ -281,6 +288,7 @@ en:
       cus_name: "Customer name"
       price: "Total price"
       people_number: "Number of people"
+      status: "Status"
       created_at: "Created at"
       updated_at: "Updated at"
       operations: "Operations"

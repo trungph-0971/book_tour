@@ -1,10 +1,16 @@
 class BookingsController < ApplicationController
-  helper BookingsHelper
+  before_action :admin_user, only: %i(edit update)
   before_action :load_booking, except: %i(index new create)
   respond_to :html, :json
 
   def index
-    @bookings = Booking.includes(:tour_detail).all.paginate(page: params[:page])
+    @bookings = if current_user.role == "admin"
+                  Booking.includes(:tour_detail).all
+                         .paginate(page: params[:page])
+                else
+                  Booking.includes(:tour_detail).where(user_id: current_user.id)
+                         .paginate(page: params[:page])
+                end
   end
 
   def show
@@ -43,10 +49,15 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    if @booking.destroy
-      flash[:success] = t(".delete_success")
+    if current_user.role == "admin"
+      if @booking.destroy
+        flash[:success] = t(".delete_success")
+      else
+        flash[:danger] = t(".delete_failed")
+      end
     else
-      flash[:danger] = t(".delete_failed")
+      @booking.status = "cancelled"
+      @booking.save
     end
     redirect_to bookings_path
   end
@@ -55,6 +66,11 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:tour_detail_id, :price, :people_number)
+  end
+
+  # Confirms an admin user.
+  def admin_user
+    redirect_to root_path unless current_user.role == "admin"
   end
 
   def load_booking

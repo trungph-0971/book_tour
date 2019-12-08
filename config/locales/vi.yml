@@ -20,6 +20,7 @@ vi:
       tour_details: "Tour chi tiết"
       bookings: "Bookings"
       revenues: "Lợi nhuận"
+      categories: "Thể loại"
     footer:
       eng: "Tiếng Anh"
       vie: "Tiếng Việt"
@@ -79,6 +80,9 @@ vi:
       create: "Tạo tài khoản"
     show:
       nonexist: "Người dùng không tồn tại"
+      name: "Tên: "
+      email: "Email: "
+      phone_number: "Số điện thoại: "
     edit:
       title: "Chỉnh sửa người dùng"
       h1: "Cập nhật hồ sơ"
@@ -260,6 +264,9 @@ vi:
       h1: "Cập nhập thông tin cho"
   bookings:
     nonexist: "Booking này không tồn tại"
+    form:
+      people_number: "Bạn muốn đặt tour cho bao nhiêu người?"
+      submit: "Gửi"
     show:
       start_time: "Thời gian bắt đầu: "
       end_time: "Thời gian kết thúc: "
@@ -286,6 +293,7 @@ vi:
       cus_name: "Tên khách hàng"
       price: "Tổng tiền"
       people_number: "Số lượng người tham gia"
+      status: "Trạng thái"
       created_at: "Tạo lúc"
       updated_at: "Cập nhật lúc"
       operations: "Thao tác"
