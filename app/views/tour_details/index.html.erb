@@ -3,7 +3,7 @@
 
 <%= form_tag(tour_details_path, method: :get) do %>
   <%= text_field_tag :term %>
-  <%= submit_tag 'Search' %>
+  <%= submit_tag "Search" %>
 <% end %>
 
 <div class="add_btn">
@@ -34,7 +34,7 @@
               <span class="glyphicon glyphicon-eye-open"></span>
             <% end %>
 
-            <% if current_user.role == "admin"%>
+            <% if current_user&.role == "admin"%>
             <%= link_to edit_tour_detail_path(tour_detail), class: "btn btn-sm btn-warning" do %>
               <span class="glyphicon glyphicon-pencil"></span>
             <% end %>

@@ -6,4 +6,7 @@ class Review < ApplicationRecord
              inverse_of: :pictureable
   belongs_to :user
   belongs_to :tour_detail
+
+  validates :content, presence: true
+  validates :rating, presence: true
 end

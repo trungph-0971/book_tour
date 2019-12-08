@@ -3,8 +3,8 @@
     <%= link_to t(".title"), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t(".home"), root_path %></li>
-
+        <li><%= link_to t(".categories"), categories_path %>
+        <li><%= link_to t(".tour_details"), tour_details_path %></li>
         <% if logged_in? %>
           <% if current_user.role == "admin"%>
             <li><%= link_to t(".users"), users_path %></li>
@@ -13,9 +13,8 @@
             <li><%= link_to t(".bookings"), bookings_path %></li>
             <li><%= link_to t(".revenues"), revenues_path %></li>
           <% end %>
+          <li><%= link_to t(".reviews"), reviews_path %></li>
           <li><%= link_to t(".bookings"), bookings_path %></li>
-          <li><%= link_to t(".tour_details"), tour_details_path %></li>
-          <li><%= link_to t(".categories"), categories_path %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t(".account") %> <b class="caret"></b>

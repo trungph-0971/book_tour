@@ -29,7 +29,20 @@
           <%= @tour_detail.people_number %>
         </p>
       </div>
-      <%= link_to 'Create booking', new_booking_path(:tour_detail => @tour_detail.id), data: { modal: true } %>
     </section>
   </aside>
+    <div class="tour-btn">
+      <%= link_to t(".book"), new_booking_path(:tour_detail => @tour_detail.id), data: { modal: true }, class: "btn btn-primary" %>
+      <%= link_to t(".review"), new_review_path(:tour_detail => @tour_detail.id, :user => current_user.id), data: { modal: true }, class: "btn btn-warning" %>
+    </div>
+</div>
+<div class="row">
+  <h2><%= t ".h2"%></h2>
+  <% get_reviews(@tour_detail.id).each do |review|%>
+    <div class="col-md review-section">
+      <p class="review-user"> <%= review.user.name %> </p>
+      <div> <p class="review-label"> <%= t ".rating" %> </p> <%= review.rating %>/10 </div>
+      <div> <p class="review-label"> <%= t ".content" %> </p> <%= review.content %> </div>
+    </div>
+  <% end %>
 </div>

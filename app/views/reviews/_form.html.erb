@@ -1,0 +1,17 @@
+<%= form_for @review do |f| %>
+  <div class="modal-body">
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.hidden_field :tour_detail_id, value: @tour_detail %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+
+  <%= f.label t(".rating") %>
+  <%= f.number_field :rating, class: "form-control", max: 10, min:1 %>
+
+  <%= f.label t(".content") %>
+  <%= f.text_area :content, class: "form-control" %>
+  </div>
+
+  <div class="modal-footer">
+    <%= f.submit t(".submit"), class: "btn btn-primary" %>
+  </div>
+<% end %>

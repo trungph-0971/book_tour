@@ -242,11 +242,16 @@ vi:
       update_success: "Thông tin của tour này đã được cập nhật"
       update_failed: "Cập nhật thông tin cho tour thất bại"
     show:
+      h2: "Các đánh giá"
       description: "Mô tả:"
       start_time: "Thời gian bắt đầu:"
       end_time: "Thời gian kết thúc:"
       price: "Gía tiền:"
       people_number: "Số chỗ còn lại:"
+      book: "Đặt tour này"
+      review: "Đánh giá tour này"
+      rating: "Mức điểm"
+      content: "Nội dung"
     index:
       title: "Danh sách tour"
       h1: "Danh sách tour"
@@ -328,3 +333,21 @@ vi:
     destroy:
       delete_success: "Bản ghi lợi nhuận này đã được xóa"
       delete_failed: "Xóa bản ghi lợi nhuận thất bại"
+  reviews:
+    index:
+      rating: "Mức điểm"
+      content: "Nội dung"
+      confirm: "Bạn chắc chứ?"
+    create:
+      create_success: "Bài đánh giá của bạn đã được đăng thành công"
+      create_failed: "Bàn đánh giá của bạn vẫn chưa được đăng"
+    update:
+      update_success: "Bài đánh giá của bạn đã được cập nhật"
+      update_failed: "Bài đánh giá của bạn cập nhật thất bại"
+    form:
+      rating: "Bạn đánh giá tour này bao nhiêu trên thang 10?"
+      content: "Nội dung đánh giá"
+      submit: "Gửi"
+    destroy:
+      delete_success: "Đánh giá này đã được xóa"
+      delete_failed: "Xóa đánh giá thất bại"

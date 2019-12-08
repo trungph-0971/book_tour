@@ -237,11 +237,16 @@ en:
       update_success: "Details of the tour has been updated"
       update_failed: "Fail to update details of the tour"
     show:
+      h2: "Reviews"
       description: "Description:"
       start_time: "Start time:"
       end_time: "End time:"
       price: "Price:"
       people_number: "Number of people remaining:"
+      book: "Book this tour"
+      review: "Review this tour"
+      rating: "Rating"
+      content: "Content"
     index:
       title: "All tours"
       h1: "Tours with details"
@@ -323,3 +328,21 @@ en:
     destroy:
       delete_success: "This record of revenue has been deleted"
       delete_failed: "Fail to delete the record of this revenue"
+  reviews:
+    index:
+      rating: "Rating"
+      content: "Content"
+      confirm: "Are you sure?"
+    create:
+      create_success: "Review has been posted"
+      create_failed: "Review has not been posted yet"
+    update:
+      update_success: "Your review has been updated"
+      update_failed: "Fail to update your review"
+    form:
+      rating: "How many point do you rate this tour on 10?"
+      content: "Content"
+      submit: "Submit"
+    destroy:
+      delete_success: "Review has been deleted"
+      delete_failed: "Fail to delete the review"
