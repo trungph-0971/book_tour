@@ -41,3 +41,28 @@ en:
       title: "Sign Up"
       h1: "Sign Up"
       p: "This will be sign up page"
+      name: "Name"
+      email: "Email"
+      phone_number: "Phone number"
+      password: "Password"
+      confirmation: "Password confirmation"
+      create: "Create my account"
+    show:
+      nonexist: "User is not exist"
+  shared:
+    error_messages:
+      message: "Form contains"
+      errors:
+        one: "1 error"
+        other: "%{count} errors"
+  sessions:
+    new:
+      title: "Log in"
+      h1: "Log in"
+      email: "Email"
+      password: "Password"
+      login: "Login"
+      signupnow: "Sign up now!"
+      new?: "New user?"
+    create:
+      login_failed: "Invalid email or password"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191127171424) do
+ActiveRecord::Schema.define(version: 20191128040024) do
 
   create_table "bank_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "bank_name"
@@ -115,6 +115,8 @@ ActiveRecord::Schema.define(version: 20191127171424) do
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "bank_accounts", "users"

@@ -41,3 +41,28 @@ vi:
       title: "Đăng ký"
       h1: "Đăng ký"
       p: "Đây sẽ là trang đăng ký"
+      name: "Tên"
+      email: "Email"
+      phone_number: "Số điện thoại"
+      password: "Mật khẩu"
+      confirmation: "Xác nhận mật khẩu"
+      create: "Tạo tài khoản"
+    show:
+      nonexist: "Người dùng không tồn tại"
+  shared:
+    error_messages:
+      message: "Form có chứa"
+      errors:
+        one: "1 lỗi"
+        other: "%{count} lỗi"
+  sessions:
+    new:
+      title: "Đăng nhập"
+      h1: "Đăng nhập"
+      email: "Email"
+      password: "Mật khẩu"
+      login: "Đăng nhập"
+      signupnow: "Đăng ký ngay"
+      new?: "Bạn là người dùng mới?"
+    create:
+      login_failed: "Email hoặc mật khẩu không đúng"

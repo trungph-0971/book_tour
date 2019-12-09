@@ -1,0 +1,5 @@
+john:
+  name: John Doe
+  email: johndoe@gg.com
+  phone_number: 0783994503
+  password_digest: <%= User.digest("password") %>

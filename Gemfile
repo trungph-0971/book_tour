@@ -8,9 +8,14 @@ end
 gem "bcrypt"
 gem "bootstrap-sass", "3.3.7"
 gem "coffee-rails", "~> 4.2"
+gem "config"
+gem "devise"
 gem "figaro"
 gem "jbuilder", "~> 2.5"
 gem "mysql2", "~> 0.5.2"
+gem "omniauth-facebook"
+gem "omniauth-google-oauth2"
+gem "omniauth-twitter"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.6"
 gem "rails-i18n"
@@ -32,6 +37,14 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+end
+
+group :test do
+  gem "guard", "2.14.1"
+  gem "guard-minitest", "2.4.6"
+  gem "minitest", "5.10.3"
+  gem "minitest-reporters", "1.1.14"
+  gem "rails-controller-testing", "1.0.2"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
