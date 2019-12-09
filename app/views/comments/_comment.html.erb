@@ -1,0 +1,19 @@
+<% commentable.comments.each do |comment| %>
+  <div class="well">
+    <div class="comment-info"> 
+      <p ><%= comment.user.name %> : </p> <%= comment.content %>
+    </div>
+      <%= link_to t(".delete"), comment_path(comment), method: :delete,
+                          data: { confirm: t(".confirm") } %>
+      <a class="showhide"><%= t ".reply" %></a>
+    <div class="reply-form">
+      <%= form_for [comment, Comment.new] do |f| %>
+        <%= f.text_area :content, placeholder: t(".placeholder") %><br/>
+        <%= f.submit t(".submit")  %>
+      <% end %>
+    </div>
+    <ul class="reply-info">
+      <%= render partial: "comments/comment", locals: {commentable: comment} %>
+    </ul>
+  </div>
+<% end %>

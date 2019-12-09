@@ -11,9 +11,14 @@ Rails.application.routes.draw do
     resources :account_activations, only: [:edit]
     resources :bookings
     resources :categories
+    resources :comments do
+      resources :comments
+    end
     resources :password_resets, only: [:new, :create, :edit, :update]
     resources :revenues
-    resources :reviews
+    resources :reviews do
+      resources :comments
+    end
     resources :tours
     resources :tour_details
     resources :users

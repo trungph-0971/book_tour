@@ -351,3 +351,18 @@ vi:
     destroy:
       delete_success: "Đánh giá này đã được xóa"
       delete_failed: "Xóa đánh giá thất bại"
+  comments:
+    create:
+      add_success: "Bình luận của bạn đã được đăng"
+      add_failed: "Đăng bình luận thất bại"
+    destroy:
+      delete_success: "Bình luận của bạn đã được xóa thành công"
+      delete_failed: "Xóa bình luận thất bại"
+      not_authorized: "Oops! Bạn không được ủy quyền để thực hiện thao tác này"
+    comment:
+      delete: "Xóa"
+      confirm: "Bạn chắc chứ?"
+      reply: "Trả lời"
+      placeholder: "Trả lời tại đây..."
+      submit: "Gửi"
+      

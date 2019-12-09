@@ -346,3 +346,17 @@ en:
     destroy:
       delete_success: "Review has been deleted"
       delete_failed: "Fail to delete the review"
+  comments:
+    create:
+      add_success: "Your comment has been posted"
+      add_failed: "Fail to post your comment"
+    destroy:
+      delete_success: "Your comment has been deleted"
+      delete_failed: "Fail to delete your comment"
+      not_authorized: "Oops! You are not authorized to do this, mate"
+    comment:
+      delete: "Delete"
+      confirm: "Are you sure?"
+      reply: "Reply"
+      placeholder: "Reply here..."
+      submit: "Send"

@@ -43,6 +43,9 @@
       <p class="review-user"> <%= review.user.name %> </p>
       <div> <p class="review-label"> <%= t ".rating" %> </p> <%= review.rating %>/10 </div>
       <div> <p class="review-label"> <%= t ".content" %> </p> <%= review.content %> </div>
+      <h3> Comments </h3>
+      <%= render partial: "comments/comment", locals: {commentable: review} %>
+      <%= render partial: "comments/form", locals: {commentable: review} %>
     </div>
   <% end %>
 </div>

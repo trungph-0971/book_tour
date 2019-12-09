@@ -298,3 +298,27 @@ table {
   float: right;
   margin: 10px;
 }
+
+.comment-operations {
+  margin-top: 15px;
+  a{
+    margin-right: 10px;
+  }
+}
+
+.comment-info {
+  margin-bottom: 15px;
+  p {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+}
+
+.showhide {
+  margin-left: 10px;
+}
+
+.reply-info {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
