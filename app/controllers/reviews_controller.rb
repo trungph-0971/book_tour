@@ -26,9 +26,9 @@ class ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.build review_params
     if @review.save
-      flash[:success] = t ".create_success"
+      flash.now[:success] = t ".create_success"
     else
-      flash[:danger] = t ".create_failed"
+      flash.now[:danger] = t ".create_failed"
     end
     redirect_to @review.tour_detail
   end
@@ -38,18 +38,18 @@ class ReviewsController < ApplicationController
   def update
     @review.assign_attributes review_params
     if @review.save
-      flash[:success] = t ".update_success"
+      flash.now[:success] = t ".update_success"
     else
-      flash[:danger] = t ".update_failed"
+      flash.now[:danger] = t ".update_failed"
     end
     render :edit
   end
 
   def destroy
     if @review.destroy
-      flash[:success] = t(".delete_success")
+      flash.now[:success] = t(".delete_success")
     else
-      flash[:danger] = t(".delete_failed")
+      flash.now[:danger] = t(".delete_failed")
     end
     redirect_to reviews_path
   end

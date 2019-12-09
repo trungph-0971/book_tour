@@ -247,6 +247,9 @@ en:
       review: "Review this tour"
       rating: "Rating"
       content: "Content"
+      comments: "Comments"
+      like: "Like"
+      likes: "Likes"
     index:
       title: "All tours"
       h1: "Tours with details"
@@ -347,6 +350,7 @@ en:
       delete_success: "Review has been deleted"
       delete_failed: "Fail to delete the review"
   comments:
+    send: "Send"
     create:
       add_success: "Your comment has been posted"
       add_failed: "Fail to post your comment"
@@ -360,3 +364,8 @@ en:
       reply: "Reply"
       placeholder: "Reply here..."
       submit: "Send"
+  likes:
+    create:
+      like_more: "Cannot like a post more than once"
+    destroy:
+      cannot_unlike: "Cannot unlike this post, try again later!"

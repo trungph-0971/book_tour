@@ -41,9 +41,22 @@
   <% get_reviews(@tour_detail.id).each do |review|%>
     <div class="col-md review-section">
       <p class="review-user"> <%= review.user.name %> </p>
-      <div> <p class="review-label"> <%= t ".rating" %> </p> <%= review.rating %>/10 </div>
+      <div> <p class="review-label"> <%= t ".rating" %> </p> <p class="rating"> <%= review.rating %>/10 </p> </div>
       <div> <p class="review-label"> <%= t ".content" %> </p> <%= review.content %> </div>
-      <h3> Comments </h3>
+
+      <p class="like"><%= review.likes.count %> <%= (review.likes.count) == 1 ? t(".like") : t(".likes")%></p>
+      <% pre_like = review.likes.find { |like| like.user_id == current_user.id} %>
+      <% if pre_like %>
+        <%= link_to review_like_path(review, pre_like), method: :delete do %>
+          <i class="glyphicon glyphicon-thumbs-down"></i>
+        <% end %>
+      <% else %>
+        <%= link_to review_likes_path(review), method: :post do %>
+          <i class="glyphicon glyphicon-thumbs-up"></i>
+        <% end %>
+      <% end %>
+
+      <h3 class="comments-title"> <%= t ".comments"%> </h3>
       <%= render partial: "comments/comment", locals: {commentable: review} %>
       <%= render partial: "comments/form", locals: {commentable: review} %>
     </div>

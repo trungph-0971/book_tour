@@ -9,9 +9,9 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build comment_params
     @comment.user = current_user
     if @comment.save
-      flash[:success] = t(".add_success")
+      flash.now[:success] = t(".add_success")
     else
-      flash[:danger] = t(".add_failed")
+      flash.now[:danger] = t(".add_failed")
     end
     redirect_back fallback_location: @tour_detail
   end
@@ -20,12 +20,12 @@ class CommentsController < ApplicationController
     @comment = Comment.find params[:id]
     if @comment.user == current_user || current_user.role == "admin"
       if @comment.destroy
-        flash[:success] = t(".delete_success")
+        flash.now[:success] = t(".delete_success")
       else
-        flash[:danger] = t(".delete_failed")
+        flash.now[:danger] = t(".delete_failed")
       end
     else
-      flash[:danger] = t(".not_authorized")
+      flash.now[:danger] = t(".not_authorized")
     end
     redirect_back fallback_location: @tour_detail
   end

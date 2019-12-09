@@ -252,6 +252,9 @@ vi:
       review: "Đánh giá tour này"
       rating: "Mức điểm"
       content: "Nội dung"
+      comments: "Các bình luận"
+      like: "Lượt thích"
+      likes: "Lượt thích"
     index:
       title: "Danh sách tour"
       h1: "Danh sách tour"
@@ -352,6 +355,7 @@ vi:
       delete_success: "Đánh giá này đã được xóa"
       delete_failed: "Xóa đánh giá thất bại"
   comments:
+    send: "Gửi"
     create:
       add_success: "Bình luận của bạn đã được đăng"
       add_failed: "Đăng bình luận thất bại"
@@ -365,4 +369,9 @@ vi:
       reply: "Trả lời"
       placeholder: "Trả lời tại đây..."
       submit: "Gửi"
-      
+  likes:
+    create:
+      like_more: "Không thể thích bài viết hơn một lần"
+    destroy:
+      cannot_unlike: "Khổng thể bỏ thích, thử lại sau nhé!"
+

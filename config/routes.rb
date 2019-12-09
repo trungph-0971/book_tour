@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :revenues
     resources :reviews do
       resources :comments
+      resources :likes
     end
     resources :tours
     resources :tour_details

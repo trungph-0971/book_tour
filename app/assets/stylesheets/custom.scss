@@ -8,6 +8,8 @@ $light-gray: #bbb;
 $dark: #222;
 $white: #fff;
 $light-white: #eaeaea;
+$blue: #6ab7ff;
+$orange: #ff8f00;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -282,11 +284,17 @@ table {
 
 .review-label {
   font-weight: bold;
+  margin-top: 10px;
 }
 
 .review-section {
   padding: 10px;
   border: 1px solid $medium-gray;
+}
+
+.rating {
+  color: $orange;
+  font-size: 25px;
 }
 
 .tour-btn {
@@ -306,6 +314,12 @@ table {
   }
 }
 
+.comments-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
 .comment-info {
   margin-bottom: 15px;
   p {
@@ -321,4 +335,17 @@ table {
 .reply-info {
   margin-top: 10px;
   margin-bottom: 5px;
+}
+
+.glyphicon.glyphicon-thumbs-down {
+  font-size: 30px;
+}
+.glyphicon.glyphicon-thumbs-up {
+  font-size: 30px;
+}
+
+.like {
+  color: $blue;
+  margin-top: 10px;
+  font-size: 20px;
 }
