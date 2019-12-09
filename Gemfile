@@ -8,6 +8,8 @@ end
 gem "bcrypt"
 gem "bootstrap-sass", "3.3.7"
 gem "bootstrap-will_paginate"
+gem "carrierwave"
+gem "cloudinary"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"

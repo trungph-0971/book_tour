@@ -58,7 +58,10 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit :content, :rating,
-                                   :tour_detail_id, :user_id
+                                   :tour_detail_id, :user_id,
+                                   picture_attributes: [:id,
+                                    :link, :pictureable_id,
+                                    :pictureable_type, :_destroy]
   end
 
   def load_review

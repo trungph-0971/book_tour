@@ -51,8 +51,11 @@ class TourDetailsController < ApplicationController
   private
 
   def tour_detail_params
-    params.require(:tour_detail).permit(:start_time, :end_time, :tour_id,
-                                        :price, :people_number, :term)
+    params.require(:tour_detail).permit :start_time, :end_time, :tour_id,
+                                        :price, :people_number, :term,
+                                        picture_attributes: [:id,
+                                          :link, :pictureable_id,
+                                          :pictureable_type, :_destroy]
   end
 
   # Confirms an admin user.

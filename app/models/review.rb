@@ -9,4 +9,8 @@ class Review < ApplicationRecord
 
   validates :content, presence: true
   validates :rating, presence: true
+
+  accepts_nested_attributes_for :picture,
+                                reject_if:
+                                proc{|attributes| attributes["link"].blank?}
 end

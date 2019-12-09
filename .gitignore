@@ -33,3 +33,4 @@ Gemfile.lock
 
 # Ignore application configuration
 /config/application.yml
+/config/cloudinary.yml

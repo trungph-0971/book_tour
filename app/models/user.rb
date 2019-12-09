@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy,
               inverse_of: :commentable
   has_one :picture, as: :pictureable, dependent: :destroy,
-            inverse_of: :pictureable
+          inverse_of: :pictureable
   has_secure_password
   attr_accessor :remember_token, :activation_token, :reset_token
   validates :name, presence: true, length: {maximum: Settings.max_name}
@@ -22,6 +22,10 @@ class User < ApplicationRecord
   before_create :create_activation_digest
   before_save :downcase_email
   enum role: {user: 1, admin: 2}
+
+  accepts_nested_attributes_for :picture,
+                                reject_if:
+                                proc{|attributes| attributes["link"].blank?}
 
   class << self
     # Returns the hash digest of the given string.

@@ -11,6 +11,10 @@ class TourDetail < ApplicationRecord
   validates :people_number, presence: true
   validate :end_time_after_start_time?
 
+  accepts_nested_attributes_for :picture,
+                                reject_if:
+                                proc{|attributes| attributes["link"].blank?}
+
   def self.search term
     if term
       joins(:tour).where("tours.name LIKE ?", "%#{term}%")
