@@ -43,6 +43,9 @@
       <p class="review-user"> <%= review.user.name %> </p>
       <div> <p class="review-label"> <%= t ".rating" %> </p> <p class="rating"> <%= review.rating %>/10 </p> </div>
       <div> <p class="review-label"> <%= t ".content" %> </p> <%= review.content %> </div>
+      <div class="review-picture">
+        <%= render partial: "pictures/picture", locals: {pictureable: review} %>
+      </div>
 
       <p class="like"><%= review.likes.count %> <%= (review.likes.count) == 1 ? t(".like") : t(".likes")%></p>
       <% pre_like = review.likes.find { |like| like.user_id == current_user.id} %>

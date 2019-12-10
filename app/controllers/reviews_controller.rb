@@ -24,13 +24,15 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = current_user.reviews.build review_params
+    @review = Review.new review_params
+    @review.user = current_user
+    @review.link = params[:review][:pictures_attributes][:link]
     if @review.save
       flash.now[:success] = t ".create_success"
     else
       flash.now[:danger] = t ".create_failed"
     end
-    redirect_to @review.tour_detail
+    redirect_to tour_detail_path(TourDetail.first)
   end
 
   def edit; end
@@ -58,10 +60,7 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit :content, :rating,
-                                   :tour_detail_id, :user_id,
-                                   picture_attributes: [:id,
-                                    :link, :pictureable_id,
-                                    :pictureable_type, :_destroy]
+                                   :tour_detail_id, :user_id
   end
 
   def load_review

@@ -292,6 +292,13 @@ table {
   border: 1px solid $medium-gray;
 }
 
+.review-picture {
+  border-top: 1px solid $light-gray;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+}
+
 .rating {
   color: $orange;
   font-size: 25px;
@@ -348,4 +355,10 @@ table {
   color: $blue;
   margin-top: 10px;
   font-size: 20px;
+}
+
+.picture-info {
+  float: none;
+  margin: 10px;
+  text-align: center;
 }

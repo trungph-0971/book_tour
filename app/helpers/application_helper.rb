@@ -7,4 +7,8 @@ module ApplicationHelper
       "#{page_title} | #{base_title}"
     end
   end
+
+  def get_picture model
+    model.pictures.present? ? model.pictures.link.url : Settings.default_picture
+  end
 end
