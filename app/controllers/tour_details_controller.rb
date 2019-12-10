@@ -18,6 +18,7 @@ class TourDetailsController < ApplicationController
 
   def create
     @tour_detail = TourDetail.new tour_detail_params
+    @tour_detail.link = params[:tour_detail][:pictures_attributes][:link]
     if @tour_detail.save
       flash[:success] = t(".create_success")
       redirect_to @tour_detail
@@ -52,10 +53,7 @@ class TourDetailsController < ApplicationController
 
   def tour_detail_params
     params.require(:tour_detail).permit :start_time, :end_time, :tour_id,
-                                        :price, :people_number, :term,
-                                        picture_attributes: [:id,
-                                          :link, :pictureable_id,
-                                          :pictureable_type, :_destroy]
+                                        :price, :people_number, :term
   end
 
   # Confirms an admin user.

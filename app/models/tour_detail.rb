@@ -1,17 +1,19 @@
 class TourDetail < ApplicationRecord
+  attr_accessor :link
   belongs_to :tour
   has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
   has_one :revenue, dependent: :destroy
-  has_one :picture, as: :pictureable, dependent: :destroy,
+  has_many :pictures, as: :pictureable, dependent: :destroy,
             inverse_of: :pictureable
   validates :start_time, presence: true
   validates :end_time, presence: true
   validates :price, presence: true
   validates :people_number, presence: true
   validate :end_time_after_start_time?
+  after_save :save_picture
 
-  accepts_nested_attributes_for :picture,
+  accepts_nested_attributes_for :pictures,
                                 reject_if:
                                 proc{|attributes| attributes["link"].blank?}
 
@@ -21,6 +23,14 @@ class TourDetail < ApplicationRecord
     else
       includes(:tour).all
     end
+  end
+
+  def save_picture
+    @picture = Picture.new
+    @picture.pictureable_type = "TourDetail"
+    @picture.pictureable_id = id
+    @picture.link = link
+    @picture.save
   end
 
   private

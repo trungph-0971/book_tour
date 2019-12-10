@@ -30,6 +30,9 @@
         </p>
       </div>
     </section>
+    <div class="review-picture">
+        <%= render partial: "pictures/picture", locals: {pictureable: @tour_detail} %>
+    </div>
   </aside>
     <div class="tour-btn">
       <%= link_to t(".book"), new_booking_path(:tour_detail => @tour_detail.id), data: { modal: true }, class: "btn btn-primary" %>

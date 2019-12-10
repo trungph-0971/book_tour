@@ -16,5 +16,14 @@
   <%= f.label t(".people_number") %>
   <%= f.number_field :people_number, class: "form-control" %>
 
+  <div class="form-group">
+    <div class="picture-info">
+      <%= f.fields_for :pictures_attributes do |image_f| %>
+        <%= image_f.hidden_field :picture_cache %>
+        <%= image_f.file_field :link %>
+      <% end %>
+    </div>
+  </div>
+
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>
