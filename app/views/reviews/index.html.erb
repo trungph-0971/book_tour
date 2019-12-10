@@ -1,15 +1,18 @@
 <% @reviews.each do |review|%>
-    <% if current_user&.role == "admin"%>
-        <div class="reviews-delete">
-        <%= link_to review, method: :delete,
-                                    data: { confirm: t(".confirm") }, class: "btn btn-sm btn-light" do %>
-            <span class="glyphicon glyphicon-remove"></span>
-        <% end %>
-        </div>
-      <% end %>
     <div class="col-md review-section">
+      <% if current_user == review.user || current_user.role == "admin"%>
+        <div class="reviews-delete">
+          <%= link_to review, method: :delete,
+                                      data: { confirm: t(".confirm") }, class: "btn btn-sm btn-light" do %>
+              <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </div>
+    <% end %>
       <p class="review-user"> <%= review.user.name %> | <%= review.tour_detail.tour.name %> </p>
       <div> <p class="review-label"> <%= t ".rating" %> </p> <%= review.rating %>/10 </div>
       <div> <p class="review-label"> <%= t ".content" %> </p> <%= review.content %> </div>
+      <div class="review-picture">
+        <%= render partial: "pictures/picture", locals: {pictureable: review} %>
+      </div>
     </div>
 <% end %>

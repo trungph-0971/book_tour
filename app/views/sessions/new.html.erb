@@ -15,12 +15,21 @@
 
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
-        <span>Remember me on this computer</span>
+        <span><%= t ".remember" %></span>
       <% end %>
 
       <%= f.submit t(".login"), class: "btn btn-primary" %>
     <% end %>
 
     <p><%= t ".new?" %> <%= link_to t(".signupnow"), signup_path %></p>
+    <%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-block btn-social btn-facebook" do %>
+      <span class="fa fa-facebook"></span> <%= t ".facebook" %>
+    <% end %>
+    <%= link_to user_twitter_omniauth_authorize_path, class: "btn btn-block btn-social btn-twitter" do %>
+      <span class="fa fa-twitter"></span> <%= t ".twitter" %>
+    <% end %>
+    <%= link_to user_google_oauth2_omniauth_authorize_path, class: "btn btn-block btn-social btn-google" do %>
+      <span class="fa fa-google"></span> <%= t ".google" %>
+    <% end %>
   </div>
 </div>

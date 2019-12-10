@@ -113,6 +113,10 @@ en:
       signupnow: "Sign up now!"
       new?: "New user?"
       reset: "Forgot password"
+      remember: "Remember me"
+      facebook: "Sign in with Facebook"
+      twitter: "Sign in with Twitter"
+      google: "Sign in with Google"
     create:
       activate_message1: "Account not activated. "
       activate_message2: "Check your email for the activation link."

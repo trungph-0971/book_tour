@@ -118,6 +118,10 @@ vi:
       new?: "Bạn là người dùng mới?"
       signupnow: "Đăng ký ngay!"
       reset: "Quên mật khẩu"
+      remember: "Ghi nhớ phiên đăng nhập"
+      facebook: "Đăng nhập với Facebook"
+      twitter: "Đăng nhập với Twitter"
+      google: "Đăng nhập với Google"
     create:
       activate_message1: "Tài khoản chưa được kích hoạt. "
       activate_message2: "Kiểm tra lại đường dẫn kích hoạt trong hộp thư."

@@ -35,7 +35,9 @@
     </div>
   </aside>
     <div class="tour-btn">
-      <%= link_to t(".book"), new_booking_path(:tour_detail => @tour_detail.id), data: { modal: true }, class: "btn btn-primary" %>
+      <% if @tour_detail.people_number != 0%>
+        <%= link_to t(".book"), new_booking_path(:tour_detail => @tour_detail.id), data: { modal: true }, class: "btn btn-primary" %>
+      <% end %>
       <%= link_to t(".review"), new_review_path(:tour_detail => @tour_detail.id, :user => current_user.id), data: { modal: true }, class: "btn btn-warning" %>
     </div>
 </div>
@@ -43,6 +45,14 @@
   <h2><%= t ".h2"%></h2>
   <% get_reviews(@tour_detail.id).each do |review|%>
     <div class="col-md review-section">
+      <% if current_user == review.user || current_user.role == "admin"%>
+        <div class="review-delete-btn">
+          <%= link_to review, method: :delete,
+                                      data: { confirm: t("review.index.confirm") }, class: "btn btn-sm btn-light" do %>
+              <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </div>
+      <% end %>
       <p class="review-user"> <%= review.user.name %> </p>
       <div> <p class="review-label"> <%= t ".rating" %> </p> <p class="rating"> <%= review.rating %>/10 </p> </div>
       <div> <p class="review-label"> <%= t ".content" %> </p> <%= review.content %> </div>
