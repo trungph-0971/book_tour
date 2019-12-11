@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "bcrypt"
+gem "bootstrap"
 gem "bootstrap-sass", "3.3.7"
 gem "bootstrap-social-rails"
 gem "bootstrap-will_paginate"
@@ -28,6 +29,7 @@ gem "rails", "~> 5.1.6"
 gem "rails-i18n"
 gem "responders"
 gem "sass-rails", "~> 5.0"
+gem "sprockets-rails"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "will_paginate"

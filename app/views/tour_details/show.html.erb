@@ -34,47 +34,64 @@
         <%= render partial: "pictures/picture", locals: {pictureable: @tour_detail} %>
     </div>
   </aside>
-    <div class="tour-btn">
-      <% if @tour_detail.people_number != 0%>
-        <%= link_to t(".book"), new_booking_path(:tour_detail => @tour_detail.id), data: { modal: true }, class: "btn btn-primary" %>
-      <% end %>
-      <%= link_to t(".review"), new_review_path(:tour_detail => @tour_detail.id, :user => current_user.id), data: { modal: true }, class: "btn btn-warning" %>
-    </div>
+    <% if logged_in? %>
+      <div class="tour-btn">
+        <% if @tour_detail.people_number != 0%>
+          <%= link_to t(".book"), new_booking_path(:tour_detail => @tour_detail.id), data: { modal: true }, class: "btn btn-primary" %>
+        <% end %>
+          <%= link_to t(".review"), new_review_path(:tour_detail => @tour_detail.id, :user => current_user.id), data: { modal: true }, class: "btn btn-warning" %>
+      </div>
+    <% else %>
+      <h2> <%= t ".bookhint" %> </h2>
+    <% end %>
 </div>
+
 <div class="row">
   <h2><%= t ".h2"%></h2>
-  <% get_reviews(@tour_detail.id).each do |review|%>
-    <div class="col-md review-section">
-      <% if current_user == review.user || current_user.role == "admin"%>
-        <div class="review-delete-btn">
-          <%= link_to review, method: :delete,
-                                      data: { confirm: t("review.index.confirm") }, class: "btn btn-sm btn-light" do %>
-              <span class="glyphicon glyphicon-remove"></span>
+  <%unless get_reviews(@tour_detail.id).empty? %>
+    <% get_reviews(@tour_detail.id).each do |review|%>
+      <div class="col-md review-section">
+        <%if logged_in? %>
+          <% if current_user == review.user || current_user.role == "admin"%>
+            <div class="review-delete-btn">
+              <%= link_to review, method: :delete,
+                                          data: { confirm: t("reviews.index.confirm") }, class: "btn btn-sm btn-light" do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+            </div>
           <% end %>
+        <% end %>
+        <p class="review-user"> <%= review.user.name %> </p>
+        <div> <p class="review-label"> <%= t ".rating" %> </p> <p class="rating"> <%= review.rating %>/10 </p> </div>
+        <div> <p class="review-label"> <%= t ".content" %> </p> <%= review.content %> </div>
+        <div class="review-picture">
+          <%= render partial: "pictures/picture", locals: {pictureable: review} %>
         </div>
-      <% end %>
-      <p class="review-user"> <%= review.user.name %> </p>
-      <div> <p class="review-label"> <%= t ".rating" %> </p> <p class="rating"> <%= review.rating %>/10 </p> </div>
-      <div> <p class="review-label"> <%= t ".content" %> </p> <%= review.content %> </div>
-      <div class="review-picture">
-        <%= render partial: "pictures/picture", locals: {pictureable: review} %>
+
+        <p class="like" ><%= review.likes.count %> <%= (review.likes.count) == 1 ? t(".like") : t(".likes") %></p>
+        <%if logged_in? %>
+          <% pre_like = review.likes.find { |like| like.user_id == current_user.id} %>
+          <% if pre_like %>
+            <%= link_to review_like_path(review, pre_like), method: :delete, remote: true do %>
+              <i class="glyphicon glyphicon-thumbs-down"></i>
+            <% end %>
+          <% else %>
+            <%= link_to review_likes_path(review), method: :post, remote: true do %>
+              <i class="glyphicon glyphicon-thumbs-up"></i>
+            <% end %>
+          <% end %>
+        <% end %>
+
+        <h3 class="comments-title"> <%= t ".comments"%> </h3>
+        <%= render partial: "comments/comment", locals: {commentable: review} %>
+        <%if logged_in? %>
+          <%= render partial: "comments/form", locals: {commentable: review} %>
+        <% end %>
       </div>
-
-      <p class="like"><%= review.likes.count %> <%= (review.likes.count) == 1 ? t(".like") : t(".likes")%></p>
-      <% pre_like = review.likes.find { |like| like.user_id == current_user.id} %>
-      <% if pre_like %>
-        <%= link_to review_like_path(review, pre_like), method: :delete do %>
-          <i class="glyphicon glyphicon-thumbs-down"></i>
-        <% end %>
-      <% else %>
-        <%= link_to review_likes_path(review), method: :post do %>
-          <i class="glyphicon glyphicon-thumbs-up"></i>
-        <% end %>
-      <% end %>
-
-      <h3 class="comments-title"> <%= t ".comments"%> </h3>
-      <%= render partial: "comments/comment", locals: {commentable: review} %>
-      <%= render partial: "comments/form", locals: {commentable: review} %>
-    </div>
+    <% end %>
+  <% else %>
+      <div class="no-reviews">
+          <%= t ".no_reviews" %>
+      </div>
   <% end %>
 </div>

@@ -259,6 +259,8 @@ vi:
       comments: "Các bình luận"
       like: "Lượt thích"
       likes: "Lượt thích"
+      no_reviews: "Tour này chưa có review nào"
+      bookhint: "Đăng ký ngay để book tour!"
     index:
       title: "Danh sách tour"
       h1: "Danh sách tour"
@@ -345,6 +347,7 @@ vi:
       rating: "Mức điểm"
       content: "Nội dung"
       confirm: "Bạn chắc chứ?"
+      no_reviews: "Hiện tại bạn không có đánh giá nào"
     create:
       create_success: "Bài đánh giá của bạn đã được đăng thành công"
       create_failed: "Bàn đánh giá của bạn vẫn chưa được đăng"

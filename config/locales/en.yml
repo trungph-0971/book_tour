@@ -254,6 +254,8 @@ en:
       comments: "Comments"
       like: "Like"
       likes: "Likes"
+      no_reviews: "This tour hasn't contained any reviews yet"
+      bookhint: "Sign up now to book the tour!"
     index:
       title: "All tours"
       h1: "Tours with details"
@@ -340,6 +342,7 @@ en:
       rating: "Rating"
       content: "Content"
       confirm: "Are you sure?"
+      no_reviews: "You have no reviews at the moment, let us hear your opinion!"
     create:
       create_success: "Review has been posted"
       create_failed: "Review has not been posted yet"

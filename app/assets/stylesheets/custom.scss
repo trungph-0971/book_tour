@@ -51,12 +51,12 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $light-gray;
+  color: $medium-gray;
 }
 
 p {
@@ -297,6 +297,12 @@ table {
   padding: 10px;
   margin: 5px;
   text-align: center;
+}
+
+.no-reviews {
+  margin-top: 20px;
+  text-align: center;
+  color: $light-gray;
 }
 
 .rating {

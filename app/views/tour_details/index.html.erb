@@ -14,42 +14,35 @@
   </div>
 <% end %>
 
-<table>
-  <thead>
-    <th><%= t ".name" %></th>
-    <th><%= t ".start_time" %></th>
-    <th><%= t ".end_time" %></th>
-    <th><%= t ".price" %></th>
-    <th><%= t ".people_number" %></th>
-    <th><%= t ".operations" %></th>
-  </thead>
-    <tbody>
-      <% @tour_details.each do |tour_detail| %>
-        <tr>
-          <td> <%= tour_detail.tour.name%> </td>
-          <td> <%= tour_detail.start_time%> </td>
-          <td> <%= tour_detail.end_time%> </td>
-          <td> <%= tour_detail.price%> </td>
-          <td> <%= tour_detail.people_number%> </td>
-          <td>
-            <%= link_to tour_detail, class: "btn btn-sm btn-info" do %>
-              <span class="glyphicon glyphicon-eye-open"></span>
-            <% end %>
-
-            <% if current_user&.role == "admin"%>
-            <%= link_to edit_tour_detail_path(tour_detail), class: "btn btn-sm btn-warning" do %>
-              <span class="glyphicon glyphicon-pencil"></span>
-            <% end %>
-            <%= link_to tour_detail, method: :delete,
-                                     data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
-              <span class="glyphicon glyphicon-trash"></span>
-            <% end %>
-          <% end %>
-          </td>
-        </tr>
+<% @tour_details.each do |tour_detail| %>
+  <div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><%= tour_detail.tour.name %></h5>
+      <p class="card-text"><%= tour_detail.tour.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= tour_detail.start_time %></li>
+      <li class="list-group-item"><%= tour_detail.end_time %></li>
+      <li class="list-group-item"><%= tour_detail.price %></li>
+      <li class="list-group-item"><%= tour_detail.people_number %></li>
+    </ul>
+    <div class="card-body">
+      <%= link_to tour_detail, class: "btn btn-sm btn-info" do %>
+        <span class="glyphicon glyphicon-eye-open"></span>
       <% end %>
-    </tbody>
-</table>
 
+      <% if current_user&.role == "admin"%>
+        <%= link_to edit_tour_detail_path(tour_detail), class: "btn btn-sm btn-warning" do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+        <% end %>
+        <%= link_to tour_detail, method: :delete,
+                                data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
+          <span class="glyphicon glyphicon-trash"></span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
 
 <%= will_paginate @tour_details%>
