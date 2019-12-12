@@ -2,5 +2,7 @@
   <div class="form-group">
     <%= f.text_area :content, class: "form-control", placeholder: "Add a comment" %>
   </div>
-  <%= f.submit t("comments.send"), class: "btn-primary" %>
+  <div class="clearfix">
+    <%= f.submit t("comments.send"), class: "btn btn-primary send-btn" %>
+  </div>
 <% end %>

@@ -9,7 +9,6 @@
           <% if current_user.role == "admin"%>
             <li><%= link_to t(".users"), users_path %></li>
             <li><%= link_to t(".tours"), tours_path %></li>
-            <li><%= link_to t(".tour_details"), tour_details_path %></li>
             <li><%= link_to t(".revenues"), revenues_path %></li>
           <% end %>
           <li><%= link_to t(".reviews"), reviews_path %></li>

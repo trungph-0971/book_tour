@@ -10,6 +10,7 @@ $white: #fff;
 $light-white: #eaeaea;
 $blue: #6ab7ff;
 $orange: #ff8f00;
+$light-red: #ff867c;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -186,6 +187,7 @@ input {
 }
 
 .add_btn {
+  margin-top: 15px;
   margin-bottom: 10px;
 }
 
@@ -233,6 +235,7 @@ table {
 /* Tours */
 
 .tour-name {
+  font-size: 40px;
   margin-bottom: 20px;
 }
 .tour-description {
@@ -240,8 +243,11 @@ table {
   padding-bottom: 10px;
   padding-top: 10px;
   margin-bottom: 30px;
-  border-bottom: 4px solid $gray-lighter;
-  border-top: 4px solid $gray-lighter;
+}
+
+.tour-info {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .tourdetail_label {
@@ -251,6 +257,7 @@ table {
 }
 
 .tourdetail_label_1 {
+  font-size: 30px;
   margin-right: 10px;
   font-weight: bold;
 }
@@ -275,11 +282,17 @@ table {
   margin-top: 15px;
 }
 
-.review-user {
+.reviews {
+  text-align: left;
   font-size: 30px;
+}
+
+.review-user {
+  font-size: 20px;
   font-weight: bold;
   margin-bottom: 5px;
   text-decoration: underline;
+  text-align: center;
 }
 
 .review-label {
@@ -293,10 +306,18 @@ table {
 }
 
 .review-picture {
-  border-top: 4px solid $gray-lighter;
+  border-top: 2px solid $gray-lighter;
   padding: 10px;
   margin: 5px;
   text-align: center;
+}
+
+.review-content {
+  margin: 10px;
+}
+
+.review-btn {
+  margin-bottom: 10px;
 }
 
 .no-reviews {
@@ -305,14 +326,32 @@ table {
   color: $light-gray;
 }
 
+.rating-back{
+  align-self: center;
+  border-radius: 10px;
+  background-color: $light-red;
+}
+
 .rating {
-  color: $orange;
+  color: $white;
   font-size: 25px;
+  text-align: center;
 }
 
 .tour-btn {
   text-align: center;
-  margin: 20px;
+  margin-top: 10px;
+}
+
+.tour-card {
+  margin-top: 25px;
+  border: 1px solid $light-gray;
+  border-top: 10px solid $light-red;
+  border-radius: 10px; 
+  .col-md-5{
+    border-right: 2px solid $light-gray;
+    padding-right: 5px;
+  }
 }
 
 .reviews-delete {
@@ -331,6 +370,13 @@ table {
   text-align: center;
   font-size: 15px;
   font-weight: bold;
+}
+
+.actions {
+  float: right;
+  border: 1px solid $dark;
+  border-top: 10px solid $light-red;
+  width: 300px;
 }
 
 .comment-info {
@@ -371,4 +417,63 @@ table {
 
 .review-delete-btn {
   float: right;
+}
+
+a.morelink {
+  text-decoration: none;
+  outline: none;
+}
+.morecontent span {
+  display: none;
+}
+
+.tourdetail-pic {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  box-sizing: content-box;
+}
+
+.card-row {
+  display: flex;
+}
+
+.booking-text {
+  font-size:13px;
+  color: $light-gray;
+}
+
+.booking-btn {
+  border-radius: 0px;
+}
+
+.text-box {
+  border-top: 1px solid $dark;
+  margin-top: 10px;
+  list-style: none;
+  align-self: center;
+  padding-left: 0px;
+  li{
+    color: $light-gray;
+    margin-top: 5px;
+  }
+}
+
+.text-box li::before {
+  content: "\2022";
+  color: $light-red;
+  margin-right: 10px;
+}
+
+.send-btn {
+  width: 100px;
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }

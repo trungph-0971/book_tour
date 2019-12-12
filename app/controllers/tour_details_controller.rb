@@ -40,6 +40,7 @@ class TourDetailsController < ApplicationController
   def edit; end
 
   def update
+    @tour_detail.link = params[:tour_detail][:pictures_attributes][:link]
     if @tour_detail.update tour_detail_params
       flash[:success] = t(".update_success")
       redirect_to @tour_detail

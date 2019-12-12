@@ -4,8 +4,10 @@
       <p ><%= comment.user.name %> : </p> <%= comment.content %>
     </div>
     <%if logged_in? %>
-      <%= link_to t(".delete"), comment_path(comment), method: :delete,
-                          data: { confirm: t(".confirm") } %>
+      <%if current_user.admin? || current_user == comment.user%>
+        <%= link_to t(".delete"), comment_path(comment), method: :delete,
+                            data: { confirm: t(".confirm") } %>
+      <% end %>
       <a class="showhide"><%= t ".reply" %></a>
       <div class="reply-form">
         <%= form_for [comment, Comment.new] do |f| %>
