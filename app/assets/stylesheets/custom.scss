@@ -194,8 +194,7 @@ input {
 table, th, td{
   border: 1px solid $gray;
   text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px;
 }
 
 table {
@@ -262,17 +261,6 @@ table {
   font-weight: bold;
 }
 
-table, th, td{
-  border: 1px solid $gray;
-  text-align: center;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-table {
-  width: 100%;
-}
-
 .table_title {
   font-size: 20px;
   font-weight: bold;
@@ -312,10 +300,6 @@ table {
   text-align: center;
 }
 
-.review-content {
-  margin: 10px;
-}
-
 .review-btn {
   margin-bottom: 10px;
 }
@@ -346,7 +330,7 @@ table {
 .tour-card {
   margin-top: 25px;
   border: 1px solid $light-gray;
-  border-top: 10px solid $light-red;
+  border-top: 15px solid $light-red;
   border-radius: 10px; 
   .col-md-5{
     border-right: 2px solid $light-gray;
@@ -406,7 +390,7 @@ table {
 .like {
   color: $blue;
   margin-top: 10px;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 .picture-info {
@@ -434,6 +418,7 @@ a.morelink {
   overflow: hidden;
   object-fit: cover;
   box-sizing: content-box;
+  border-radius: 10px;
 }
 
 .card-row {
@@ -476,4 +461,15 @@ a.morelink {
   content: "";
   clear: both;
   display: table;
+}
+
+.cmt {
+  align-self: flex-end;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.like-form {
+  float: left;
+  margin-top: 9px;
 }

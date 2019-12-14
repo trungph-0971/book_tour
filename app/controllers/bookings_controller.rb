@@ -51,15 +51,27 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    if current_user.role == "admin"
+    if current_user.admin?
       if @booking.destroy
         flash[:success] = t(".delete_success")
       else
         flash[:danger] = t(".delete_failed")
       end
-    else
+    elsif @booking.pending?
       @booking.status = "cancelled"
       @booking.save
+      flash[:success] = t(".cancel_success")
+    else
+      flash[:danger] = t(".no_right")
+    end
+    redirect_to bookings_path
+  end
+
+  def change_status
+    if @booking.update status: params[:status]
+      flash[:success] = t(".change_status_success")
+    else
+      flash[:danger] = t(".change_status_failed")
     end
     redirect_to bookings_path
   end
@@ -67,7 +79,8 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:tour_detail_id, :price, :people_number)
+    params.require(:booking).permit(:tour_detail_id, :price,
+                                    :people_number, :status)
   end
 
   # Confirms an admin user.

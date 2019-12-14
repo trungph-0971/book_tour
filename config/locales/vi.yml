@@ -319,6 +319,12 @@ vi:
       updated_at: "Cập nhật lúc"
       operations: "Thao tác"
       confirm: "Bạn chắc chứ?"
+      confirmed: "Confirm"
+      pending: "Pending"
+      cancelled: "Cancel"
+    change_status:
+      change_status_success: "Trạng thái của đơn đặt chỗ đã được cập nhật"
+      change_status_failed: "Trạng thái của đơn đặt chỗ chưa được cập nhật"
     update:
       update_success: "Booking này đã được cập nhật thành công"
       update_failed: "Cập nhật booking thất bại"
@@ -349,6 +355,8 @@ vi:
     destroy:
       delete_success: "Bản ghi lợi nhuận này đã được xóa"
       delete_failed: "Xóa bản ghi lợi nhuận thất bại"
+      cancel_success: "Yêu cầu hủy đơn đặt chỗ của bạn dã được cập nhật"
+      no_right: "Bạn không thể hủy đặt chỗ sau khi đơn đã được xác nhận. Vui lòng liên hệ chúng tôi!"
   reviews:
     index:
       rating: "Mức điểm"

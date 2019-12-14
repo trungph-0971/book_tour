@@ -11,6 +11,7 @@
 
 <table>
   <thead>
+    <th> ID </th>
     <th> <%= t ".tour_name" %> </th>
     <th> <%= t ".cus_name" %> </th>
     <th> <%= t ".price" %> </th>
@@ -23,29 +24,33 @@
     <tbody>
       <% @bookings.each do |booking| %>
         <tr>
+          <td> <%= booking.id %> </td>
           <td> <%= booking.tour_detail.tour.name %> </td>
           <td> <%= link_to booking.user.name, booking.user %> </td>
           <td> <%= booking.price %> </td>
           <td> <%= booking.people_number %> </td>
-          <td> <%= booking.status %> </td>
+          <td> <%= booking.status.capitalize %> </td>
           <td> <%= booking.created_at %> </td>
           <td> <%= booking.updated_at %> </td>
           <td>
+            <%= link_to booking, class: "btn btn-sm btn-info" do %>
+                <span class="glyphicon glyphicon-eye-open"></span>
+            <% end %>
             <% if current_user.role == "admin" %>
-              <%= link_to edit_booking_path(booking), class: "btn btn-sm btn-warning" do %>
-                <span class="glyphicon glyphicon-pencil"></span>
-              <% end %>
               <%= link_to booking, method: :delete,
                                       data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
                 <span class="glyphicon glyphicon-trash"></span>
               <% end %>
-            <% end %>
-            <%= link_to booking, class: "btn btn-sm btn-info" do %>
-                <span class="glyphicon glyphicon-eye-open"></span>
-            <% end %>
-            <%= link_to booking, method: :delete,
-                                      data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
-                <span class="glyphicon glyphicon-remove"></span>
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= t ".status" %> <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu ">
+                  <li><%= link_to t(".confirmed"), change_status_booking_path(booking, status: "confirmed"), method: :put %></li>
+                  <li><%= link_to t(".pending"), change_status_booking_path(booking, status: "pending"), method: :put %></li>
+                  <li><%= link_to t(".cancelled"), change_status_booking_path(booking, status: "cancelled"), method: :put %></li>
+                </ul>
+              </div>
             <% end %>
           </td>
         </tr>

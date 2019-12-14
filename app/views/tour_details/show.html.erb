@@ -58,10 +58,13 @@
 
 <div class="row">
   <h2 class="reviews"><%= t ".h2"%></h2>
-  <%= link_to t(".review"), new_review_path(:tour_detail => @tour_detail.id, :user => current_user.id), data: { modal: true }, class: "btn btn-info review-btn" %>
+  <% if logged_in? %>
+    <%= link_to t(".review"), new_review_path(:tour_detail => @tour_detail.id, :user => current_user.id), data: { modal: true }, class: "btn btn-info review-btn" %>
+  <% end %>
   <%unless get_reviews(@tour_detail.id).empty? %>
     <% get_reviews(@tour_detail.id).each do |review|%>
       <div class="col-md review-section">
+        <div style="margin-bottom: 30px">
         <%if logged_in? %>
           <% if current_user == review.user || current_user.role == "admin"%>
             <div class="review-delete-btn">
@@ -72,24 +75,12 @@
             </div>
           <% end %>
         <% end %>
+        </div>
         <div class="row">
           <div class="col-md-3">
             <div class="rating-back"> <p class="rating"> <%= review.rating %>/10 </p> </div>
             <p class="review-user"> <%= review.user.name %> </p>
             <h2> <%= review.created_at.strftime("%d %b %Y") %> </h2>
-            <p class="like" ><%= review.likes.count %> <%= (review.likes.count) == 1 ? t(".like") : t(".likes") %></p>
-            <%if logged_in? %>
-              <% pre_like = review.likes.find { |like| like.user_id == current_user.id} %>
-              <% if pre_like %>
-                <%= link_to review_like_path(review, pre_like), method: :delete, remote: true do %>
-                  <i class="glyphicon glyphicon-thumbs-down"></i>
-                <% end %>
-              <% else %>
-                <%= link_to review_likes_path(review), method: :post, remote: true do %>
-                  <i class="glyphicon glyphicon-thumbs-up"></i>
-                <% end %>
-              <% end %>
-            <% end %>
           </div>
           <div class="col-md-9">
             <div class="review-content"> <%= review.content %> </div>
@@ -98,12 +89,21 @@
             </div>
           </div>
         </div>
-
-        <h3 class="comments-title"> <%= t ".comments"%> </h3>
-        <%= render partial: "comments/comment", locals: {commentable: review} %>
-        <%if logged_in? %>
-          <%= render partial: "comments/form", locals: {commentable: review} %>
+        <p class="like" id="likes" ><%= review.likes.count %> <%= (review.likes.count) == 1 ? t(".like") : t(".likes") %></p>
+        <% if logged_in? %>
+          <%= render partial: "like_form", locals: {review: review}%>
         <% end %>
+        <button type="button" class="btn btn-default cmt">
+          <span class="glyphicon glyphicon-comment"></span>
+          Comment
+        </button>
+
+        <div class="comment-section">  
+          <%= render partial: "comments/comment", locals: {commentable: review} %>
+          <%if logged_in? %>
+            <%= render partial: "comments/form", locals: {commentable: review} %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   <% else %>

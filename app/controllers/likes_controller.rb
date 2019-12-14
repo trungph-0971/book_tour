@@ -8,7 +8,10 @@ class LikesController < ApplicationController
     else
       @review.likes.create user_id: current_user.id
     end
-    redirect_back fallback_location: @tour_detail
+    respond_to do |format|
+      format.html{redirect_back fallback_location: @tour_detail}
+      format.js
+    end
   end
 
   def destroy
@@ -17,7 +20,10 @@ class LikesController < ApplicationController
     else
       @like.destroy
     end
-    redirect_back fallback_location: @tour_detail
+    respond_to do |format|
+      format.html{redirect_back fallback_location: @tour_detail}
+      format.js
+    end
   end
 
   private

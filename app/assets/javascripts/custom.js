@@ -2,7 +2,14 @@
 $(document).on('turbolinks:load', function() {
   $("div.reply-form").hide();
   $("a.showhide").click(function() {
-    $(this).next().toggle().prevenDefault();
+    $(this).next().toggle();
+  });
+});
+
+$(document).on('turbolinks:load', function() {
+  $("div.comment-section").hide();
+  $("button.cmt").click(function() {
+    $(this).next().toggle();
   });
 });
 
@@ -55,4 +62,3 @@ $(document).on('turbolinks:load', function() {
       return false;
     });
 });
-$(document).on('turbolinks:load', ready);

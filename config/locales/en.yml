@@ -314,12 +314,20 @@ en:
       updated_at: "Updated at"
       operations: "Operations"
       confirm: "Are you sure?"
+      confirmed: "Confirm"
+      pending: "Pending"
+      cancelled: "Cancel"
+    change_status:
+      change_status_success: "Booking's status hes been updated"
+      change_status_failed: "Booking's status has not been updated yet"
     update:
       update_success: "This booking has been updated successfully"
       update_failed: "Fail to update this booking"
     destroy:
       delete_success: "This booking has been deleted"
       delete_failed: "Fail to delete this booking"
+      cancel_success: "Your cancellation request has been updated"
+      no_right: "You cannot cancel the booking when it is confirmed. Please contact us!"
   revenues:
     index:
       title: "Revenue"
