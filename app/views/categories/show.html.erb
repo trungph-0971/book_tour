@@ -1,0 +1,44 @@
+<% provide :title, @category.name %>
+<div class="row">
+  <aside class="col-md">
+    <section class="user_info">
+      <h1 class = "tour-name">
+        <%= @category.name %>
+      </h1>
+    </section>
+      <h3>Tours: </h3>
+      <div class="col">
+        <% @category.tours.each do |tour| %>
+          <% if tour.tour_details.not_deleted.empty?  %>
+            <div class="no-reviews">
+              <%= t ".no_tours" %>
+            </div>
+          <% else %>
+            <% tour.tour_details.not_deleted.each do |tour_detail| %>
+              <div class="col-md">
+                <div class="thumbnail tour-card">
+                  <div class="row card-row">
+                    <div class="col-md-5 pic-section" >
+                      <%= image_tag tour_detail.pictures.first&.link&.url, class: "tourdetail-pic" %>
+                    </div>
+                <div class="col-md-7">
+                  <div class="caption">
+                    <h3> <%= link_to tour_detail.tour.name, tour_detail %> </h3>
+                    <div class="description"><%= tour_detail.tour.description %></div>
+                      <ul class="list-group list-group-flush tour-info">
+                        <li class="list-group-item"><%= t ".start_time" %>: <%= tour_detail.start_time %></li>
+                        <li class="list-group-item"><%= t ".end_time" %>: <%= tour_detail.end_time %></li>
+                        <li class="list-group-item"><%= t ".price" %>: <%= tour_detail.price %></li>
+                        <li class="list-group-item"><%= tour_detail.people_number %> <%= t ".people_number" %></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  </aside>
+</div>

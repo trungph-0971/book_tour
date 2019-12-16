@@ -16,7 +16,7 @@
           <%= t ".people_number" %> <%= @booking.people_number %>
         </p>
         <p>
-          <%= t ".status" %> <%= @booking.status %>
+          <%= t ".status" %> <%= @booking.status.capitalize %>
         </p>
       </div>
       <div class="col-md-6">
@@ -30,6 +30,12 @@
           <%= t ".end_time" %> <%= @booking.tour_detail.end_time %>
         </p>
       </div>
+      <% if @booking.pending? %>
+        <%= link_to @booking, method: :delete,
+                              data: { confirm: t(".confirm") }, class:"btn btn-lg btn-danger cancel-btn" do %>
+          <%= t ".cancel" %>
+        <% end %>
+      <% end %>
     </section>
   </aside>
 </div>

@@ -299,6 +299,9 @@ table {
   padding: 10px;
   margin: 5px;
   text-align: center;
+    img {
+      max-width: -webkit-fill-available;
+    }
 }
 
 .review-btn {
@@ -331,8 +334,8 @@ table {
 .tour-card {
   margin-top: 25px;
   border: 2px solid $light-gray;
-  border-top: 15px solid $light-red;
-  border-radius: 15px; 
+  border-top: 10px solid $light-red;
+  border-radius: 10px; 
   .col-md-5{
     border-right: 2px solid $light-gray;
     padding-right: 5px;
@@ -379,6 +382,16 @@ table {
 .reply-info {
   margin-top: 10px;
   margin-bottom: 5px;
+}
+
+.reply-form {
+  margin-top: 10px;
+  margin-bottm: 10px;
+}
+
+.reply-btn {
+  width: 7rem;
+  float: right;
 }
 
 .glyphicon.glyphicon-thumbs-down {
@@ -473,4 +486,24 @@ a.morelink {
 .like-form {
   float: left;
   margin-top: 9px;
+}
+
+.home-tours {
+  border-bottom: 3px solid $dark;
+  height: 6rem;
+    h1 {
+      font-size: 30px;
+      float: left;
+    }
+    p {
+      font-size: 18px;
+      float: right;
+      margin-top: 25px;
+      margin-left: 10px;
+    }
+}
+
+.cancel-btn {
+  float: right;
+  margin-top: 30px;
 }

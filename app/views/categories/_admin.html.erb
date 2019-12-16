@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <th> <%= t ".cat_name" %> </th>
+    <th> <%= t ".created_at" %> </th>
+    <th> <%= t ".updated_at" %> </th>
+    <th> <%= t ".operations" %> </th>
+  </thead>
+    <tbody>
+      <% categories.each do |category| %>
+        <tr>
+          <td> <%= category.name %> </td>
+          <td> <%= category.created_at %> </td>
+          <td> <%= category.updated_at %> </td>
+          <td>
+          <% if current_user&.role == "admin"%>
+            <%= link_to edit_category_path(category), class: "btn btn-sm btn-warning" do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+            <% end %>
+            <%= link_to category, method: :delete,
+                                     data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
+              <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+<%= will_paginate categories%>

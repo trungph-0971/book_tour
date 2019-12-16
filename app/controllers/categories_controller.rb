@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :load_category, except: %i(index new create)
-  before_action :admin_user, except: %i(index)
+  before_action :admin_user, except: %i(index show)
 
   def index
     @categories = Category.all.paginate(page: params[:page])
@@ -19,6 +19,8 @@ class CategoriesController < ApplicationController
       render :new
     end
   end
+
+  def show; end
 
   def destroy
     if @category.destroy
@@ -49,7 +51,7 @@ class CategoriesController < ApplicationController
 
   # Confirms an admin user.
   def admin_user
-    redirect_to root_path unless current_user.role == "admin"
+    redirect_to root_path unless current_user&.admin?
   end
 
   def load_category

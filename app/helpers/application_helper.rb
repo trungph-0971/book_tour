@@ -11,4 +11,8 @@ module ApplicationHelper
   def get_picture model
     model.pictures.present? ? model.pictures.link.url : Settings.default_picture
   end
+
+  def get_tours
+    TourDetail.top3
+  end
 end

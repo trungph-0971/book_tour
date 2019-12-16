@@ -12,7 +12,7 @@
       <div class="reply-form">
         <%= form_for [comment, Comment.new] do |f| %>
           <%= f.text_area :content, placeholder: t(".placeholder") %><br/>
-          <%= f.submit t(".submit")  %>
+          <%= f.submit t(".submit"), class:"reply-btn" %>
         <% end %>
       </div>
     <% end %>

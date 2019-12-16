@@ -15,6 +15,7 @@ class TourDetail < ApplicationRecord
   scope :not_deleted, ->{where("deleted_at IS NULL")}
   scope :deleted, ->{where("deleted_at IS NOT NULL")}
   scope :available, ->{where("people_number > 0")}
+  scope :top3, ->{where("people_number > 0 AND deleted_at IS NULL").limit(3)}
 
   accepts_nested_attributes_for :pictures,
                                 reject_if:

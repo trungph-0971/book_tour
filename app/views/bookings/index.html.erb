@@ -1,89 +1,9 @@
 <% provide :title, t(".title") %>
-<h1><%= t ".h1" %></h1>
 
-<% if current_user.admin? %>
-  <div class="add_btn">
-    <%= link_to new_booking_path, class: "btn btn-sm btn-primary" do %>
-      <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
-    <% end %>
-    <% if params.has_key?(:soft_deleted) %>
-      <%= link_to bookings_path, class: "btn btn-sm btn-primary" do %>
-        <%= t "tours.excludes_deleted" %>
-      <% end %>
-    <% else %>
-      <%= link_to bookings_path(soft_deleted: true), class: "btn btn-sm btn-warning" do %>
-        <%= t "tours.includes_deleted" %>
-      <% end %>
-    <% end %>
-  </div>
+<% if current_user&.admin? %>
+  <h1><%= t ".h1" %></h1>
+  <%= render partial: "admin", locals: {bookings: @bookings} %>
+<% else %>
+  <h1><%= t ".h1_2" %></h1>
+  <%= render partial: "user", locals: {bookings: @bookings} %>
 <% end %>
-
-<table>
-  <thead>
-    <th> ID </th>
-    <th> <%= t ".tour_name" %> </th>
-    <th> <%= t ".cus_name" %> </th>
-    <th> <%= t ".price" %> </th>
-    <th> <%= t ".people_number" %> </th>
-    <th> <%= t ".status" %> </th>
-    <th> <%= t ".created_at" %> </th>
-    <th> <%= t ".updated_at" %> </th>
-    <th> <%= t ".operations" %> </th>
-  </thead>
-    <tbody>
-      <% @bookings.each do |booking| %>
-        <tr>
-          <td> <%= booking.id %> </td>
-          <td> <%= booking.tour_detail.tour.name %> </td>
-          <td> <%= link_to booking.user.name, booking.user %> </td>
-          <td> <%= booking.price %> </td>
-          <td> <%= booking.people_number %> </td>
-          <td> <%= booking.status.capitalize %> </td>
-          <td> <%= booking.created_at %> </td>
-          <td> <%= booking.updated_at %> </td>
-          <td>
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= t "tours.index.actions" %> <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li>
-                  <%= link_to purge_booking_path(booking), method: :delete,
-                                     data: { confirm: t(".confirm") } do %>
-                    <span class="glyphicon glyphicon-remove"></span>
-                    <%= t "tours.index.purge" %>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to recover_booking_path(booking), method: :put do %>
-                    <span class="glyphicon glyphicon-repeat"></span>
-                    <%= t "tours.index.recover" %>
-                  <% end %>
-                </li>
-                <li>
-                  <%= link_to booking, method: :delete,
-                                     data: { confirm: t(".confirm") } do %>
-                    <span class="glyphicon glyphicon-trash"></span>
-                    <%= t "tours.index.delete" %>
-                  <% end %>
-                </li>
-              </ul>
-            </div>
-            <div class="btn-group">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= t ".status" %> <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu ">
-                <li><%= link_to t(".confirmed"), change_status_booking_path(booking, status: "confirmed"), method: :put %></li>
-                <li><%= link_to t(".pending"), change_status_booking_path(booking, status: "pending"), method: :put %></li>
-                <li><%= link_to t(".cancelled"), change_status_booking_path(booking, status: "cancelled"), method: :put %></li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-</table>
-
-
-<%= will_paginate @bookings%>

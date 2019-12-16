@@ -1,7 +1,7 @@
 <% provide :title, t(".title") %>
 <h1><%= t ".h1" %></h1>
 
-<%if current_user&.role == "admin"%>
+<%if current_user&.admin? %>
   <div class="add_btn">
     <%= link_to new_category_url, class: "btn btn-sm btn-primary" do %>
       <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
@@ -9,32 +9,8 @@
   </div>
 <% end %>
 
-<table>
-  <thead>
-    <th> <%= t ".cat_name" %> </th>
-    <th> <%= t ".created_at" %> </th>
-    <th> <%= t ".updated_at" %> </th>
-    <th> <%= t ".operations" %> </th>
-  </thead>
-    <tbody>
-      <% @categories.each do |category| %>
-        <tr>
-          <td> <%= category.name %> </td>
-          <td> <%= category.created_at %> </td>
-          <td> <%= category.updated_at %> </td>
-          <td>
-          <% if current_user&.role == "admin"%>
-            <%= link_to edit_category_path(category), class: "btn btn-sm btn-warning" do %>
-              <span class="glyphicon glyphicon-pencil"></span>
-            <% end %>
-            <%= link_to category, method: :delete,
-                                     data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
-              <span class="glyphicon glyphicon-trash"></span>
-            <% end %>
-          <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-</table>
-<%= will_paginate @categories%>
+<% if current_user&.admin? %>
+  <%= render partial: "admin", locals: {categories: @categories} %>
+<% else %>
+  <%= render partial: "user", locals: {categories: @categories} %>
+<% end %>

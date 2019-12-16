@@ -33,6 +33,10 @@ en:
       h1: "Welcome to Sun* Tour Booking"
       h2: "Sun* Tour Booking Application" 
       signupnow: "Sign up now!"
+      start_time: "Departure date"
+      end_time: "Return date"
+      price: "Price"
+      people_number: "slots left"
     help:
       title: "Help"
       h1: "Help"
@@ -159,11 +163,9 @@ en:
       delete: "Delete"
       confirm: "Are you sure?"
       update: "Update"
-      cat_name: "Category"
-      created_at: "Created at"
-      updated_at: "Updated at"
-      operations: "Operations"
       add: "Add"
+    show:
+      no_tours: "This category has not contained any tours yet. Come back later!"
     new:
       title: "Create new category"
       h1: "New category"
@@ -182,6 +184,13 @@ en:
     update:
       update_success: "Category has been updated"
       update_failed: "Category has not been updated yet"
+    user:
+      seemore: "See more"
+    admin:
+      cat_name: "Category"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
   tours:
     nonexist: "This tour is not exist"
     form:
@@ -256,10 +265,10 @@ en:
     show:
       h2: "Customer reviews"
       description: "Description"
-      start_time: "Start time:"
-      end_time: "End time:"
-      price: "Price:"
-      people_number: "Number of people remaining:"
+      start_time: "Departure date: "
+      end_time: "End date: "
+      price: "Price: "
+      people_number: "Number of people remaining: "
       book: "Book Now"
       review: "Review this tour"
       rating: "Rating"
@@ -310,6 +319,8 @@ en:
       people_number: "Number of people: "
       status: "Status: "
       user_name: "Customer name: "
+      cancel: "Cancel this booking"
+      confirm: "Are you sure?"
     create:
       add_success: "Your booking has been created successfully"
       add_failed: "Fail to create your booking"
@@ -324,21 +335,7 @@ en:
     index:
       title: "Bookings"
       h1: "List of bookings"
-      add: "Add"
-      tour_name: "Tour name"
-      cus_name: "Customer name"
-      price: "Total price"
-      people_number: "Number of people"
-      status: "Status"
-      created_at: "Created at"
-      updated_at: "Updated at"
-      operations: "Operations"
-      confirm: "Are you sure?"
-      confirmed: "Confirm"
-      pending: "Pending"
-      cancelled: "Cancel"
-      includes_deleted: "Included deleted bookings"
-      excludes_deleted: "Only existed bookings"
+      h1_2: "My bookings"
     change_status:
       change_status_success: "Booking's status hes been updated"
       change_status_failed: "Booking's status has not been updated yet"
@@ -356,6 +353,28 @@ en:
     purge:
       purge_success: "This booking has been removed"
       purge_failed: "Fail to remove this booking"
+    admin:
+      add: "Add"
+      confirm: "Are you sure?"
+      confirmed: "Confirm"
+      pending: "Pending"
+      cancelled: "Cancel"
+      includes_deleted: "Included deleted bookings"
+      excludes_deleted: "Only existed bookings"
+      tour_name: "Tour name"
+      cus_name: "Customer name"
+      price: "Total price"
+      people_number: "Number of people"
+      status: "Status"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
+    user:
+      price: "Total price"
+      people_number: "Number of people"
+      status: "Status"
+      book_date: "Book date"
+      departure_date: "Departure date"
   revenues:
     index:
       title: "Revenue"
