@@ -212,6 +212,12 @@ vi:
       created_at: "Tạo lúc"
       updated_at: "Cập nhật lúc"
       operations: "Các thao tác"
+      includes_deleted: "Gồm các tour đã xóa"
+      excludes_deleted: "Chỉ các tour đang có"
+      edit: "Chỉnh sửa"
+      purge: "Loại bỏ"
+      recover: "Khôi phục"
+      actions: "Thao tác"
     edit:
       title: "Chỉnh sửa tour"
       h1: "Chỉnh sửa"
@@ -225,6 +231,12 @@ vi:
     destroy:
       delete_success: "Tour đã được xóa thành công"
       delete_failed: "Tour vẫn chưa được xóa"
+    recover:
+      recover_success: "Tour này đã được khôi phục"
+      recover_failed: "Khôi phục tour thất bại"
+    purge:
+      purge_success: "Tour này đã được loại bỏ"
+      purge_failed: "Loại bỏ tour thất bại"
   tour_details:
     nonexist: "Thông tin của tour này không tồn tại"
     form:
@@ -261,7 +273,7 @@ vi:
       like: "Lượt thích"
       likes: "Lượt thích"
       no_reviews: "Tour này chưa có review nào"
-      bookhint: "Đăng ký ngay để book tour!"
+      bookhint: "Đăng ký ngay để đặt tour!"
       info: "Thông tin"
       out_slots: "Tour này hết chỗ rồi. Hẹn bạn lần sau nhé!"
       ez-ticket: "E-Ticket included"
@@ -269,7 +281,7 @@ vi:
       fastconfirm: "Fast confirmation"
     index:
       title: "Danh sách tour"
-      h1: "Danh sách tour"
+      h1: "Các gói tour"
       add: "Thêm"
       confirm: "Bạn có chắc muốn xóa tour này không?"
       name: "Tên tour"
@@ -279,10 +291,18 @@ vi:
       people_number: "chỗ còn lại"
       operations: "Các thao tác"
       searching: " Tìm kiếm ở đây nhé..."
+      includes_deleted: "Gồm các tour đã xóa"
+      excludes_deleted: "Chỉ các tour đang có"
     edit:
       title: "Chỉnh sửa thông tin tour"
       update: "Cập nhật"
       h1: "Cập nhập thông tin cho"
+    recover:
+      recover_success: "Tour này đã được khôi phục"
+      recover_failed: "Khôi phục tour thất bại"
+    purge:
+      purge_success: "Tour này đã được loại bỏ"
+      purge_failed: "Loại bỏ tour thất bại"
   bookings:
     nonexist: "Booking này không tồn tại"
     form:
@@ -322,6 +342,8 @@ vi:
       confirmed: "Confirm"
       pending: "Pending"
       cancelled: "Cancel"
+      includes_deleted: "Gồm các booking đã xóa"
+      excludes_deleted: "Chỉ các booking đang có"
     change_status:
       change_status_success: "Trạng thái của đơn đặt chỗ đã được cập nhật"
       change_status_failed: "Trạng thái của đơn đặt chỗ chưa được cập nhật"
@@ -331,6 +353,12 @@ vi:
     destroy:
       delete_success: "Booking này đã được xóa"
       delete_failed: "Xóa booking thất bại"
+    recover:
+      recover_success: "Booking này đã được khôi phục"
+      recover_failed: "Khôi phục booking thất bại"
+    purge:
+      purge_success: "Booking này đã được loại bỏ"
+      purge_failed: "Loại bỏ booking thất bại"
   revenues:
     index:
       title: "Lợi nhuận"

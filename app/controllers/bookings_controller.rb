@@ -7,12 +7,16 @@ class BookingsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @bookings = if current_user.role == "admin"
-                  Booking.includes(:tour_detail).all
-                         .paginate(page: params[:page])
+    @bookings = if current_user.admin?
+                  if params.key?(:soft_deleted)
+                    Booking.includes(:tour_detail).all
+                           .paginate(page: params[:page])
+                  else
+                    Booking.includes(:tour_detail)
+                           .not_deleted.paginate(page: params[:page])
+                  end
                 else
-                  Booking.includes(:tour_detail).where(user_id: current_user.id)
-                         .paginate(page: params[:page])
+                  get_user_bookings
                 end
   end
 
@@ -52,7 +56,7 @@ class BookingsController < ApplicationController
 
   def destroy
     if current_user.admin?
-      if @booking.destroy
+      if @booking.soft_delete
         flash[:success] = t(".delete_success")
       else
         flash[:danger] = t(".delete_failed")
@@ -63,6 +67,28 @@ class BookingsController < ApplicationController
       flash[:success] = t(".cancel_success")
     else
       flash[:danger] = t(".no_right")
+    end
+    redirect_to bookings_path
+  end
+
+  def purge
+    if current_user.admin?
+      if @booking.destroy
+        flash[:success] = t(".purge_success")
+      else
+        flash[:danger] = t(".pudge_failed")
+      end
+    else
+      flash[:danger] = t("destroy.no_right")
+    end
+    redirect_to bookings_path
+  end
+
+  def recover
+    if @booking.recover
+      flash[:success] = t(".recover_success")
+    else
+      flash[:danger] = t(".recover_failed")
     end
     redirect_to bookings_path
   end
@@ -81,6 +107,11 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:tour_detail_id, :price,
                                     :people_number, :status)
+  end
+
+  def get_user_bookings
+    Booking.includes(:tour_detail).where(user_id: current_user.id)
+           .paginate(page: params[:page])
   end
 
   # Confirms an admin user.

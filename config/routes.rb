@@ -13,6 +13,9 @@ Rails.application.routes.draw do
       member do
         patch :change_status
         put :change_status
+        patch :recover
+        put :recover
+        delete :purge
       end
     end
     resources :categories
@@ -25,8 +28,20 @@ Rails.application.routes.draw do
       resources :comments
       resources :likes
     end
-    resources :tours
-    resources :tour_details
+    resources :tours do
+      member do
+        patch :recover
+        put :recover
+        delete :purge
+      end
+    end
+    resources :tour_details do
+      member do
+        patch :recover
+        put :recover
+        delete :purge
+      end
+    end
     resources :users
   end
 

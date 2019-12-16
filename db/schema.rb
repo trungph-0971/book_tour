@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191209082445) do
+ActiveRecord::Schema.define(version: 20191215034727) do
 
   create_table "bank_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "bank_name"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20191209082445) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.timestamp "deleted_at"
     t.index ["tour_detail_id"], name: "index_bookings_on_tour_detail_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -93,6 +94,7 @@ ActiveRecord::Schema.define(version: 20191209082445) do
     t.bigint "tour_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.timestamp "deleted_at"
     t.index ["tour_id"], name: "index_tour_details_on_tour_id"
   end
 
@@ -102,6 +104,7 @@ ActiveRecord::Schema.define(version: 20191209082445) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.timestamp "deleted_at"
     t.index ["category_id"], name: "index_tours_on_category_id"
   end
 

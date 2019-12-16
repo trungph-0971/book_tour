@@ -207,6 +207,12 @@ en:
       created_at: "Created at"
       updated_at: "Updated at"
       operations: "Operations"
+      includes_deleted: "Included deleted tours"
+      excludes_deleted: "Only existed tours"
+      edit: "Edit"
+      purge: "Purge"
+      recover: "Recover"
+      actions: "Actions"
     edit:
       title: "Edit tour"
       h1: "Edit"
@@ -220,6 +226,12 @@ en:
     destroy:
       delete_success: "Tour has been deleted"
       delete_failed: "Tour has not been deleted yet"
+    recover:
+      recover_sucess: "This tour has been recovered"
+      recover_failed: "Fail to recover this tour"
+    purge:
+      purge_success: "This tour has been removed"
+      purge_failed: "Fail to remove this tour"
   tour_details:
     nonexist: "The details for this tour is not exist"
     form:
@@ -262,6 +274,12 @@ en:
       e-ticket: "E-Ticket included"
       ezcancel: "Easy cancellation"
       fastconfirm: "Fast confirmation"
+    recover:
+      recover_sucess: "This tour has been recovered"
+      recover_failed: "Fail to recover this tour"
+    purge:
+      purge_success: "This tour has been removed"
+      purge_failed: "Fail to remove this tour"
     index:
       title: "All tours"
       h1: "Tours with details"
@@ -274,6 +292,8 @@ en:
       people_number: "slots left"
       operations: "Operations"
       searching: " Search here..."
+      includes_deleted: "Included deleted tours"
+      excludes_deleted: "Only existed tours"
     edit:
       title: "Edit detail of the tour"
       update: "Update"
@@ -317,6 +337,8 @@ en:
       confirmed: "Confirm"
       pending: "Pending"
       cancelled: "Cancel"
+      includes_deleted: "Included deleted bookings"
+      excludes_deleted: "Only existed bookings"
     change_status:
       change_status_success: "Booking's status hes been updated"
       change_status_failed: "Booking's status has not been updated yet"
@@ -328,6 +350,12 @@ en:
       delete_failed: "Fail to delete this booking"
       cancel_success: "Your cancellation request has been updated"
       no_right: "You cannot cancel the booking when it is confirmed. Please contact us!"
+    recover:
+      recover_sucess: "This booking has been recovered"
+      recover_failed: "Fail to recover this booking"
+    purge:
+      purge_success: "This booking has been removed"
+      purge_failed: "Fail to remove this booking"
   revenues:
     index:
       title: "Revenue"

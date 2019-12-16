@@ -3,7 +3,13 @@ class ToursController < ApplicationController
   before_action :load_tour, except: %i(index new create)
 
   def index
-    @tours = Tour.includes(:category).all.paginate(page: params[:page])
+    @tours = if params.key?(:soft_deleted)
+               Tour.includes(:category).all
+                   .paginate(page: params[:page])
+             else
+               Tour.includes(:category).not_deleted
+                   .paginate(page: params[:page])
+             end
   end
 
   def show
@@ -26,10 +32,28 @@ class ToursController < ApplicationController
   end
 
   def destroy
-    if @tour.destroy
+    if @tour.soft_delete
       flash[:success] = t(".delete_success")
     else
       flash[:danger] = t(".delete_failed")
+    end
+    redirect_to tours_path
+  end
+
+  def purge
+    if @tour.destroy
+      flash[:success] = t(".purge_success")
+    else
+      flash[:danger] = t(".purge_failed")
+    end
+    redirect_to tours_path
+  end
+
+  def recover
+    if @tour.recover
+      flash[:success] = t(".recover_success")
+    else
+      flash[:danger] = t(".recover_failed")
     end
     redirect_to tours_path
   end
@@ -54,7 +78,7 @@ class ToursController < ApplicationController
 
   # Confirms an admin user.
   def admin_user
-    redirect_to root_path unless current_user.role == "admin"
+    redirect_to root_path unless current_user.admin?
   end
 
   def load_tour

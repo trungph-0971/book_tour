@@ -289,6 +289,7 @@ table {
 }
 
 .review-section {
+  margin-top: 10px;
   padding: 10px;
   border: 1px solid $medium-gray;
 }
@@ -329,9 +330,9 @@ table {
 
 .tour-card {
   margin-top: 25px;
-  border: 1px solid $light-gray;
+  border: 2px solid $light-gray;
   border-top: 15px solid $light-red;
-  border-radius: 10px; 
+  border-radius: 15px; 
   .col-md-5{
     border-right: 2px solid $light-gray;
     padding-right: 5px;

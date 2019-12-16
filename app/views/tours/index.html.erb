@@ -2,9 +2,18 @@
 <h1><%= t ".h1" %></h1>
 
 <div class="add_btn">
-<%= link_to new_tour_url, class: "btn btn-sm btn-primary" do %>
-  <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
-<% end %>
+  <%= link_to new_tour_url, class: "btn btn-sm btn-primary" do %>
+    <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
+  <% end %>
+  <% if params.has_key?(:soft_deleted) %>
+    <%= link_to tours_path, class: "btn btn-sm btn-primary" do %>
+      <%= t ".excludes_deleted" %>
+    <% end %>
+  <% else %>
+    <%= link_to tours_path(soft_deleted: true), class: "btn btn-sm btn-warning" do %>
+      <%= t ".includes_deleted" %>
+    <% end %>
+  <% end %>
 </div>
 
 <table>
@@ -23,15 +32,39 @@
           <td> <%= tour.created_at %> </td>
           <td> <%= tour.updated_at %> </td>
           <td>
-          <% if current_user.role == "admin"%>
-            <%= link_to edit_tour_path(tour), class: "btn btn-sm btn-warning" do %>
-              <span class="glyphicon glyphicon-pencil"></span>
-            <% end %>
-            <%= link_to tour, method: :delete,
-                                     data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
-              <span class="glyphicon glyphicon-trash"></span>
-            <% end %>
-          <% end %>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= t ".actions" %> <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to edit_tour_path(tour) do %>
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <%= t ".edit" %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to purge_tour_path(tour), method: :delete,
+                                     data: { confirm: t(".confirm") } do %>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <%= t ".purge" %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to recover_tour_path(tour), method: :put do %>
+                    <span class="glyphicon glyphicon-repeat"></span>
+                    <%= t ".recover" %>
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to tour, method: :delete,
+                                     data: { confirm: t(".confirm") } do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <%= t ".delete" %>
+                  <% end %>
+                </li>
+              </ul>
+            </div>
           </td>
         </tr>
       <% end %>

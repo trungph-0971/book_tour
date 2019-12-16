@@ -12,6 +12,9 @@ class TourDetail < ApplicationRecord
   validates :people_number, presence: true
   validate :end_time_after_start_time?
   after_save :save_picture
+  scope :not_deleted, ->{where("deleted_at IS NULL")}
+  scope :deleted, ->{where("deleted_at IS NOT NULL")}
+  scope :available, ->{where("people_number > 0")}
 
   accepts_nested_attributes_for :pictures,
                                 reject_if:
@@ -23,6 +26,14 @@ class TourDetail < ApplicationRecord
     else
       includes(:tour).all
     end
+  end
+
+  def soft_delete
+    update deleted_at: Time.zone.now
+  end
+
+  def recover
+    update deleted_at: nil
   end
 
   def save_picture

@@ -6,11 +6,20 @@
   <%= button_tag t("search_btn"), style:"float: right" %>
 <% end %>
 
-<%if current_user&.role == "admin"%>
+<% if current_user&.admin? %>
   <div class="add_btn">
-  <%= link_to new_tour_detail_path, class: "btn btn-sm btn-primary" do %>
-    <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
-  <% end %>
+    <%= link_to new_tour_detail_path, class: "btn btn-sm btn-primary" do %>
+      <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
+    <% end %>
+    <% if params.has_key?(:soft_deleted) %>
+      <%= link_to tour_details_path, class: "btn btn-sm btn-primary" do %>
+        <%= t "tours.excludes_deleted" %>
+      <% end %>
+    <% else %>
+      <%= link_to tour_details_path(soft_deleted: true), class: "btn btn-sm btn-warning" do %>
+        <%= t "tours.includes_deleted" %>
+      <% end %>
+    <% end %>
   </div>
 <% end %>
 
@@ -28,23 +37,47 @@
               <%= link_to tour_detail.tour.name, tour_detail %>
             </h3>
             <div class="description"><%= tour_detail.tour.description %></div>
-            <ul class="list-group list-group-flush tour-info">
-              <li class="list-group-item"><%= t ".start_time" %>: <%= tour_detail.start_time %></li>
-              <li class="list-group-item"><%= t ".end_time" %>: <%= tour_detail.end_time %></li>
-              <li class="list-group-item"><%= t ".price" %>: <%= tour_detail.price %></li>
-              <li class="list-group-item"><%= tour_detail.people_number %> <%= t ".people_number" %></li>
-            </ul>
-            <p>
+              <ul class="list-group list-group-flush tour-info">
+                <li class="list-group-item"><%= t ".start_time" %>: <%= tour_detail.start_time %></li>
+                <li class="list-group-item"><%= t ".end_time" %>: <%= tour_detail.end_time %></li>
+                <li class="list-group-item"><%= t ".price" %>: <%= tour_detail.price %></li>
+                <li class="list-group-item"><%= tour_detail.people_number %> <%= t ".people_number" %></li>
+              </ul>
               <% if current_user&.role == "admin"%>
-                <%= link_to edit_tour_detail_path(tour_detail), class: "btn btn-sm btn-warning" do %>
-                  <span class="glyphicon glyphicon-pencil"></span>
-                <% end %>
-                <%= link_to tour_detail, method: :delete,
-                                        data: { confirm: t(".confirm") }, class: "btn btn-sm btn-danger" do %>
-                  <span class="glyphicon glyphicon-trash"></span>
-                <% end %>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <%= t "tours.index.actions" %> <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <%= link_to edit_tour_detail_path(tour_detail) do %>
+                        <span class="glyphicon glyphicon-pencil"></span>
+                        <%= t "tours.index.edit" %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to purge_tour_detail_path(tour_detail), method: :delete,
+                                        data: { confirm: t(".confirm") } do %>
+                        <span class="glyphicon glyphicon-remove"></span>
+                        <%= t "tours.index.purge" %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to recover_tour_detail_path(tour_detail), method: :put do %>
+                        <span class="glyphicon glyphicon-repeat"></span>
+                        <%= t "tours.index.recover" %>
+                      <% end %>
+                    </li>
+                    <li>
+                      <%= link_to tour_detail, method: :delete,
+                                        data: { confirm: t(".confirm") } do %>
+                        <span class="glyphicon glyphicon-trash"></span>
+                        <%= t "tours.index.delete" %>
+                      <% end %>
+                    </li>
+                  </ul>
+                </div>
               <% end %>
-            </p>
           </div>
         </div>
         </div>
