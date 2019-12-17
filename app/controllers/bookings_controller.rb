@@ -35,7 +35,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     if @booking.save
       flash[:success] = t(".add_success")
-      redirect_to @booking
+      redirect_to @booking.paypal_url booking_path(@booking)
     else
       flash[:danger] = t(".add_failed")
       render :new
@@ -100,6 +100,22 @@ class BookingsController < ApplicationController
       flash[:danger] = t(".change_status_failed")
     end
     redirect_to bookings_path
+  end
+
+  def pay
+    redirect_to @booking.paypal_url booking_path(@booking)
+  end
+
+  protect_from_forgery except: [:hook]
+  def hook
+    params.permit!
+    status = params[:payment_status]
+    return unless status == "Completed"
+
+    @booking = Booking.find params[:invoice]
+    @booking.update notification_params: params, status: 2,
+                    transaction_id: params[:txn_id],
+                    purchased_at: Time.zone.now
   end
 
   private

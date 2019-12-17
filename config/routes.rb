@@ -16,6 +16,8 @@ Rails.application.routes.draw do
         patch :recover
         put :recover
         delete :purge
+        post :hook
+        get :pay
       end
     end
     resources :categories

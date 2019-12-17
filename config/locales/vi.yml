@@ -326,6 +326,7 @@ vi:
       user_name: "Tên khách hàng: "
       cancel: "Hủy đơn đặt chỗ này"
       confirm: "Bạn chắc chứ?"
+      checkout: "Thanh toán"
     create:
       add_success: "Đơn đặt chỗ của bạn đã được tạo thành công"
       add_failed: "Đơn đặt chỗ của bạn chưa được tạo"

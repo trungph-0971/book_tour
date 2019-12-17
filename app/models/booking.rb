@@ -15,6 +15,23 @@ class Booking < ApplicationRecord
     update deleted_at: nil
   end
 
+  def paypal_url return_path
+    values = {
+      business: "trungphan1328@business.sun.com",
+      cmd: "_xclick",
+      upload: 1,
+      return: "#{Rails.application.secrets.app_host}#{return_path}",
+      notify_url: "#{Rails.application.secrets.app_host}/bookings/#{id}/hook",
+      invoice: id,
+      amount: tour_detail.price,
+      currency_code: "GBP",
+      item_name: tour_detail.tour.name,
+      item_number: tour_detail.id,
+      quantity: people_number
+    }
+    "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + values.to_query
+  end
+
   private
   def cal_price
     @tour_detail = TourDetail.find_by id: tour_detail_id

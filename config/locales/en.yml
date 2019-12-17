@@ -236,7 +236,7 @@ en:
       delete_success: "Tour has been deleted"
       delete_failed: "Tour has not been deleted yet"
     recover:
-      recover_sucess: "This tour has been recovered"
+      recover_success: "This tour has been recovered"
       recover_failed: "Fail to recover this tour"
     purge:
       purge_success: "This tour has been removed"
@@ -321,6 +321,7 @@ en:
       user_name: "Customer name: "
       cancel: "Cancel this booking"
       confirm: "Are you sure?"
+      checkout: "Checkout"
     create:
       add_success: "Your booking has been created successfully"
       add_failed: "Fail to create your booking"

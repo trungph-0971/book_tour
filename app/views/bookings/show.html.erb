@@ -35,6 +35,9 @@
                               data: { confirm: t(".confirm") }, class:"btn btn-lg btn-danger cancel-btn" do %>
           <%= t ".cancel" %>
         <% end %>
+        <%= link_to pay_booking_path, class:"btn btn-lg btn-success cancel-btn" do %>
+          <%= t ".checkout" %>
+        <% end %>
       <% end %>
     </section>
   </aside>
