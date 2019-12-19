@@ -1,9 +1,10 @@
 require "rails_helper"
 
 RSpec.describe Tour, type: :model do
-  let(:category) {FactoryGirl.create :category}
+  let!(:category) {FactoryBot.create :category}
   subject {category}
-  let(:tour) {FactoryGirl.create :tour, category: category}
+  
+  let!(:tour) {FactoryBot.create :tour, category: category}
   subject {tour}
 
   #Test Tour model validations

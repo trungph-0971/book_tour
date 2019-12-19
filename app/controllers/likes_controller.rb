@@ -1,6 +1,6 @@
 class LikesController < ApplicationController
-  before_action :find_review
-  before_action :find_like, only: :destroy
+  before_action :load_review
+  before_action :load_like, only: :destroy
 
   def create
     if already_liked?
@@ -27,12 +27,18 @@ class LikesController < ApplicationController
   end
 
   private
-  def find_review
-    @review = Review.find params[:review_id]
+  def load_review
+    return if @review = Review.find(params[:review_id])
+
+    flash[:danger] = t "reviews.nonexist"
+    redirect_to root_path
   end
 
-  def find_like
-    @like = @review.likes.find params[:id]
+  def load_like
+    return if @like = @review.likes.find(params[:id])
+
+    flash[:danger] = t "likes.nonexist"
+    redirect_to root_path
   end
 
   def already_liked?

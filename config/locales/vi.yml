@@ -288,6 +288,7 @@ vi:
       ez-ticket: "E-Ticket included"
       ezcancel: "Easy cancellation"
       fastconfirm: "Fast confirmation"
+      max_rating: "/10"
     index:
       title: "Danh sách tour"
       h1: "Các gói tour"
@@ -365,6 +366,7 @@ vi:
       cancelled: "Cancel"
       includes_deleted: "Gồm các booking đã xóa"
       excludes_deleted: "Chỉ các booking đang có"
+      id: "Mã"
       tour_name: "Tên tour"
       cus_name: "Tên khách hàng"
       price: "Tổng tiền"
@@ -380,6 +382,7 @@ vi:
       book_date: "Ngày đặt"
       departure_date: "Ngày khởi hành"
   revenues:
+    nonexist: "Không tìm thấy bản ghi lợi nhuận này"
     index:
       title: "Lợi nhuận"
       h1: "Thống kê lợi nhuận theo tour"
@@ -406,6 +409,7 @@ vi:
       cancel_success: "Yêu cầu hủy đơn đặt chỗ của bạn dã được cập nhật"
       no_right: "Bạn không thể hủy đặt chỗ sau khi đơn đã được xác nhận. Vui lòng liên hệ chúng tôi!"
   reviews:
+    nonexist: "Không tìm thấy đánh giá này"
     index:
       rating: "Mức điểm"
       content: "Nội dung"
@@ -426,6 +430,8 @@ vi:
       delete_failed: "Xóa đánh giá thất bại"
   comments:
     send: "Gửi"
+    new:
+      newcomment: "Bình luận"
     create:
       add_success: "Bình luận của bạn đã được đăng"
       add_failed: "Đăng bình luận thất bại"
@@ -440,6 +446,7 @@ vi:
       placeholder: "Trả lời tại đây..."
       submit: "Gửi"
   likes:
+    nonexist: "Không tìm thấy lượt thích này"
     create:
       like_more: "Không thể thích bài viết hơn một lần"
     destroy:

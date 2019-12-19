@@ -1,4 +1,5 @@
 class TourDetail < ApplicationRecord
+  include Pictureable
   attr_accessor :link
   belongs_to :tour
   has_many :reviews, dependent: :destroy
@@ -11,7 +12,7 @@ class TourDetail < ApplicationRecord
   validates :price, presence: true
   validates :people_number, presence: true
   validate :end_time_after_start_time?
-  after_save :save_picture
+  after_save :add_picture
   scope :not_deleted, ->{where("deleted_at IS NULL")}
   scope :deleted, ->{where("deleted_at IS NOT NULL")}
   scope :available, ->{where("people_number > 0")}
@@ -37,12 +38,8 @@ class TourDetail < ApplicationRecord
     update deleted_at: nil
   end
 
-  def save_picture
-    @picture = Picture.new
-    @picture.pictureable_type = "TourDetail"
-    @picture.pictureable_id = id
-    @picture.link = link
-    @picture.save
+  def add_picture
+    save_picture "TourDetail"
   end
 
   private

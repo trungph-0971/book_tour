@@ -1,6 +1,6 @@
 require "faker"
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :tour_detail do |f|
     f.start_time {Faker::Date.in_date_period(year: 2019, month: 2)}
     f.end_time {Faker::Date.in_date_period(year: 2019, month: 3)}

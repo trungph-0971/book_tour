@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include CheckAdmin
   before_action :logged_in_user, except: %i(show create new)
   before_action :load_user, except: %i(index new create)
   before_action :correct_user, only: %i(edit update)
@@ -73,12 +74,7 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
     redirect_to root_path unless (current_user? @user) ||
-                                 current_user.admin?
-  end
-
-  # Confirms an admin user.
-  def admin_user
-    redirect_to root_path unless current_user.admin?
+                                 current_user&.admin?
   end
 
   def load_user

@@ -8,11 +8,11 @@ module ApplicationHelper
     end
   end
 
-  def get_picture model
+  def load_picture model
     model.pictures.present? ? model.pictures.link.url : Settings.default_picture
   end
 
-  def get_tours
+  def load_top_tours
     TourDetail.top3
   end
 end

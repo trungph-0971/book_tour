@@ -1,9 +1,10 @@
 require "rails_helper"
 
 RSpec.describe TourDetail, type: :model do
-  let(:tour) {FactoryGirl.create :tour}
+  let!(:tour) {FactoryBot.create :tour}
   subject {tour}
-  let(:tour_detail) {FactoryGirl.create :tour_detail, tour: tour}
+  
+  let!(:tour_detail) {FactoryBot.create :tour_detail, tour: tour}
   subject {tour_detail}
 
   #Test TourDetail model validations
@@ -55,6 +56,13 @@ RSpec.describe TourDetail, type: :model do
     it "has many pictures" do
       assc = TourDetail.reflect_on_association :pictures
       expect(assc.macro).to eq :has_many
+    end
+
+    it "belongs to a tour" do
+      tour = Tour.new
+      tour_detail = TourDetail.new
+      tour.tour_details << tour_detail
+      expect(tour_detail.tour).to be tour
     end
   end
 

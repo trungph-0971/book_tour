@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def hello
-    render html: t("views.layouts.hello")
+    render html: t "views.layouts.hello"
   end
 
   def respond_modal_with *args, &blk
@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     return if logged_in?
 
     store_location
-    flash[:danger] = t(".please_login")
+    flash[:danger] = t ".please_login"
     redirect_to login_path
   end
 end

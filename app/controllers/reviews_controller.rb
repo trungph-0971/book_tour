@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @reviews = if current_user.role == "admin"
+    @reviews = if current_user&.admin?
                  Review.includes(:user, :tour_detail).all
                        .paginate(page: params[:page])
                else
@@ -49,9 +49,9 @@ class ReviewsController < ApplicationController
 
   def destroy
     if @review.destroy
-      flash.now[:success] = t(".delete_success")
+      flash.now[:success] = t ".delete_success"
     else
-      flash.now[:danger] = t(".delete_failed")
+      flash.now[:danger] = t ".delete_failed"
     end
     redirect_back fallback_location: @tour_detail
   end
@@ -64,9 +64,10 @@ class ReviewsController < ApplicationController
   end
 
   def load_review
-    @review = Review.includes(:user, :tour_detail).find_by id: params[:id]
-    return if @review
+    return if @review = Review.includes(:user, :tour_detail)
+                              .find_by(id: params[:id])
 
+    flash[:danger] = t "reviews.nonexist"
     redirect_to root_path
   end
 end

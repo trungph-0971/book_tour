@@ -4,7 +4,7 @@
       <p ><%= comment.user.name %> : </p> <%= comment.content %>
     </div>
     <%if logged_in? %>
-      <%if current_user.admin? || current_user == comment.user%>
+      <%if current_user&.admin? || current_user == comment.user%>
         <%= link_to t(".delete"), comment_path(comment), method: :delete,
                             data: { confirm: t(".confirm") } %>
       <% end %>

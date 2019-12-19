@@ -36,7 +36,8 @@ gem "will_paginate"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
+  gem "pry-rails"
   gem "rspec-rails"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
@@ -56,6 +57,7 @@ group :test do
   gem "minitest", "5.10.3"
   gem "minitest-reporters", "1.1.14"
   gem "rails-controller-testing", "1.0.2"
+  gem "shoulda-matchers"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

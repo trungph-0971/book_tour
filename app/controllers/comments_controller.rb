@@ -18,14 +18,14 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = Comment.find params[:id]
-    if @comment.user == current_user || current_user.role == "admin"
+    if @comment.user == current_user || current_user&.admin?
       if @comment.destroy
-        flash[:success] = t(".delete_success")
+        flash[:success] = t ".delete_success"
       else
-        flash[:danger] = t(".delete_failed")
+        flash[:danger] = t ".delete_failed"
       end
     else
-      flash[:danger] = t(".not_authorized")
+      flash[:danger] = t ".not_authorized"
     end
     redirect_back fallback_location: @tour_detail
   end

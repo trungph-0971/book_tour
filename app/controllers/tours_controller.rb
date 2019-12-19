@@ -1,4 +1,5 @@
 class ToursController < ApplicationController
+  include CheckAdmin
   before_action :admin_user
   before_action :load_tour, except: %i(index new create)
 
@@ -13,7 +14,10 @@ class ToursController < ApplicationController
   end
 
   def show
-    @category = Category.find_by id: @tour.category_id
+    return if @category = Category.find_by(id: @tour.category_id)
+
+    flash[:danger] = t "categories.nonexist"
+    redirect_to root_path
   end
 
   def new
@@ -23,37 +27,37 @@ class ToursController < ApplicationController
   def create
     @tour = Tour.new tour_params
     if @tour.save
-      flash[:success] = t(".add_success")
+      flash[:success] = t ".add_success"
       redirect_to @tour
     else
-      flash[:danger] = t(".add_failed")
+      flash[:danger] = t ".add_failed"
       render :new
     end
   end
 
   def destroy
     if @tour.soft_delete
-      flash[:success] = t(".delete_success")
+      flash[:success] = t ".delete_success"
     else
-      flash[:danger] = t(".delete_failed")
+      flash[:danger] = t ".delete_failed"
     end
     redirect_to tours_path
   end
 
   def purge
     if @tour.destroy
-      flash[:success] = t(".purge_success")
+      flash[:success] = t ".purge_success"
     else
-      flash[:danger] = t(".purge_failed")
+      flash[:danger] = t ".purge_failed"
     end
     redirect_to tours_path
   end
 
   def recover
     if @tour.recover
-      flash[:success] = t(".recover_success")
+      flash[:success] = t ".recover_success"
     else
-      flash[:danger] = t(".recover_failed")
+      flash[:danger] = t ".recover_failed"
     end
     redirect_to tours_path
   end
@@ -62,10 +66,10 @@ class ToursController < ApplicationController
 
   def update
     if @tour.update tour_params
-      flash[:success] = t(".update_success")
+      flash[:success] = t ".update_success"
       redirect_to @tour
     else
-      flash[:danger] = t(".update_failed")
+      flash[:danger] = t ".update_failed"
       render :edit
     end
   end
@@ -76,16 +80,10 @@ class ToursController < ApplicationController
     params.require(:tour).permit(:name, :description, :category_id)
   end
 
-  # Confirms an admin user.
-  def admin_user
-    redirect_to root_path unless current_user.admin?
-  end
-
   def load_tour
-    @tour = Tour.find_by id: params[:id]
-    return if @tour
+    return if @tour = Tour.find_by(id: params[:id])
 
-    flash[:danger] = t("tours.nonexist")
+    flash[:danger] = t "tours.nonexist"
     redirect_to root_path
   end
 end

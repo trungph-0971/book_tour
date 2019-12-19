@@ -1,7 +1,8 @@
 class Booking < ApplicationRecord
   belongs_to :tour_detail
   belongs_to :user
-  validates :people_number, presence: true
+  validates :people_number, presence: true,
+             numericality: {greater_than: 0}
   before_save :cal_price
   enum status: {pending: 1, confirmed: 2, cancelled: 3}
   scope :not_deleted, ->{where("deleted_at IS NULL")}

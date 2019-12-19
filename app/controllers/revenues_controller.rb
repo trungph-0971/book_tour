@@ -1,4 +1,6 @@
 class RevenuesController < ApplicationController
+  include CheckAdmin
+  before_action :admin_user
   before_action :load_revenue, only: %i(show destroy)
 
   def index
@@ -11,16 +13,16 @@ class RevenuesController < ApplicationController
   end
 
   def show
-    @tour_detail = TourDetail.find_by id: @revenue.tour_detail_id
+    @tour_detail = TourDetail.find_by(id: @revenue.tour_detail_id)
     @bookings = Booking.where(tour_detail_id: @tour_detail.id)
                        .paginate(page: params[:page])
   end
 
   def destroy
     if @revenue.destroy
-      flash[:success] = t(".delete_success")
+      flash[:success] = t ".delete_success"
     else
-      flash[:danger] = t(".delete_failed")
+      flash[:danger] = t ".delete_failed"
     end
     redirect_to revenues_path
   end
@@ -28,6 +30,9 @@ class RevenuesController < ApplicationController
   private
 
   def load_revenue
-    @revenue = Revenue.find_by id: params[:id]
+    return if @revenue = Revenue.find_by(id: params[:id])
+
+    flash.now[:danger] = t "revenues.nonexist"
+    render :index
   end
 end

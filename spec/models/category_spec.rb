@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe Category, type: :model do
-  let(:category) {FactoryGirl.create :category}
+  let!(:category) {FactoryBot.create :category}
   subject {category}
 
   #Test Category model validations

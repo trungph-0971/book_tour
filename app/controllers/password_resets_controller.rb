@@ -1,5 +1,5 @@
 class PasswordResetsController < ApplicationController
-  before_action :get_user, only: [:edit, :update]
+  before_action :load_user, only: [:edit, :update]
   before_action :valid_user, only: [:edit, :update]
   before_action :check_expiration, only: [:edit, :update]
 
@@ -10,10 +10,10 @@ class PasswordResetsController < ApplicationController
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      flash[:info] = t(".sent")
+      flash[:info] = t ".sent"
       redirect_to root_path
     else
-      flash.now[:danger] = t(".notfound")
+      flash.now[:danger] = t ".notfound"
       render :new
     end
   end
@@ -26,7 +26,7 @@ class PasswordResetsController < ApplicationController
       render :edit
     elsif @user.update user_params
       log_in @user
-      flash[:success] = t(".reset_success")
+      flash[:success] = t ".reset_success"
       redirect_to @user
     else
       render :edit
@@ -39,8 +39,11 @@ class PasswordResetsController < ApplicationController
     params.require(:user).permit(:password, :password_confirmation)
   end
 
-  def get_user
-    @user = User.find_by(email: params[:email])
+  def load_user
+    return if @user = User.find_by(email: params[:email])
+
+    flash.now[:danger] = t "password_resets.create.notfound"
+    render :new
   end
 
   # Confirms a valid user.

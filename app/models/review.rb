@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
+  include Pictureable
   attr_accessor :link
   has_many :comments, as: :commentable, dependent: :destroy,
               inverse_of: :commentable
@@ -9,19 +10,17 @@ class Review < ApplicationRecord
   belongs_to :tour_detail
 
   validates :content, presence: true
-  validates :rating, presence: true
+  validates :rating, presence: true,
+                     numericality: {greater_than_or_equal_to: 1,
+                                    less_than_or_equal_to: 10}
 
-  after_save :save_picture
+  after_save :add_picture
 
   accepts_nested_attributes_for :pictures,
                                 reject_if:
                                 proc{|attributes| attributes["link"].blank?}
 
-  def save_picture
-    @picture = Picture.new
-    @picture.pictureable_type = "Review"
-    @picture.pictureable_id = id
-    @picture.link = link
-    @picture.save
+  def add_picture
+    save_picture "Review"
   end
 end

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   devise :omniauthable,
          omniauth_providers: [:facebook, :twitter, :google_oauth2]
   has_many :bookings, dependent: :destroy
+  has_many :identities, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy,

@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+  include CheckAdmin
   before_action :admin_user, only: %i(edit update)
   before_action :load_tour_detail, only: %i(create reduce_quantity cal_revenue)
   before_action :load_booking, except: %i(index new create)
@@ -7,7 +8,7 @@ class BookingsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @bookings = if current_user.admin?
+    @bookings = if current_user&.admin?
                   if params.key?(:soft_deleted)
                     Booking.includes(:tour_detail).all
                            .paginate(page: params[:page])
@@ -21,7 +22,10 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.find_by id: params[:id]
+    return if @booking = Booking.find_by(id: params[:id])
+
+    flash[:danger] = t "bookings.nonexist"
+    redirect_to root_path
   end
 
   def new
@@ -34,10 +38,10 @@ class BookingsController < ApplicationController
     @booking = @tour_detail.bookings.build booking_params
     @booking.user = current_user
     if @booking.save
-      flash[:success] = t(".add_success")
+      flash[:success] = t ".add_success"
       redirect_to @booking.paypal_url booking_path(@booking)
     else
-      flash[:danger] = t(".add_failed")
+      flash[:danger] = t ".add_failed"
       render :new
     end
   end
@@ -46,58 +50,58 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update booking_params
-      flash[:success] = t(".update_success")
+      flash[:success] = t ".update_success"
       redirect_to @booking
     else
-      flash[:danger] = t(".update_failed")
+      flash[:danger] = t ".update_failed"
       render :edit
     end
   end
 
   def destroy
-    if current_user.admin?
+    if current_user&.admin?
       if @booking.soft_delete
-        flash[:success] = t(".delete_success")
+        flash[:success] = t ".delete_success"
       else
-        flash[:danger] = t(".delete_failed")
+        flash[:danger] = t ".delete_failed"
       end
     elsif @booking.pending?
       @booking.status = "cancelled"
       @booking.save
-      flash[:success] = t(".cancel_success")
+      flash[:success] = t ".cancel_success"
     else
-      flash[:danger] = t(".no_right")
+      flash[:danger] = t ".no_right"
     end
     redirect_to bookings_path
   end
 
   def purge
-    if current_user.admin?
+    if current_user&.admin?
       if @booking.destroy
-        flash[:success] = t(".purge_success")
+        flash[:success] = t ".purge_success"
       else
-        flash[:danger] = t(".pudge_failed")
+        flash[:danger] = t ".pudge_failed"
       end
     else
-      flash[:danger] = t("destroy.no_right")
+      flash[:danger] = t "destroy.no_right"
     end
     redirect_to bookings_path
   end
 
   def recover
     if @booking.recover
-      flash[:success] = t(".recover_success")
+      flash[:success] = t ".recover_success"
     else
-      flash[:danger] = t(".recover_failed")
+      flash[:danger] = t ".recover_failed"
     end
     redirect_to bookings_path
   end
 
   def change_status
     if @booking.update status: params[:status]
-      flash[:success] = t(".change_status_success")
+      flash[:success] = t ".change_status_success"
     else
-      flash[:danger] = t(".change_status_failed")
+      flash[:danger] = t ".change_status_failed"
     end
     redirect_to bookings_path
   end
@@ -130,21 +134,20 @@ class BookingsController < ApplicationController
            .paginate(page: params[:page])
   end
 
-  # Confirms an admin user.
-  def admin_user
-    redirect_to root_path unless current_user.role == "admin"
-  end
-
   def load_booking
-    @booking = Booking.find_by id: params[:id]
+    @booking = Booking.find_by(id: params[:id])
     return if @booking
 
-    flash[:danger] = t("bookings.nonexist")
+    flash[:danger] = t "bookings.nonexist"
     redirect_to root_path
   end
 
   def load_tour_detail
-    @tour_detail = TourDetail.find_by id: params[:booking][:tour_detail_id]
+    return if @tour_detail = TourDetail
+              .find_by(id: params[:booking][:tour_detail_id])
+
+    flash[:danger] = t "tour_details.nonexist"
+    redirect_to root_path
   end
 
   def reduce_quantity

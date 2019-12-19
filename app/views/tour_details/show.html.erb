@@ -35,9 +35,9 @@
         <div class= "actions">
           <% if logged_in? %>
             <div class="tour-btn">
-              <% if @tour_detail.people_number != 0%>
+              <% if @tour_detail.people_number != Settings.out_of_slots%>
                 <p class = "booking-text"><%= @tour_detail.price %> per person</p>
-                <%= link_to t(".book"), new_booking_path(:tour_detail => @tour_detail.id), data: { modal: true }, class: "btn btn-danger btn-lg booking-btn" %>
+                <%= link_to t(".book"), new_booking_path(tour_detail: @tour_detail.id), data: { modal: true }, class: "btn btn-danger btn-lg booking-btn" %>
                 <ul class= "text-box">
                   <li> <%= t ".e-ticket" %> </li>
                   <li> <%= t ".ezcancel" %> </li>
@@ -59,14 +59,14 @@
 <div class="row">
   <h2 class="reviews"><%= t ".h2"%></h2>
   <% if logged_in? %>
-    <%= link_to t(".review"), new_review_path(:tour_detail => @tour_detail.id, :user => current_user.id), data: { modal: true }, class: "btn btn-info review-btn" %>
+    <%= link_to t(".review"), new_review_path(tour_detail: @tour_detail.id, user: current_user.id), data: { modal: true }, class: "btn btn-info review-btn" %>
   <% end %>
   <%unless get_reviews(@tour_detail.id).empty? %>
     <% get_reviews(@tour_detail.id).each do |review|%>
       <div class="col-md review-section">
-        <div style="margin-bottom: 30px">
+        <div class="review-btn-section">
         <%if logged_in? %>
-          <% if current_user == review.user || current_user.role == "admin"%>
+          <% if current_user == review.user || current_user&.admin? %>
             <div class="review-delete-btn">
               <%= link_to review, method: :delete,
                                           data: { confirm: t("reviews.index.confirm") }, class: "btn btn-sm btn-light" do %>
@@ -78,7 +78,7 @@
         </div>
         <div class="row">
           <div class="col-md-3">
-            <div class="rating-back"> <p class="rating"> <%= review.rating %>/10 </p> </div>
+            <div class="rating-back"> <p class="rating"> <%= review.rating %><%= t ".max_rating" %> </p> </div>
             <p class="review-user"> <%= review.user.name %> </p>
             <h2> <%= review.created_at.strftime("%d %b %Y") %> </h2>
           </div>
@@ -89,7 +89,7 @@
             </div>
           </div>
         </div>
-        <p class="like" id="likes" ><%= review.likes.count %> <%= (review.likes.count) == 1 ? t(".like") : t(".likes") %></p>
+        <p class="like" id="likes" ><%= review.likes.count %> <%= (review.likes.count) == Settings.like_count ? t(".like") : t(".likes") %></p>
         <% if logged_in? %>
           <%= render partial: "like_form", locals: {review: review}%>
         <% end %>

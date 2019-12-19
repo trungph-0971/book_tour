@@ -35,6 +35,9 @@ class SessionsController < ApplicationController
   end
 
   def load_user
-    @user = User.find_by email: params[:session][:email].downcase
+    return if @user = User.find_by(email: params[:session][:email].downcase)
+
+    flash[:danger] = t ".users.nonexist"
+    redirect_to root_path
   end
 end

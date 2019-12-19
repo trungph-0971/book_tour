@@ -283,6 +283,7 @@ en:
       e-ticket: "E-Ticket included"
       ezcancel: "Easy cancellation"
       fastconfirm: "Fast confirmation"
+      max_rating: "/10"
     recover:
       recover_sucess: "This tour has been recovered"
       recover_failed: "Fail to recover this tour"
@@ -362,6 +363,7 @@ en:
       cancelled: "Cancel"
       includes_deleted: "Included deleted bookings"
       excludes_deleted: "Only existed bookings"
+      id: "ID"
       tour_name: "Tour name"
       cus_name: "Customer name"
       price: "Total price"
@@ -377,6 +379,7 @@ en:
       book_date: "Book date"
       departure_date: "Departure date"
   revenues:
+    nonexist: "This revenue ís not exist"
     index:
       title: "Revenue"
       h1: "Revenue of tours"
@@ -401,6 +404,7 @@ en:
       delete_success: "This record of revenue has been deleted"
       delete_failed: "Fail to delete the record of this revenue"
   reviews:
+    nonexist: "The review is not exist."
     index:
       rating: "Rating"
       content: "Content"
@@ -421,6 +425,8 @@ en:
       delete_failed: "Fail to delete the review"
   comments:
     send: "Send"
+    new:
+      newcomment: "New comment"
     create:
       add_success: "Your comment has been posted"
       add_failed: "Fail to post your comment"
@@ -435,6 +441,7 @@ en:
       placeholder: "Reply here..."
       submit: "Send"
   likes:
+    nonexist: "Cannot find any like"
     create:
       like_more: "Cannot like a post more than once"
     destroy:

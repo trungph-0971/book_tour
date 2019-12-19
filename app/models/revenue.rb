@@ -1,4 +1,5 @@
 class Revenue < ApplicationRecord
+  validates :revenue, presence: true
   belongs_to :tour_detail
 
   def self.to_csv options = {}
