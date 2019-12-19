@@ -36,6 +36,8 @@ gem "will_paginate"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
+  gem "factory_girl_rails"
+  gem "rspec-rails"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
   gem "selenium-webdriver"

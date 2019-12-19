@@ -15,8 +15,8 @@ class Booking < ApplicationRecord
     update deleted_at: nil
   end
 
-  def paypal_url return_path
-    values = {
+  def paypal_values return_path
+    {
       business: "trungphan1328@business.sun.com",
       cmd: "_xclick",
       upload: 1,
@@ -29,7 +29,11 @@ class Booking < ApplicationRecord
       item_number: tour_detail.id,
       quantity: people_number
     }
-    "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" + values.to_query
+  end
+
+  def paypal_url return_path
+    "#{Rails.application.secrets.paypal_host}/cgi-bin/webscr?" +
+      paypal_values(return_path).to_query
   end
 
   private
