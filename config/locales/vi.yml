@@ -54,6 +54,8 @@ vi:
       p2: "Gửi email cho mình: phan.hoang.trung@sun-asterisk.com"
   users:
     nonexist: "Người dùng này không tồn tại"
+    deny_1: "Bạn không có quyền để thực hiện hành động này"
+    deny_2: "Bạn không được cấp quyền để thực hiện hành động này"
     omniauth_callbacks:
       twitter:
         success: "Đăng nhập thành công..!"
