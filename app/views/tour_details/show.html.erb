@@ -1,0 +1,114 @@
+<% provide :title, @tour.name %>
+<div class="row">
+  <aside class="col-md">
+    <section class="user_info">
+      <h1 class = "tour-name">
+        <%= @tour.name %> | <%= @category.name %>
+      </h1>
+      <div class="review-picture">
+        <%= render partial: "pictures/picture", locals: {pictureable: @tour_detail} %>
+      </div>
+      <p class = "tourdetail_label_1" ><%= t ".description" %></p>
+      <p class = "tour-description">
+        <%= @tour.description %>
+      </p>
+      <p class = "tourdetail_label_1" ><%= t ".info" %></p>
+      <div class = "col-md-6">
+        <p class = "tourdetail_label" ><%= t ".start_time" %></p>
+        <p>
+          <%= @tour_detail.start_time %>
+        </p>
+        <p class = "tourdetail_label" ><%= t ".end_time" %></p>
+        <p>
+          <%= @tour_detail.end_time %>
+        </p>
+        <p class = "tourdetail_label" ><%= t ".price" %></p>
+        <p>
+          <%= @tour_detail.price %>
+        </p>
+        <p class = "tourdetail_label" ><%= t ".people_number" %></p>
+        <p>
+          <%= @tour_detail.people_number %>
+        </p>
+      </div>
+      <div class = "col-md-6">
+        <div class= "actions">
+          <% if logged_in? %>
+            <div class="tour-btn">
+              <% if @tour_detail.people_number != Settings.out_of_slots%>
+                <p class = "booking-text"><%= @tour_detail.price %> per person</p>
+                <%= link_to t(".book"), new_booking_path(tour_detail: @tour_detail.id), data: { modal: true }, class: "btn btn-danger btn-lg booking-btn" %>
+                <ul class= "text-box">
+                  <li> <%= t ".e-ticket" %> </li>
+                  <li> <%= t ".ezcancel" %> </li>
+                  <li> <%= t ".fastconfirm" %> </li>
+                </ul>
+              <% else %>
+                <p><%= t ".out_slots" %></p>
+              <% end %>
+            </div>
+          <% else %>
+            <h2> <%= t ".bookhint" %> </h2>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  </aside>
+</div>
+
+<div class="row">
+  <h2 class="reviews"><%= t ".h2"%></h2>
+  <% if logged_in? %>
+    <%= link_to t(".review"), new_review_path(tour_detail: @tour_detail.id, user: current_user.id), data: { modal: true }, class: "btn btn-info review-btn" %>
+  <% end %>
+  <%unless get_reviews(@tour_detail.id).empty? %>
+    <% get_reviews(@tour_detail.id).each do |review|%>
+      <div class="col-md review-section">
+        <div class="review-btn-section">
+        <%if logged_in? %>
+          <% if current_user == review.user || current_user&.admin? %>
+            <div class="review-delete-btn">
+              <%= link_to review, method: :delete,
+                                          data: { confirm: t("reviews.index.confirm") }, class: "btn btn-sm btn-light" do %>
+                  <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+            </div>
+          <% end %>
+        <% end %>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="rating-back"> <p class="rating"> <%= review.rating %><%= t ".max_rating" %> </p> </div>
+            <p class="review-user"> <%= review.user.name %> </p>
+            <h2> <%= review.created_at.strftime("%d %b %Y") %> </h2>
+          </div>
+          <div class="col-md-9">
+            <div class="review-content"> <%= review.content %> </div>
+            <div class="review-picture">
+              <%= render partial: "pictures/picture", locals: {pictureable: review} %>
+            </div>
+          </div>
+        </div>
+        <p class="like" id="likes" ><%= review.likes.count %> <%= (review.likes.count) == Settings.like_count ? t(".like") : t(".likes") %></p>
+        <% if logged_in? %>
+          <%= render partial: "like_form", locals: {review: review}%>
+        <% end %>
+        <button type="button" class="btn btn-default cmt">
+          <span class="glyphicon glyphicon-comment"></span>
+          Comment
+        </button>
+
+        <div class="comment-section">  
+          <%= render partial: "comments/comment", locals: {commentable: review} %>
+          <%if logged_in? %>
+            <%= render partial: "comments/form", locals: {commentable: review} %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% else %>
+      <div class="no-reviews">
+          <%= t ".no_reviews" %>
+      </div>
+  <% end %>
+</div>

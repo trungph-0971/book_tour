@@ -1,0 +1,13 @@
+<div class="row">
+  <% categories.each do |category| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3><%= category.name %></h3>
+          <p><%= link_to t(".seemore"), category, class: "btn btn-info" %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= will_paginate categories%>

@@ -2,6 +2,7 @@ en:
   base_title: "Sun* Tour Booking App"
   eng: "English"
   vie: "Vietnamese"
+  search_btn: "Search"
   layouts:
     title: "Tour Booking App"
     name: "Trung Phan"
@@ -10,6 +11,17 @@ en:
       home: "Home"
       help: "Help"
       login: "Login"
+      users: "Users"
+      categories: "Categories"
+      tours: "Tours"
+      account: "Account"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Log out"
+      tour_details: "Tour Details"
+      bookings: "Bookings"
+      revenues: "Revenues"
+      categories: "Categories"
     footer:
       eng: "English"
       vie: "Vietnamese"
@@ -21,6 +33,10 @@ en:
       h1: "Welcome to Sun* Tour Booking"
       h2: "Sun* Tour Booking Application" 
       signupnow: "Sign up now!"
+      start_time: "Departure date"
+      end_time: "Return date"
+      price: "Price"
+      people_number: "slots left"
     help:
       title: "Help"
       h1: "Help"
@@ -37,18 +53,55 @@ en:
       p1: "who is a Ruby intern of Sun Asterisk"
       p2: "Email me: phan.hoang.trung@sun-asterisk.com"
   users:
-    new:
-      title: "Sign Up"
-      h1: "Sign Up"
-      p: "This will be sign up page"
+    nonexist: "This user is not exist"
+    omniauth_callbacks:
+      twitter:
+        success: "You are in..!"
+      facebook:
+        success: "You are in..!"
+      google_oauth2:
+        success: "You are in..!"
+    form:
       name: "Name"
       email: "Email"
       phone_number: "Phone number"
       password: "Password"
       confirmation: "Password confirmation"
+    index:
+      title: "All users"
+      h1: "All users"
+      confirm: "Are you sure?"
+      delete: "Delete"
+      cus_name: "User name"
+      email: "Email"
+      phone_number: "Phone number"
+      create_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
+    new:
+      title: "Sign Up"
+      h1: "Sign Up"
+      p: "This will be sign up page"
       create: "Create my account"
     show:
       nonexist: "User is not exist"
+      name: "Name"
+      email: "Email"
+      phone_number: "Phone number"
+    edit:
+      title: "Edit user"
+      h1: "Update profile"
+      save: "Save changes"
+      please_login: "Please log in"
+    update:
+      update_success: "Profile updated"
+      update_failed: "Profile is not updated"
+    create:
+      create_success: "Welcome to Sun* Tour Booking App!"
+      activation_notice: "Please checkout your mail to activate your account."
+    destroy:
+      delete_success: "User deleted"
+      delete_failed: "User is not deleted"
   shared:
     error_messages:
       message: "Form contains"
@@ -64,5 +117,332 @@ en:
       login: "Login"
       signupnow: "Sign up now!"
       new?: "New user?"
+      reset: "Forgot password"
+      remember: "Remember me"
+      facebook: "Sign in with Facebook"
+      twitter: "Sign in with Twitter"
+      google: "Sign in with Google"
     create:
-      login_failed: "Invalid email or password"
+      activate_message1: "Account not activated. "
+      activate_message2: "Check your email for the activation link."
+      invalid: "Invalid email/password combination"
+  user_mailer:
+    account_activation:
+      h1: "Sun* Tour Booking App"
+      p1: "Hello "
+      p2: "Welcome to the Sun* Tour Booking App! Click on the link below to activate your account:"
+      activate: "Activate"
+  account_activations:
+    edit:
+      invalid_link: "Invalid activation link"
+      activated: "Account has been activated"
+  password_resets:
+    new:
+      title: "Forgot password"
+      h1: "Forgot password"
+      email: "Email"
+      submit: "Submit"
+    create:
+      sent: "Email sent with password reset instructions"
+      notfound: "Email address not found"
+    edit:
+      title: "Reset password"
+      h1: "Reset password"
+      password: "Password"
+      confirmation: "Password confirmation"
+      update: "Update password"
+    update:
+      empty: "cannot be empty"
+      reset_success: "Password has been reset."
+      expired: "Password reset has expired"
+  categories:
+    nonexist: "This category is not exist"
+    index:
+      title: "Categories"
+      h1: "Categories"
+      delete: "Delete"
+      confirm: "Are you sure?"
+      update: "Update"
+      add: "Add"
+    show:
+      no_tours: "This category has not contained any tours yet. Come back later!"
+    new:
+      title: "Create new category"
+      h1: "New category"
+      name: "Name"
+      add: "Add"
+    create:
+      add_success: "Your category has been added, now you can use it to create tour."
+    destroy:
+      delete_success: "Category has been deleted"
+      delete_failed: "Category has not been deleted yet"
+    edit:
+      title: "Edit category"
+      h1: "Edit category"
+      name: "Thể loại"
+      update: "Update"
+    update:
+      update_success: "Category has been updated"
+      update_failed: "Category has not been updated yet"
+    user:
+      seemore: "See more"
+    admin:
+      cat_name: "Category"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
+  tours:
+    nonexist: "This tour is not exist"
+    form:
+      name: "Name"
+      description: "Description"
+      category: "Category"
+    new:
+      title: "Create new tour"
+      h1: "Create new tour"
+      create: "Create"
+    create:
+      add_success: "Tours has been created"
+      add_failed: "Tour has not beed created yet"
+    index:
+      title: "Tours"
+      h1: "Tours"
+      add: "Add"
+      delete: "Delete"
+      confirm: "Are your sure?"
+      update: "Update"
+      name: "Tour name"
+      cat_name: "Category"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
+      includes_deleted: "Included deleted tours"
+      excludes_deleted: "Only existed tours"
+      edit: "Edit"
+      purge: "Purge"
+      recover: "Recover"
+      actions: "Actions"
+    edit:
+      title: "Edit tour"
+      h1: "Edit"
+      name: "Name"
+      description: "Description"
+      category: "Category"
+      update: "Update"
+    update:
+      update_success: "Tour has been updated successfully"
+      update_failed: "Tour update has been failed"
+    destroy:
+      delete_success: "Tour has been deleted"
+      delete_failed: "Tour has not been deleted yet"
+    recover:
+      recover_success: "This tour has been recovered"
+      recover_failed: "Fail to recover this tour"
+    purge:
+      purge_success: "This tour has been removed"
+      purge_failed: "Fail to remove this tour"
+  tour_details:
+    nonexist: "The details for this tour is not exist"
+    form:
+      tour: "Tour"
+      start_time: "Start time"
+      end_time: "End time"
+      price: "Price"
+      people_number: "Number of people"
+    new:
+      title: "Create new tour with details"
+      h1: "New tour with details"
+      create: "Create"
+    create:
+      create_success: "Details of the tour has been created"
+      create_failed: "Fail to add details to the tour"
+    destroy:
+      delete_success: "Details of the tour has been deleted"
+      delete_failed: "Fail to delete details of the tour"
+    update:
+      update_success: "Details of the tour has been updated"
+      update_failed: "Fail to update details of the tour"
+    show:
+      h2: "Customer reviews"
+      description: "Description"
+      start_time: "Departure date: "
+      end_time: "End date: "
+      price: "Price: "
+      people_number: "Number of people remaining: "
+      book: "Book Now"
+      review: "Review this tour"
+      rating: "Rating"
+      content: "Content"
+      comments: "Comments"
+      like: "Like"
+      likes: "Likes"
+      no_reviews: "This tour hasn't contained any reviews yet"
+      bookhint: "Sign up now to book the tour!"
+      info: "Information"
+      out_slots: "This tour is out of slots. See you soon!"
+      e-ticket: "E-Ticket included"
+      ezcancel: "Easy cancellation"
+      fastconfirm: "Fast confirmation"
+      max_rating: "/10"
+    recover:
+      recover_sucess: "This tour has been recovered"
+      recover_failed: "Fail to recover this tour"
+    purge:
+      purge_success: "This tour has been removed"
+      purge_failed: "Fail to remove this tour"
+    index:
+      title: "All tours"
+      h1: "Tours with details"
+      add: "Add"
+      confirm: "Are you sure?"
+      name: "Tour name"
+      start_time: "Departure date"
+      end_time: "Return date"
+      price: "Price"
+      people_number: "slots left"
+      operations: "Operations"
+      searching: " Search here..."
+      includes_deleted: "Included deleted tours"
+      excludes_deleted: "Only existed tours"
+    edit:
+      title: "Edit detail of the tour"
+      update: "Update"
+      h1: "Update the tour"
+  bookings:
+    nonexist: "This booking is not exist"
+    form:
+      people_number: "How many people you want to book?"
+      submit: "Submit"
+    show:
+      start_time: "Start time: "
+      end_time: "End time: "
+      price: "Price: "
+      people_number: "Number of people: "
+      status: "Status: "
+      user_name: "Customer name: "
+      cancel: "Cancel this booking"
+      confirm: "Are you sure?"
+      checkout: "Checkout"
+    create:
+      add_success: "Your booking has been created successfully"
+      add_failed: "Fail to create your booking"
+    edit:
+      title: "Edit bookings"
+      h1: "Edit booking no."
+      tour: "Tour name"
+      price: "Total price"
+      people_number: "Number of people"
+      status: "Status"
+      update: "Update"
+    index:
+      title: "Bookings"
+      h1: "List of bookings"
+      h1_2: "My bookings"
+    change_status:
+      change_status_success: "Booking's status hes been updated"
+      change_status_failed: "Booking's status has not been updated yet"
+    update:
+      update_success: "This booking has been updated successfully"
+      update_failed: "Fail to update this booking"
+    destroy:
+      delete_success: "This booking has been deleted"
+      delete_failed: "Fail to delete this booking"
+      cancel_success: "Your cancellation request has been updated"
+      no_right: "You cannot cancel the booking when it is confirmed. Please contact us!"
+    recover:
+      recover_sucess: "This booking has been recovered"
+      recover_failed: "Fail to recover this booking"
+    purge:
+      purge_success: "This booking has been removed"
+      purge_failed: "Fail to remove this booking"
+    admin:
+      add: "Add"
+      confirm: "Are you sure?"
+      confirmed: "Confirm"
+      pending: "Pending"
+      cancelled: "Cancel"
+      includes_deleted: "Included deleted bookings"
+      excludes_deleted: "Only existed bookings"
+      id: "ID"
+      tour_name: "Tour name"
+      cus_name: "Customer name"
+      price: "Total price"
+      people_number: "Number of people"
+      status: "Status"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
+    user:
+      price: "Total price"
+      people_number: "Number of people"
+      status: "Status"
+      book_date: "Book date"
+      departure_date: "Departure date"
+  revenues:
+    nonexist: "This revenue ís not exist"
+    index:
+      title: "Revenue"
+      h1: "Revenue of tours"
+      add: "Add"
+      tour_name: "Tour name"
+      revenue: "Revenue"
+      created_at: "Created at"
+      updated_at: "Updated at"
+      operations: "Operations"
+      confirm: "Are your sure?"
+    show:
+      title: "Detail of revenue"
+      h1: "Revenue of "
+      revenue: "Revenue: "
+      created_at: "Created at: "
+      updated_at: "Updated at: "
+      tour_name: "Tour name"
+      cus_name: "Customer name"
+      price: "Total price"
+      bookings: "Bookings"
+    destroy:
+      delete_success: "This record of revenue has been deleted"
+      delete_failed: "Fail to delete the record of this revenue"
+  reviews:
+    nonexist: "The review is not exist."
+    index:
+      rating: "Rating"
+      content: "Content"
+      confirm: "Are you sure?"
+      no_reviews: "You have no reviews at the moment, let us hear your opinion!"
+    create:
+      create_success: "Review has been posted"
+      create_failed: "Review has not been posted yet"
+    update:
+      update_success: "Your review has been updated"
+      update_failed: "Fail to update your review"
+    form:
+      rating: "How many point do you rate this tour on 10?"
+      content: "Content"
+      submit: "Submit"
+    destroy:
+      delete_success: "Review has been deleted"
+      delete_failed: "Fail to delete the review"
+  comments:
+    send: "Send"
+    new:
+      newcomment: "New comment"
+    create:
+      add_success: "Your comment has been posted"
+      add_failed: "Fail to post your comment"
+    destroy:
+      delete_success: "Your comment has been deleted"
+      delete_failed: "Fail to delete your comment"
+      not_authorized: "Oops! You are not authorized to do this, mate"
+    comment:
+      delete: "Delete"
+      confirm: "Are you sure?"
+      reply: "Reply"
+      placeholder: "Reply here..."
+      submit: "Send"
+  likes:
+    nonexist: "Cannot find any like"
+    create:
+      like_more: "Cannot like a post more than once"
+    destroy:
+      cannot_unlike: "Cannot unlike this post, try again later!"

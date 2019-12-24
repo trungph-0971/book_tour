@@ -1,0 +1,51 @@
+<% provide :title, t(".title") %>
+<div class="row">
+  <aside class="col-md">
+    <section class="user_info">
+      <h1 class = "tour-name">
+        <%= t(".h1") %> <%= @tour_detail.tour.name %>
+      </h1>
+      <div class = "col-md-6">
+        <p class = "tourdetail_label" ><%= t ".revenue" %></p>
+        <p>
+          <%= @revenue.revenue %>
+        </p>
+      </div>
+      <div class = "col-md-6">
+        <p class = "tourdetail_label" ><%= t ".created_at" %></p>
+        <p>
+          <%= @revenue.created_at %>
+        </p>
+        <p class = "tourdetail_label" ><%= t ".updated_at" %></p>
+        <p>
+          <%= @revenue.updated_at %>
+        </p>
+      </div>
+    </section>
+  </aside>
+  <p class="table_title"> <%= t ".bookings" %> </p>
+  <%= will_paginate @bookings%>
+    <table>
+      <thead>
+        <th> <%= t ".tour_name" %> </th>
+        <th> <%= t ".cus_name" %> </th>
+        <th> <%= t ".price" %> </th>
+        <th> <%= t ".people_number" %> </th>
+        <th> <%= t ".created_at" %> </th>
+        <th> <%= t ".updated_at" %> </th>
+      </thead>
+      <tbody>
+        <% @bookings.each do |booking| %>
+          <tr>
+            <td> <%= booking.tour_detail.tour.name %> </td>
+            <td> <%= booking.user.name %> </td>
+            <td> <%= booking.price %> </td>
+            <td> <%= booking.people_number %> </td>
+            <td> <%= booking.created_at %> </td>
+            <td> <%= booking.updated_at %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <%= will_paginate @bookings%>
+</div>

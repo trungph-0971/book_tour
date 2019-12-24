@@ -1,0 +1,7 @@
+<% pre_like = review.likes.find { |like| like.user_id == current_user.id} %>
+<%= link_to review_like_path(review, pre_like), method: :delete, remote: true do %>
+  <button type="button" class="btn btn-default">
+    <span class="glyphicon glyphicon-thumbs-down" style="font-size:14px"></span>
+    Unlike
+  </button>
+<% end %>

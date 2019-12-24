@@ -1,0 +1,16 @@
+<% provide :title, t(".title") %>
+<h1><%= t ".h1" %></h1>
+
+<%if current_user&.admin? %>
+  <div class="add_btn">
+    <%= link_to new_category_url, class: "btn btn-sm btn-primary" do %>
+      <span class="glyphicon glyphicon-plus"></span> <%= t ".add" %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if current_user&.admin? %>
+  <%= render partial: "admin", locals: {categories: @categories} %>
+<% else %>
+  <%= render partial: "user", locals: {categories: @categories} %>
+<% end %>

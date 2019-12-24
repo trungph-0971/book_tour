@@ -1,0 +1,2 @@
+$("#like_form").html("<%= escape_javascript(render partial: 'tour_details/unlike', locals: {review: @review}) %>");
+$("#likes").html('<%= @review.likes.count %> <%= (@review.likes.count) == 1 ? t(".like") : t(".likes") %>');
