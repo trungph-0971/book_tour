@@ -1,0 +1,9 @@
+<% provide :title, t(".title") %>
+
+<% if current_user&.admin? %>
+  <h1><%= t ".h1" %></h1>
+  <%= render partial: "admin", locals: {bookings: @bookings} %>
+<% else %>
+  <h1><%= t ".h1_2" %></h1>
+  <%= render partial: "user", locals: {bookings: @bookings} %>
+<% end %>

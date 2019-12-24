@@ -7,11 +7,18 @@ end
 
 gem "bcrypt"
 gem "bootstrap-sass", "3.3.7"
+gem "bootstrap-social-rails"
+gem "bootstrap-will_paginate"
+gem "carrierwave"
+gem "cloudinary"
 gem "coffee-rails", "~> 4.2"
 gem "config"
 gem "devise"
+gem "faker"
 gem "figaro"
+gem "font-awesome-rails"
 gem "jbuilder", "~> 2.5"
+gem "jquery-rails"
 gem "mysql2", "~> 0.5.2"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"
@@ -19,14 +26,19 @@ gem "omniauth-twitter"
 gem "puma", "~> 3.7"
 gem "rails", "~> 5.1.6"
 gem "rails-i18n"
+gem "responders"
 gem "sass-rails", "~> 5.0"
-gem "sqlite3"
+gem "sprockets-rails"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
+gem "will_paginate"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", "~> 2.13"
+  gem "factory_bot_rails"
+  gem "pry-rails"
+  gem "rspec-rails"
   gem "rubocop", "~> 0.74.0", require: false
   gem "rubocop-rails", "~> 2.3.2", require: false
   gem "selenium-webdriver"
@@ -45,6 +57,7 @@ group :test do
   gem "minitest", "5.10.3"
   gem "minitest-reporters", "1.1.14"
   gem "rails-controller-testing", "1.0.2"
+  gem "shoulda-matchers"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

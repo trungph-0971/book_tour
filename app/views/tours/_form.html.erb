@@ -1,0 +1,14 @@
+<%= form_for @tour do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+
+  <%= f.label t(".name") %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label t(".description") %>
+  <%= f.text_area :description, class: "form-control" %>
+
+  <%= f.label t(".category") %>
+  <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, "name") %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>

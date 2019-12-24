@@ -1,0 +1,8 @@
+<div class="like-form" id="like_form">
+  <% pre_like = review.likes.find { |like| like.user_id == current_user.id} %>
+  <% if pre_like %>
+    <%= render partial: "unlike", locals: {review: review} %>
+  <% else %>
+    <%= render partial: "like", locals: {review: review} %>
+  <% end %>
+</div>

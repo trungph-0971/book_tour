@@ -2,6 +2,7 @@ vi:
   base_title: "Sun* Tour Booking App"
   eng: "Tiếng Anh"
   vie: "Tiếng Việt"
+  search_btn: "Tìm"
   layouts:
     title: "Ứng dụng đặt tour của Sun*"
     name: "Phan Hoàng Trung"
@@ -10,6 +11,17 @@ vi:
       home: "Trang chủ"
       help: "Trợ giúp"
       login: "Đăng nhập"
+      users: "Người dùng"
+      categories: "Thể loại tour"
+      tours: "Tours"
+      account: "Tài khoản"
+      profile: "Hồ sơ"
+      settings: "Cài đặt"
+      logout: "Đăng xuất"
+      tour_details: "Tour chi tiết"
+      bookings: "Bookings"
+      revenues: "Lợi nhuận"
+      categories: "Thể loại"
     footer:
       eng: "Tiếng Anh"
       vie: "Tiếng Việt"
@@ -21,6 +33,10 @@ vi:
       h1: "Chào mừng đến với ứng dụng đặt tour của Sun*"
       h2: "Ứng dụng đặt tour của Sun*"
       signupnow: "Đăng ký ngay"
+      start_time: "Ngày khởi hành"
+      end_time: "Ngày về"
+      price: "Giá tiền"
+      people_number: "chỗ còn lại"
     help:
       title: "Trợ giúp"
       h1: "Trợ giúp"
@@ -37,18 +53,59 @@ vi:
       p1: "thực tập sinh tại Sun Asterisk "
       p2: "Gửi email cho mình: phan.hoang.trung@sun-asterisk.com"
   users:
-    new:
-      title: "Đăng ký"
-      h1: "Đăng ký"
-      p: "Đây sẽ là trang đăng ký"
+    nonexist: "Người dùng này không tồn tại"
+    omniauth_callbacks:
+      twitter:
+        success: "Đăng nhập thành công..!"
+      facebook:
+        success: "Đăng nhập thành công..!"
+      google_oauth2:
+        success: "Đăng nhập thành công..!"
+    form:
       name: "Tên"
       email: "Email"
       phone_number: "Số điện thoại"
       password: "Mật khẩu"
       confirmation: "Xác nhận mật khẩu"
+    index:
+      title: "Tất cả người dùng"
+      h1: "Danh sách người dùng"
+      confirm: "Bạn chắc chứ?"
+      delete: "Xóa"
+      cus_name: "Tên người dùng"
+      email: "Email"
+      phone_number: "Số điện thoại"
+      create_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Các thao tác"
+    new:
+      title: "Đăng ký"
+      h1: "Đăng ký"
+      p: "Đây sẽ là trang đăng ký"
       create: "Tạo tài khoản"
     show:
       nonexist: "Người dùng không tồn tại"
+      name: "Tên: "
+      email: "Email: "
+      phone_number: "Số điện thoại: "
+    edit:
+      title: "Chỉnh sửa người dùng"
+      h1: "Cập nhật hồ sơ"
+      save: "Lưu thay đổi"
+      please_login: "Vui lòng đăng nhập."
+    update:
+      update_success: "Hồ sơ đã được cập nhật"
+      update_failed: "Hồ sơ chưa được cập nhật"
+    create:
+      create_success: "Chào mừng đến với ứng dụng đặt tour của Sun*"
+      activation_notice: "Vui lòng kiểm tra hộp thư của bạn để kích hoạt tài khoản"
+    destroy:
+      delete_success: "Người dùng đã được xóa"
+      delete_failed: "Xóa người dùng không thành công"
+    user:
+      confirm: "Bạn chắc chứ?"
+      delete: "Xóa"
+      update: "Cập nhật"
   shared:
     error_messages:
       message: "Form có chứa"
@@ -64,5 +121,334 @@ vi:
       login: "Đăng nhập"
       signupnow: "Đăng ký ngay"
       new?: "Bạn là người dùng mới?"
+      signupnow: "Đăng ký ngay!"
+      reset: "Quên mật khẩu"
+      remember: "Ghi nhớ phiên đăng nhập"
+      facebook: "Đăng nhập với Facebook"
+      twitter: "Đăng nhập với Twitter"
+      google: "Đăng nhập với Google"
     create:
-      login_failed: "Email hoặc mật khẩu không đúng"
+      activate_message1: "Tài khoản chưa được kích hoạt. "
+      activate_message2: "Kiểm tra lại đường dẫn kích hoạt trong hộp thư."
+      invalid: "Email hoặc mật khẩu không đúng."
+  user_mailer:
+    account_activation:
+      h1: "Ứng dụng đặt tour của Sun*"
+      p1: "Xin chào "
+      p2: "Chào mừng bạn đã đến với ứng dụng đặt Tour của Sun*, nhấn vào đường dẫn bên dưới để kích hoạt tài khoản nhé:"
+      activate: "Kích hoạt"
+  account_activations:
+    edit:
+      invalid_link: "Đường dẫn kích hoạt không hợp lệ"
+      activated: "Tài khoản đã được kích hoạt"
+  password_resets:
+    new:
+      title: "Quên mật khẩu"
+      h1: "Quên mật khẩu"
+      email: "Email"
+      submit: "Gửi yêu cầu"
+    create:
+      sent: "Email đã được gửi kèm với hướng dẫn đặt lại mật khẩu"
+      notfound: "Không tìm thấy email"
+    edit:
+      title: "Đặt lại mật khẩu"
+      h1: "Đặt lại mật khẩu"
+      password: "Mật khẩu"
+      confirmation: "Xác nhận mật khẩu"
+      update: "Cập nhật mật khẩu"
+    update:
+      empty: "không được trống"
+      reset_success: "Mật khẩu đã được đặt lại"
+      expired: "Phiên đặt lại mật khẩu đã hết hạn"
+  categories:
+    nonexist: "Mục thể loại này không tồn tại"
+    index:
+      title: "Thể loại"
+      h1: "Danh mục các thể loại tour"
+      delete: "Xóa"
+      confirm: "Bạn có chắc muốn xóa thể loại này không?"
+      update: "Cập nhật"
+      add: "Thêm"
+    show:
+      no_tours: "Mục này chưa có tour nào, mời bạn quay lại sau nhé!"
+    new:
+      title: "Tạo mới thể loại tour"
+      h1: "Thêm thể loại tour"
+      name: "Thể loại"
+      add: "Thêm"
+    create:
+      add_success: "Thể lọai của bạn đã được thêm, bạn có thể nó dùng để tạo tour rồi đấy"
+    destroy:
+      delete_success: "Thể loại bạn vừa chọn đã được xóa thành công"
+      delete_failed: "Thể loại bạn vừa chọn chưa được xóa"
+    edit:
+      title: "Chỉnh sửa thể loại tour"
+      h1: "Chỉnh sửa thể loại"
+      name: "Thể loại"
+      update: "Cập nhật"
+    update:
+      update_success: "Thể loại bạn chọn đã được cập nhật"
+      update_failed: "Thể loại bạn chọn vẫn chưa được cập nhật"
+    user:
+      seemore: "Xem thêm"
+    admin:
+      cat_name: "Thể loại"
+      created_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Các thao tác"
+  tours:
+    nonexist: "Tour này không tồn tại"
+    form:
+      name: "Tên"
+      description: "Mô tả"
+      category: "Thể loại"
+    new:
+      title: "Tạo tour mới"
+      h1: "Tạo tour"
+      create: "Tạo"
+    create:
+      add_success: "Tour đã được tạo"
+      add_failed: "Tour vẫn chưa được tạo"
+    index:
+      title: "Tours"
+      h1: "Tours"
+      add: "Thêm"
+      delete: "Xóa"
+      confirm: "Bạn có chắc muốn xóa tour này không?"
+      update: "Cập nhật"
+      name: "Tên tour"
+      cat_name: "Thể loại"
+      created_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Các thao tác"
+      includes_deleted: "Gồm các tour đã xóa"
+      excludes_deleted: "Chỉ các tour đang có"
+      edit: "Chỉnh sửa"
+      purge: "Loại bỏ"
+      recover: "Khôi phục"
+      actions: "Thao tác"
+    edit:
+      title: "Chỉnh sửa tour"
+      h1: "Chỉnh sửa"
+      name: "Tên"
+      description: "Mô tả"
+      category: "Thể loại"
+      update: "Cập nhật"
+    update:
+      update_success: "Tour đã được cập nhật thành công"
+      update_failed: "Tour chưa được cập nhật"
+    destroy:
+      delete_success: "Tour đã được xóa thành công"
+      delete_failed: "Tour vẫn chưa được xóa"
+    recover:
+      recover_success: "Tour này đã được khôi phục"
+      recover_failed: "Khôi phục tour thất bại"
+    purge:
+      purge_success: "Tour này đã được loại bỏ"
+      purge_failed: "Loại bỏ tour thất bại"
+  tour_details:
+    nonexist: "Thông tin của tour này không tồn tại"
+    form:
+      tour: "Tour"
+      start_time: "Thời gian bắt đầu"
+      end_time: "Thời gian kết thúc"
+      price: "Gía tiền "
+      people_number: "Số lượng người"
+    new:
+      title: "Tạo tour với thông tin"
+      h1: "Thông tin tour"
+      create: "Tạo"
+    create:
+      create_success: "Thông tin của tour này đã được tạo"
+      create_failed: "Tạo thông tin cho tour thất bại"
+    destroy:
+      delete_success: "Thông tin của tour này đã được xóa"
+      delete_failed: "Xóa thông tin cho tour thất bại"
+    update:
+      update_success: "Thông tin của tour này đã được cập nhật"
+      update_failed: "Cập nhật thông tin cho tour thất bại"
+    show:
+      h2: "Đánh giá của khách hàng"
+      description: "Mô tả"
+      start_time: "Ngày khởi hành:"
+      end_time: "Ngày kết thúc:"
+      price: "Gía tiền:"
+      people_number: "Số chỗ còn lại:"
+      book: "Đặt ngay"
+      review: "Đánh giá tour này"
+      rating: "Mức điểm"
+      content: "Nội dung"
+      comments: "Các bình luận"
+      like: "Lượt thích"
+      likes: "Lượt thích"
+      no_reviews: "Tour này chưa có review nào"
+      bookhint: "Đăng ký ngay để đặt tour!"
+      info: "Thông tin"
+      out_slots: "Tour này hết chỗ rồi. Hẹn bạn lần sau nhé!"
+      ez-ticket: "E-Ticket included"
+      ezcancel: "Easy cancellation"
+      fastconfirm: "Fast confirmation"
+      max_rating: "/10"
+    index:
+      title: "Danh sách tour"
+      h1: "Các gói tour"
+      add: "Thêm"
+      confirm: "Bạn có chắc muốn xóa tour này không?"
+      name: "Tên tour"
+      start_time: "Ngày khởi hành"
+      end_time: "Ngày về"
+      price: "Giá tiền"
+      people_number: "chỗ còn lại"
+      operations: "Các thao tác"
+      searching: " Tìm kiếm ở đây nhé..."
+      includes_deleted: "Gồm các tour đã xóa"
+      excludes_deleted: "Chỉ các tour đang có"
+    edit:
+      title: "Chỉnh sửa thông tin tour"
+      update: "Cập nhật"
+      h1: "Cập nhập thông tin cho"
+    recover:
+      recover_success: "Tour này đã được khôi phục"
+      recover_failed: "Khôi phục tour thất bại"
+    purge:
+      purge_success: "Tour này đã được loại bỏ"
+      purge_failed: "Loại bỏ tour thất bại"
+  bookings:
+    nonexist: "Booking này không tồn tại"
+    form:
+      people_number: "Bạn muốn đặt tour cho bao nhiêu người?"
+      submit: "Gửi"
+    show:
+      start_time: "Thời gian bắt đầu: "
+      end_time: "Thời gian kết thúc: "
+      price: "Giá tiền: "
+      people_number: "Số người tham gia: "
+      status: "Trạng thái: "
+      user_name: "Tên khách hàng: "
+      cancel: "Hủy đơn đặt chỗ này"
+      confirm: "Bạn chắc chứ?"
+      checkout: "Thanh toán"
+    create:
+      add_success: "Đơn đặt chỗ của bạn đã được tạo thành công"
+      add_failed: "Đơn đặt chỗ của bạn chưa được tạo"
+    edit:
+      title: "Cập nhật booking"
+      h1: "Cập nhật booking số "
+      tour: "Tên tour"
+      price: "Tổng tiền"
+      people_number: "Số lượng người tham gia"
+      status: "Trạng thái"
+      update: "Cập nhật"
+    index:
+      title: "Bookings"
+      h1: "Danh sách bookings"
+      h1_2: "Đơn đặt chỗ của tôi"
+    change_status:
+      change_status_success: "Trạng thái của đơn đặt chỗ đã được cập nhật"
+      change_status_failed: "Trạng thái của đơn đặt chỗ chưa được cập nhật"
+    update:
+      update_success: "Booking này đã được cập nhật thành công"
+      update_failed: "Cập nhật booking thất bại"
+    destroy:
+      delete_success: "Booking này đã được xóa"
+      delete_failed: "Xóa booking thất bại"
+    recover:
+      recover_success: "Booking này đã được khôi phục"
+      recover_failed: "Khôi phục booking thất bại"
+    purge:
+      purge_success: "Booking này đã được loại bỏ"
+      purge_failed: "Loại bỏ booking thất bại"
+    admin:
+      add: "Thêm"
+      confirm: "Bạn chắc chứ?"
+      confirmed: "Confirm"
+      pending: "Pending"
+      cancelled: "Cancel"
+      includes_deleted: "Gồm các booking đã xóa"
+      excludes_deleted: "Chỉ các booking đang có"
+      id: "Mã"
+      tour_name: "Tên tour"
+      cus_name: "Tên khách hàng"
+      price: "Tổng tiền"
+      people_number: "Số lượng"
+      status: "Trạng thái"
+      created_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Thao tác"
+    user:
+      price: "Tổng giá tiền"
+      people_number: "Số người đã đặt"
+      status: "Trạng thái"
+      book_date: "Ngày đặt"
+      departure_date: "Ngày khởi hành"
+  revenues:
+    nonexist: "Không tìm thấy bản ghi lợi nhuận này"
+    index:
+      title: "Lợi nhuận"
+      h1: "Thống kê lợi nhuận theo tour"
+      add: "Thêm"
+      tour_name: "Tên tour"
+      revenue: "Lợi nhuận"
+      created_at: "Tạo lúc"
+      updated_at: "Cập nhật lúc"
+      operations: "Thao tác"
+      confirm: "Bạn chắc chứ?"
+    show:
+      title: "Lợi nhuận chi tiết"
+      h1: "Lợi nhuận của "
+      revenue: "Tổng lợi nhuận: "
+      created_at: "Tạo lúc: "
+      updated_at: "Cập nhật lúc: "
+      tour_name: "Tên tour"
+      cus_name: "Tên khách đặt"
+      price: "Tổng tiền"
+      bookings: "Các booking"
+    destroy:
+      delete_success: "Bản ghi lợi nhuận này đã được xóa"
+      delete_failed: "Xóa bản ghi lợi nhuận thất bại"
+      cancel_success: "Yêu cầu hủy đơn đặt chỗ của bạn dã được cập nhật"
+      no_right: "Bạn không thể hủy đặt chỗ sau khi đơn đã được xác nhận. Vui lòng liên hệ chúng tôi!"
+  reviews:
+    nonexist: "Không tìm thấy đánh giá này"
+    index:
+      rating: "Mức điểm"
+      content: "Nội dung"
+      confirm: "Bạn chắc chứ?"
+      no_reviews: "Hiện tại bạn không có đánh giá nào"
+    create:
+      create_success: "Bài đánh giá của bạn đã được đăng thành công"
+      create_failed: "Bàn đánh giá của bạn vẫn chưa được đăng"
+    update:
+      update_success: "Bài đánh giá của bạn đã được cập nhật"
+      update_failed: "Bài đánh giá của bạn cập nhật thất bại"
+    form:
+      rating: "Bạn đánh giá tour này bao nhiêu trên thang 10?"
+      content: "Nội dung đánh giá"
+      submit: "Gửi"
+    destroy:
+      delete_success: "Đánh giá này đã được xóa"
+      delete_failed: "Xóa đánh giá thất bại"
+  comments:
+    send: "Gửi"
+    new:
+      newcomment: "Bình luận"
+    create:
+      add_success: "Bình luận của bạn đã được đăng"
+      add_failed: "Đăng bình luận thất bại"
+    destroy:
+      delete_success: "Bình luận của bạn đã được xóa thành công"
+      delete_failed: "Xóa bình luận thất bại"
+      not_authorized: "Oops! Bạn không được ủy quyền để thực hiện thao tác này"
+    comment:
+      delete: "Xóa"
+      confirm: "Bạn chắc chứ?"
+      reply: "Trả lời"
+      placeholder: "Trả lời tại đây..."
+      submit: "Gửi"
+  likes:
+    nonexist: "Không tìm thấy lượt thích này"
+    create:
+      like_more: "Không thể thích bài viết hơn một lần"
+    destroy:
+      cannot_unlike: "Khổng thể bỏ thích, thử lại sau nhé!"
+

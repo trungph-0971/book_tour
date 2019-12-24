@@ -2,3 +2,8 @@ max_name: 50
 max_email: 255
 max_phone_number: 11
 min_password: 6
+remember_checked: 1
+host: "localhost:3000"
+default_picture: "https://atasouthport.com/wp-content/uploads/2017/04/default-image.jpg"
+out_of_slots: 0
+like_count: 1

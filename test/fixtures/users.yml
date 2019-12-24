@@ -3,3 +3,39 @@ john:
   email: johndoe@gg.com
   phone_number: 0783994503
   password_digest: <%= User.digest("password") %>
+  role: 2
+  activated: true
+  activated_at: <%= Time.zone.now.to_datetime %>
+
+michael:
+  name: Michael Example
+  email: michael@example.com
+  phone_number: 0905113113
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now.to_datetime %>
+
+archer:
+  name: Sterling Archer
+  email: duchess@example.gov
+  phone_number: 0905115115
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now.to_datetime %>
+
+lana:
+  name: Lana Kane
+  email: hands@example.gov
+  phone_number: 0905114114
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now.to_datetime %>
+
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:  <%= "User #{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now.to_datetime %>
+<% end %>

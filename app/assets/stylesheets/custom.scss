@@ -8,6 +8,9 @@ $light-gray: #bbb;
 $dark: #222;
 $white: #fff;
 $light-white: #eaeaea;
+$blue: #6ab7ff;
+$orange: #ff8f00;
+$light-red: #ff867c;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -49,12 +52,12 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 1.5em;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
-  color: $light-gray;
+  color: $medium-gray;
 }
 
 p {
@@ -156,4 +159,356 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* Users index */
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 10px solid $gray-lighter;
+  }
+}
+
+.add_btn {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+table, th, td{
+  border: 1px solid $gray;
+  text-align: center;
+  padding: 5px;
+}
+
+table {
+  width: 100%;
+}
+
+.table_title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid $gray-lighter;
+  border-top: 1px solid $gray-lighter;
+  margin-top: 15px;
+}
+.categories {
+  margin-top: 20px;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-bottom: 2px solid $gray-lighter;
+  }
+}
+.add_btn {
+  margin-bottom: 10px;
+}
+
+.user-info {
+  margin-top: 20px;
+}
+
+.user-label {
+  margin-right: 5px;
+  font-weight: bold;
+  float: left;
+}
+
+/* Tours */
+
+.tour-name {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+.tour-description {
+  float: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+
+.tour-info {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.tourdetail_label {
+  float: left;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.tourdetail_label_1 {
+  font-size: 30px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.table_title {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid $gray-lighter;
+  border-top: 1px solid $gray-lighter;
+  margin-top: 15px;
+}
+
+.reviews {
+  text-align: left;
+  font-size: 30px;
+}
+
+.review-user {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.review-label {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.review-section {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid $medium-gray;
+}
+
+.review-picture {
+  border-top: 2px solid $gray-lighter;
+  padding: 10px;
+  margin: 5px;
+  text-align: center;
+    img {
+      max-width: -webkit-fill-available;
+    }
+}
+
+.review-btn {
+  margin-bottom: 10px;
+}
+
+.no-reviews {
+  margin-top: 20px;
+  text-align: center;
+  color: $light-gray;
+}
+
+.rating-back{
+  align-self: center;
+  border-radius: 10px;
+  background-color: $light-red;
+}
+
+.rating {
+  color: $white;
+  font-size: 25px;
+  text-align: center;
+}
+
+.tour-btn {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.tour-card {
+  margin-top: 25px;
+  border: 2px solid $light-gray;
+  border-top: 10px solid $light-red;
+  border-radius: 10px; 
+  .col-md-5{
+    border-right: 2px solid $light-gray;
+    padding-right: 5px;
+  }
+}
+
+.review-btn-section {
+  margin-bottom: 30px;
+}
+
+.reviews-delete {
+  float: right;
+  margin: 10px;
+}
+
+.comment-operations {
+  margin-top: 15px;
+  a{
+    margin-right: 10px;
+  }
+}
+
+.comments-title {
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.actions {
+  float: right;
+  border: 1px solid $dark;
+  border-top: 10px solid $light-red;
+  width: 300px;
+}
+
+.comment-info {
+  margin-bottom: 15px;
+  p {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+}
+
+.showhide {
+  margin-left: 10px;
+}
+
+.reply-info {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.reply-form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.reply-btn {
+  width: 7rem;
+  float: right;
+}
+
+.glyphicon.glyphicon-thumbs-down {
+  font-size: 30px;
+}
+.glyphicon.glyphicon-thumbs-up {
+  font-size: 30px;
+}
+
+.like {
+  color: $blue;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.picture-info {
+  float: none;
+  margin: 10px;
+  text-align: center;
+}
+
+.review-delete-btn {
+  float: right;
+}
+
+a.morelink {
+  text-decoration: none;
+  outline: none;
+}
+.morecontent span {
+  display: none;
+}
+
+.tourdetail-pic {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  object-fit: cover;
+  box-sizing: content-box;
+  border-radius: 10px;
+}
+
+.card-row {
+  display: flex;
+}
+
+.booking-text {
+  font-size:13px;
+  color: $light-gray;
+}
+
+.booking-btn {
+  border-radius: 0px;
+}
+
+.text-box {
+  border-top: 1px solid $dark;
+  margin-top: 10px;
+  list-style: none;
+  align-self: center;
+  padding-left: 0px;
+  li{
+    color: $light-gray;
+    margin-top: 5px;
+  }
+}
+
+.text-box li::before {
+  content: "\2022";
+  color: $light-red;
+  margin-right: 10px;
+}
+
+.send-btn {
+  width: 100px;
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.cmt {
+  align-self: flex-end;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+.like-form {
+  float: left;
+  margin-top: 9px;
+}
+
+.home-tours {
+  border-bottom: 3px solid $dark;
+  height: 6rem;
+    h1 {
+      font-size: 30px;
+      float: left;
+    }
+    p {
+      font-size: 18px;
+      float: right;
+      margin-top: 25px;
+      margin-left: 10px;
+    }
+}
+
+.cancel-btn {
+  float: right;
+  margin-top: 30px;
+  margin-left: 10px;
 }

@@ -8,7 +8,44 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+    resources :account_activations, only: [:edit]
+    resources :bookings do
+      member do
+        patch :change_status
+        put :change_status
+        patch :recover
+        put :recover
+        delete :purge
+        post :hook
+        get :pay
+      end
+    end
+    resources :categories
+    resources :comments do
+      resources :comments
+    end
+    resources :password_resets, only: [:new, :create, :edit, :update]
+    resources :revenues
+    resources :reviews do
+      resources :comments
+      resources :likes
+    end
+    resources :tours do
+      member do
+        patch :recover
+        put :recover
+        delete :purge
+      end
+    end
+    resources :tour_details do
+      member do
+        patch :recover
+        put :recover
+        delete :purge
+      end
+    end
     resources :users
   end
-  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 end

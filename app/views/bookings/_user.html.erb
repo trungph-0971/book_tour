@@ -1,0 +1,79 @@
+<% bookings.each do |booking| %>
+  <% if booking.confirmed? %>
+    <%= link_to booking do %>
+      <div class="panel panel-success">
+          <div class="panel-heading">
+          <h3 class="panel-title">
+              <%= booking.tour_detail.tour.name %>
+          </h3>
+          </div>
+          <div class="panel-body">
+          <div class="row">
+              <div class="col-md-6">
+              <p><%= t ".price" %>: <%= booking.price %></p>
+              <p><%= t ".people_number" %>: <%= booking.people_number %></p>
+              </div>
+              <div class="col-md-6">
+              <p><%= t ".book_date" %>: <%= booking.created_at.to_date %>
+              <p><%= t ".departure_date" %>: <%= booking.tour_detail.start_time %>
+              </div>
+          </div>
+          </div>
+          <div class="panel-footer">
+          <%= booking.status.capitalize %>
+          </div>
+      </div>
+    <% end %>
+  <% elsif booking.cancelled? %>
+    <%= link_to booking do %>
+      <div class="panel panel-danger">
+          <div class="panel-heading">
+          <h3 class="panel-title">
+              <%= booking.tour_detail.tour.name %>
+          </h3>
+          </div>
+          <div class="panel-body">
+          <div class="row">
+              <div class="col-md-6">
+              <p><%= t ".price" %>: <%= booking.price %></p>
+              <p><%= t ".people_number" %>: <%= booking.people_number %></p>
+              </div>
+              <div class="col-md-6">
+              <p><%= t ".book_date" %>: <%= booking.created_at.to_date %>
+              <p><%= t ".departure_date" %>: <%= booking.tour_detail.start_time %>
+              </div>
+          </div>
+          </div>
+          <div class="panel-footer">
+          <%= booking.status.capitalize %>
+          </div>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to booking do %>
+      <div class="panel panel-warning">
+          <div class="panel-heading">
+          <h3 class="panel-title">
+              <%= booking.tour_detail.tour.name %>
+          </h3>
+          </div>
+          <div class="panel-body">
+          <div class="row">
+              <div class="col-md-6">
+              <p><%= t ".price" %>: <%= booking.price %></p>
+              <p><%= t ".people_number" %>: <%= booking.people_number %></p>
+              </div>
+              <div class="col-md-6">
+              <p><%= t ".book_date" %>: <%= booking.created_at.to_date %>
+              <p><%= t ".departure_date" %>: <%= booking.tour_detail.start_time %>
+              </div>
+          </div>
+          </div>
+          <div class="panel-footer">
+          <%= booking.status.capitalize %>
+          </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+<%= will_paginate bookings%>
