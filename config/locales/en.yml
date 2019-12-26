@@ -54,6 +54,8 @@ en:
       p2: "Email me: phan.hoang.trung@sun-asterisk.com"
   users:
     nonexist: "This user is not exist"
+    deny_1: "You do not have permission to do this"
+    deny_2: "You are not authorized to do this"
     omniauth_callbacks:
       twitter:
         success: "You are in..!"

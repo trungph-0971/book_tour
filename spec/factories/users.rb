@@ -5,5 +5,10 @@ FactoryBot.define do
     f.name {Faker::Name.name}
     f.email {Faker::Internet.email}
     f.password {Faker::Internet.password}
+    f.role { "user" }
+  end
+
+  factory :admin, parent: :user do |f|
+    f.role { "admin" }
   end
 end
