@@ -27,6 +27,7 @@ class UsersController < ApplicationController
       flash[:info] = t ".activation_notice"
       redirect_to root_path
     else
+      flash[:danger] = t ".create_failed"
       render :new
     end
   end
@@ -73,8 +74,10 @@ class UsersController < ApplicationController
 
   def correct_user
     @user = User.find(params[:id])
-    redirect_to root_path unless (current_user? @user) ||
-                                 current_user&.admin?
+    return if (current_user? @user) || current_user&.admin?
+
+    flash[:danger] = t "users.deny_1"
+    redirect_to root_path
   end
 
   def load_user
