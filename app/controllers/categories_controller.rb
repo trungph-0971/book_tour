@@ -1,8 +1,13 @@
 class CategoriesController < ApplicationController
   before_action :load_category, except: %i(index new create)
-  load_and_authorize_resource
+  load_and_authorize_resource except: :create
 
   def index
+    @search = Category.ransack(params[:q])
+    @categories = @search.result
+                         .paginate(page: params[:page])
+    return if params[:q].present?
+
     @categories = Category.all.paginate(page: params[:page])
   end
 
