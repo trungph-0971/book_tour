@@ -8,8 +8,9 @@ class Ability
     if current_user&.admin?
       can :manage, :all
     else
-      can [:new, :create, :index, :show, :destroy, :pay, :hook], Booking,
+      can [:index, :show, :destroy], Booking,
           user_id: current_user.id
+      can [:new, :create, :pay, :hook], Booking
       can [:new, :create], [Review, Comment, User]
       can :index, Review
       can :destroy, [Review, Comment], user_id: current_user.id
