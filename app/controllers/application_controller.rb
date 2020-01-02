@@ -31,9 +31,9 @@ class ApplicationController < ActionController::Base
   def logged_in_user
     return if user_signed_in?
 
-    store_location
+    store_location_for(:user, root_path)
     flash[:danger] = t ".please_login"
-    redirect_to login_path
+    redirect_to new_user_session_path
   end
 
   protected

@@ -33,7 +33,7 @@ class ReviewsController < ApplicationController
     else
       flash.now[:danger] = t ".create_failed"
     end
-    redirect_back fallback_location: @tour_detail
+    redirect_to tour_detail_path(@tour_detail)
   end
 
   def edit; end
@@ -54,7 +54,7 @@ class ReviewsController < ApplicationController
     else
       flash.now[:danger] = t ".delete_failed"
     end
-    redirect_back fallback_location: @tour_detail
+    redirect_to tour_detail_path(@tour_detail)
   end
 
   private
