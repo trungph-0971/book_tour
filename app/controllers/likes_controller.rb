@@ -4,13 +4,14 @@ class LikesController < ApplicationController
   load_and_authorize_resource
 
   def create
+    byebug
     if already_liked?
       flash.now[:notice] = t ".like_more"
     else
       @review.likes.create user_id: current_user.id
     end
     respond_to do |format|
-      format.html{redirect_back fallback_location: @tour_detail}
+      format.html{redirect_to tour_detail_path(@review.tour_detail_id)}
       format.js
     end
   end

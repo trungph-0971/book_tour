@@ -1,12 +1,13 @@
 class CommentsController < ApplicationController
-  before_action :find_commentable, only: %i(create destroy)
-  load_and_authorize_resource
+  before_action :find_commentable
+  authorize_resource
 
   def new
     @comment = Comment.new
   end
 
   def create
+    byebug
     @comment = @commentable.comments.build comment_params
     @comment.user = current_user
     if @comment.save
